@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 public enum SteeringBehaviorType
 {
-    SEEK
+    SEEK,
+    FLEE
 }
 
 public class SteeringBehaviorFactory
@@ -17,6 +18,8 @@ public class SteeringBehaviorFactory
         {
             case SteeringBehaviorType.SEEK:
                 return new SeekSteeringBehavior();
+            case SteeringBehaviorType.FLEE:
+                return new FleeSteeringBehavior();
             default:
                 throw new ArgumentOutOfRangeException(nameof(steeringType), steeringType, null);
         }

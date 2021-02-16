@@ -445,7 +445,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409367266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.498, z: -16.48}
+  m_LocalPosition: {x: -5.67, y: 0, z: 8.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAcceleration: 5
   MaxSpeed: 10
-  SteeringType: 0
+  SteeringType: 1
   target: {fileID: 150143187}
 --- !u!1 &1687258581
 GameObject:
@@ -585,8 +585,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: -0.022957042, y: 0.97606146, z: -0.17338957, w: -0.12927918}
-  m_LocalPosition: {x: 2.32, y: 1.203, z: 2.378}
+  m_LocalRotation: {x: -0.07184997, y: 0.92723125, z: -0.23756014, w: -0.28043714}
+  m_LocalPosition: {x: 3.2027454, y: 8.2289715, z: 21.286774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
