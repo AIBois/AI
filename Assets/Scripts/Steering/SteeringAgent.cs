@@ -6,6 +6,9 @@ public class SteeringAgent : MonoBehaviour
 {
     public float MaxAcceleration = 5.0f;
     public float MaxSpeed = 1.0f;
+    public float SlowRadius = 7.5f;
+    public float StopRadius = 1.5f;
+
     public SteeringBehaviorType SteeringType = SteeringBehaviorType.SEEK;
 
     public Transform target; //This is just for testing
@@ -26,16 +29,17 @@ public class SteeringAgent : MonoBehaviour
 
     public void IntegrateSteering(SteeringState steering)
     {
-        Position += Velocity * Time.deltaTime;
+
 
         Velocity += steering.linear * Time.deltaTime;
         rotation += steering.angular * Time.deltaTime;
 
+        Debug.Log(Velocity);
+
         if (Velocity.sqrMagnitude > MaxSpeed * MaxSpeed)
             Velocity = Velocity.normalized * MaxSpeed;
 
-
-
+        Position += Velocity * Time.deltaTime;
         transform.position = Position;
     }
 
