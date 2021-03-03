@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using States;
 using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
 {
+    public CharacterState currentState;
+    
     [SerializeField]
     private float attack, attackDistance, attackTimer, defense;
     [SerializeField]
