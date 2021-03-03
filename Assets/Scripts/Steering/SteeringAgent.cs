@@ -6,9 +6,13 @@ public class SteeringAgent : MonoBehaviour
 {
     #region Member vars
     [SerializeField]
-    private float maxAcceeration = 10.0f;
+    private float maxAcceleration = 10.0f;
+    [SerializeField]
+    private float maxAngularAcceleration = 10.0f;
     [SerializeField]
     private float maxSpeed = 15.0f;
+    [SerializeField]
+    private float maxRotation = 15.0f;
     [SerializeField]
     private float slowRadius = 7.5f;
     [SerializeField]
@@ -23,13 +27,23 @@ public class SteeringAgent : MonoBehaviour
     #region properties
     public float MaxAcceleration
     {
-        get => maxAcceeration;
-        set => maxAcceeration = value;
+        get => maxAcceleration;
+        set => maxAcceleration = value;
+    }
+    public float MaxAngularAcceleration
+    {
+        get => maxAngularAcceleration;
+        set => maxAngularAcceleration = value;
     }
     public float MaxSpeed
     {
         get => maxSpeed;
         set => maxSpeed = value;
+    }
+    public float MaxRotation
+    {
+        get => maxRotation;
+        set => maxRotation = value;
     }
     public float SlowRadius
     {
@@ -85,7 +99,8 @@ public class SteeringAgent : MonoBehaviour
             Velocity = Velocity.normalized * MaxSpeed;
 
         Position += Velocity * Time.deltaTime;
-        transform.position = Position;
+        transform.rotation = Quaternion.AngleAxis(rotation, Vector3.up);
+        Debug.Log(transform.rotation);
     }
 
     public void Update()

@@ -8,7 +8,8 @@ public enum SteeringBehaviorType
 {
     SEEK,
     FLEE,
-    ARRIVE
+    ARRIVE,
+    ALIGN
 }
 
 public class SteeringBehaviorFactory
@@ -23,6 +24,8 @@ public class SteeringBehaviorFactory
                 return new FleeSteeringBehavior();
             case SteeringBehaviorType.ARRIVE:
                 return new ArriveBehavior();
+            case SteeringBehaviorType.ALIGN:
+                return new AlighBehavior();
             default:
                 throw new ArgumentOutOfRangeException(nameof(steeringType), steeringType, null);
         }

@@ -6,7 +6,7 @@ public struct SteeringTarget
 {
     public Vector3 TargetPosition { get; set; }
     public Vector3 TargetVelocity { get; set; }
-    public float TargetRotation { get; set; }
+    public Quaternion TargetOrientation { get; set; }
 }
 
 public abstract class SteeringBehavior
@@ -22,7 +22,7 @@ public abstract class SteeringBehavior
 
     public void SetTarget(Transform transform)
     {
-        Target = new SteeringTarget {TargetPosition = transform.position};
+        Target = new SteeringTarget {TargetPosition = transform.position, TargetOrientation = transform.rotation};
     }
 
 }
