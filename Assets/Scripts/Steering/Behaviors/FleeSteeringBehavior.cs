@@ -7,11 +7,11 @@ public class FleeSteeringBehavior : SteeringBehavior
     public override SteeringState GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
-        if (!TargetPosition.HasValue || !agent)
+        if (!Target.HasValue || !agent)
             return state;
 
         //Get direction
-        state.linear =  agent.Position - TargetPosition.Value;
+        state.linear =  agent.Position - Target.Value.TargetPosition;
         state.linear.Normalize();
         state.linear *= agent.MaxAcceleration;
 

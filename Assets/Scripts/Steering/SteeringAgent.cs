@@ -4,33 +4,78 @@ using UnityEngine;
 
 public class SteeringAgent : MonoBehaviour
 {
-    public float MaxAcceleration = 5.0f;
-    public float MaxSpeed = 1.0f;
-    public float SlowRadius = 7.5f;
-    public float StopRadius = 1.5f;
+    #region Member vars
+    [SerializeField]
+    private float maxAcceeration = 10.0f;
+    [SerializeField]
+    private float maxSpeed = 15.0f;
+    [SerializeField]
+    private float slowRadius = 7.5f;
+    [SerializeField]
+    private float stopRadius = 1.5f;
 
-    public SteeringBehaviorType SteeringType = SteeringBehaviorType.SEEK;
+    [SerializeField]
+    private SteeringBehaviorType steeringType = SteeringBehaviorType.SEEK;
+    [SerializeField]
+    private Transform target; //This is just for testing
+    #endregion
 
-    public Transform target; //This is just for testing
+    #region properties
+    public float MaxAcceleration
+    {
+        get => maxAcceeration;
+        set => maxAcceeration = value;
+    }
+    public float MaxSpeed
+    {
+        get => maxSpeed;
+        set => maxSpeed = value;
+    }
+    public float SlowRadius
+    {
+        get => slowRadius;
+        set => slowRadius = value;
+    }
+    public float StopRadius
+    {
+        get => stopRadius;
+        set => stopRadius = value;
+    }
+    public SteeringBehaviorType SteeringType
+    {
+        get => steeringType;
+        set => steeringType = value;
+    }
+    public Transform Target
+    {
+        get => target;
+        set => target = value;
+    }
 
+    public SteeringBehavior CurrentSteeringBehavior { get; private set; }
 
-    public Vector3 Position { get; private set; }
+    public Vector3 Position
+    {
+        get => transform.position;
+        set => transform.position = value;
+    }
     public Vector3 Velocity { get; private set; }
-    public Quaternion Orientation { get; private set; }
+    public Quaternion Orientation
+    {
+        get => transform.rotation;
+        set => transform.rotation = value;
+    }
     public float rotation { get; private set; }
-
-    private SteeringBehavior currentSteeringBehavior;
+    #endregion
 
     void Awake()
     {
-        currentSteeringBehavior = SteeringBehaviorFactory.Create(SteeringType);
+        CurrentSteeringBehavior = SteeringBehaviorFactory.Create(SteeringType);
         Position = transform.position;
     }
 
     public void IntegrateSteering(SteeringState steering)
     {
-
-
         Velocity += steering.linear * Time.deltaTime;
         rotation += steering.angular * Time.deltaTime;
 
@@ -45,11 +90,12 @@ public class SteeringAgent : MonoBehaviour
 
     public void Update()
     {
-        if(currentSteeringBehavior == null)
+        if(CurrentSteeringBehavior == null)
             return;
 
-        currentSteeringBehavior.TargetPosition = target.position;
-        var steeringInfo = currentSteeringBehavior.GetSteering(this);
+        //Set Target;
+        CurrentSteeringBehavior.SetTarget(Target);
+        var steeringInfo = CurrentSteeringBehavior.GetSteering(this);
 
         IntegrateSteering(steeringInfo);
     }
