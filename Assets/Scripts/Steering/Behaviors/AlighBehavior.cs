@@ -11,7 +11,8 @@ public class AlighBehavior : SteeringBehavior
             return state;
 
         float distanceToTarget = Vector3.Distance(agent.Position, Target.Value.TargetPosition);
-        float rotation = Quaternion.Angle(Target.Value.TargetOrientation, agent.Orientation);
+        float rotation =
+            Mathf.DeltaAngle(agent.Orientation.eulerAngles.y, Target.Value.TargetOrientation.eulerAngles.y);
         float absRotation = Mathf.Abs(rotation);
         float absDistance = Mathf.Abs(distanceToTarget);
         float timeToTarget = 0.1f;
@@ -23,7 +24,7 @@ public class AlighBehavior : SteeringBehavior
         }
         else
         {
-            targetRotation = agent.MaxRotation * absDistance / agent.StopRadius;
+            targetRotation = agent.MaxRotation * absRotation / agent.StopRadius;
         }
 
         targetRotation *= rotation;
