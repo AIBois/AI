@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using States.Character;
+using UnityEngine;
 
 namespace States.Squad
 {
@@ -6,7 +7,10 @@ namespace States.Squad
     {
         private new SquadBase context;
 
-        public IdleSquadState(SquadBase context) : base(context) { }
+        public IdleSquadState(SquadBase context) : base(context)
+        {
+            context.SetUnitStates(new IdleCharacterState());
+        }
         
         protected override void Act()
         {

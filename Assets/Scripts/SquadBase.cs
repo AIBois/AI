@@ -1,4 +1,5 @@
 ﻿using System;
+using States.Character;
 using States.Squad;
 using UnityEngine;
 
@@ -17,14 +18,20 @@ public class SquadBase : MonoBehaviour
         //TODO:: create a randomisation of the cost based ont he individual units.
     }
 
-    public void SetUnitStates(Type characterState)
+    public void SetUnitStates(CharacterState state)
     {
-        throw new NotImplementedException();
+        state.context = Leader;
+        Leader.currentState = state;
+        foreach (var unit in Units)
+        {
+            state.context = unit;
+            unit.currentState = state;
+        }
     }
 
     public void MoveTo(Vector3 position)
     {
-        //Move to position
+        throw new NotImplementedException();
     }
 
     public void MoveAwayFrom(Vector3 position)

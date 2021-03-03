@@ -1,4 +1,6 @@
-﻿namespace States.Squad
+﻿using States.Character;
+
+namespace States.Squad
 {
     public class CombatSquadState : SquadState
     {
@@ -9,7 +11,7 @@
         {
             startingSquadSize = context.Units.Length;
             this.enemySquad = enemySquad;
-            //set squad states to combat
+            context.SetUnitStates(new CombatCharacterState(enemySquad));
         }
 
         protected override void Act()

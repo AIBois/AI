@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using States.Character;
+using UnityEngine;
 
 namespace States.Squad
 {
@@ -9,6 +10,7 @@ namespace States.Squad
         public MovingSquadState(SquadBase context, SquadBase closestSquad) : base(context)
         {
             this.closestSquad = closestSquad;
+            context.SetUnitStates(new MovingCharacterState());
         }
 
         protected override void Act()

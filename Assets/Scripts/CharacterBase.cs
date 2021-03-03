@@ -1,4 +1,4 @@
-﻿using States;
+﻿using States.Character;
 using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
@@ -65,4 +65,14 @@ public class CharacterBase : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    public void MoveTo(Vector3 position)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void TakeDamage(float damage)
+    {
+        CurrentHealth -= damage;
+        if (CurrentHealth <= 0) currentState = new DeathCharacterState();
+    }
 }

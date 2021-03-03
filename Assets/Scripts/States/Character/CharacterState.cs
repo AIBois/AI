@@ -1,4 +1,4 @@
-﻿namespace States
+﻿namespace States.Character
 {
     public abstract class CharacterState : State
     {
