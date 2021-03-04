@@ -13,7 +13,7 @@ public abstract class SteeringBehavior
 {
     public SteeringTarget? Target { get; protected set; }
 
-    public abstract SteeringState GetSteering(SteeringAgent agent);
+    public abstract SteeringState? GetSteering(SteeringAgent agent);
 
     public void SetTarget(SteeringTarget target)
     {

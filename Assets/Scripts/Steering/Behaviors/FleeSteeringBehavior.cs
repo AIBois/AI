@@ -4,11 +4,11 @@ using UnityEngine;
 public class FleeSteeringBehavior : SteeringBehavior
 {
 
-    public override SteeringState GetSteering(SteeringAgent agent)
+    public override SteeringState? GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
         if (!Target.HasValue || !agent)
-            return state;
+            return null;
 
         //Get direction
         state.linear =  agent.Position - Target.Value.TargetPosition;

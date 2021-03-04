@@ -20,8 +20,6 @@ public class SteeringAgent : MonoBehaviour
 
     [SerializeField]
     private SteeringBehaviorType steeringType = SteeringBehaviorType.SEEK;
-    [SerializeField]
-    private Transform target; //This is just for testing
     #endregion
 
     #region properties
@@ -60,14 +58,8 @@ public class SteeringAgent : MonoBehaviour
         get => steeringType;
         set => steeringType = value;
     }
-    public Transform Target
-    {
-        get => target;
-        set => target = value;
-    }
-
     public SteeringBehavior CurrentSteeringBehavior { get; private set; }
-
+    public SquadBase Squad { get; set; }
     public Vector3 Position
     {
         get => transform.position;
@@ -86,10 +78,14 @@ public class SteeringAgent : MonoBehaviour
     {
         CurrentSteeringBehavior = SteeringBehaviorFactory.Create(SteeringType);
         Position = transform.position;
+        rotation = transform.rotation.eulerAngles.y;
     }
 
     public void IntegrateSteering(SteeringState steering)
     {
+        const float dampening = 0.99f;
+        Velocity *= dampening;
+
         Velocity += steering.linear * Time.deltaTime;
         rotation += steering.angular * Time.deltaTime;
 
@@ -103,15 +99,21 @@ public class SteeringAgent : MonoBehaviour
         Debug.Log(transform.rotation);
     }
 
+    public void SetTarget(SteeringTarget target)
+    {
+        CurrentSteeringBehavior.SetTarget(target);
+    }
+
     public void Update()
     {
         if(CurrentSteeringBehavior == null)
             return;
 
         //Set Target;
-        CurrentSteeringBehavior.SetTarget(Target);
+        //CurrentSteeringBehavior.SetTarget(Target);
         var steeringInfo = CurrentSteeringBehavior.GetSteering(this);
 
-        IntegrateSteering(steeringInfo);
+        if(steeringInfo.HasValue)
+            IntegrateSteering(steeringInfo.Value);
     }
 }
