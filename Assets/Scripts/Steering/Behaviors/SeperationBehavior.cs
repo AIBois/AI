@@ -13,7 +13,7 @@ public class SeperationBehavior : SteeringBehavior
     public override SteeringState? GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
-        if (!Target.HasValue || !agent)
+        if (!agent)
             return null;
 
         var targets = agent.Squad.Units;

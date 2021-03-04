@@ -12,14 +12,13 @@ public class SquadBase : MonoBehaviour
     private void Awake()
     {
         //TODO:: create a randomisation of the cost based ont he individual units.
-        var test = GetAveragedTarget();
+
         foreach (var unit in Units)
         {
             SteeringAgent agent = unit.GetComponent<SteeringAgent>();
             if (agent)
             {
                 agent.Squad = this;
-                agent.SetTarget(test);
             }
         }
     }
@@ -29,22 +28,22 @@ public class SquadBase : MonoBehaviour
         
     }
 
-    public SteeringTarget GetAveragedTarget()
-    {
-        Vector3 averagePos = Vector3.zero;
-        Vector3 averageVelocity = Vector3.zero;
-        float averageRotation = 0.0f;
+    //public SteeringTarget GetAveragedPosition()
+    //{
+    //    Vector3 averagePos = Vector3.zero;
+    //    Vector3 averageVelocity = Vector3.zero;
+    //    float averageRotation = 0.0f;
 
-        foreach (var unit in Units)
-        {
-            averagePos += unit.transform.position;
-            //TODO: average velocity calculation
-            averageRotation += unit.transform.rotation.eulerAngles.y;
-        }
+    //    foreach (var unit in Units)
+    //    {
+    //        averagePos += unit.transform.position;
+    //        //TODO: average velocity calculation
+    //        averageRotation += unit.transform.rotation.eulerAngles.y;
+    //    }
 
-        averagePos /= Units.Count;
-        averageRotation /= Units.Count;
+    //    averagePos /= Units.Count;
+    //    averageRotation /= Units.Count;
 
-        return new SteeringTarget {TargetPosition = averagePos, TargetOrientation = Quaternion.AngleAxis(averageRotation, Vector3.up)};
-    }
+    //    return new SteeringTarget {TargetPosition = averagePos, TargetOrientation = Quaternion.AngleAxis(averageRotation, Vector3.up)};
+    //}
 }

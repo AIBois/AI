@@ -461,6 +461,7 @@ MonoBehaviour:
   slowRadius: 7.5
   stopRadius: 1.5
   steeringType: 4
+  target: {fileID: 0}
 --- !u!136 &207303305
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1033,6 +1034,7 @@ MonoBehaviour:
   slowRadius: 7.5
   stopRadius: 1.5
   steeringType: 4
+  target: {fileID: 0}
 --- !u!136 &943683429
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1261,7 +1263,8 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringType: 2
+  target: {fileID: 150143187}
 --- !u!136 &1056796168
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1331,7 +1334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056796165}
   m_LocalRotation: {x: -0, y: 0.45645505, z: -0, w: 0.8897465}
-  m_LocalPosition: {x: -0.26, y: 0, z: 4.31}
+  m_LocalPosition: {x: 0.94, y: 0, z: 4.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 652611871}
@@ -1398,6 +1401,7 @@ MonoBehaviour:
   slowRadius: 7.5
   stopRadius: 1.5
   steeringType: 4
+  target: {fileID: 0}
 --- !u!136 &1292852514
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1590,6 +1594,7 @@ MonoBehaviour:
   slowRadius: 7.5
   stopRadius: 1.5
   steeringType: 4
+  target: {fileID: 0}
 --- !u!114 &1409367272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,6 +1675,7 @@ MonoBehaviour:
   slowRadius: 7.5
   stopRadius: 1.5
   steeringType: 4
+  target: {fileID: 0}
 --- !u!136 &1449805650
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1899,6 +1905,7 @@ MonoBehaviour:
   slowRadius: 7.5
   stopRadius: 1.5
   steeringType: 4
+  target: {fileID: 0}
 --- !u!136 &1628589236
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2376,7 +2383,8 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringType: 5
+  target: {fileID: 1056796171}
 --- !u!136 &1993340602
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2513,6 +2521,7 @@ MonoBehaviour:
   slowRadius: 7.5
   stopRadius: 1.5
   steeringType: 4
+  target: {fileID: 0}
 --- !u!136 &2030544170
 CapsuleCollider:
   m_ObjectHideFlags: 0

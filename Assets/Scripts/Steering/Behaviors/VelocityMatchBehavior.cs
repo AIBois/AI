@@ -6,10 +6,14 @@ public class VelocityMatchBehavior : SteeringBehavior
     public override SteeringState? GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
-        if (!Target.HasValue || !agent)
+        if (!Target || !agent)
             return null;
 
-        state.linear = Target.Value.TargetVelocity - agent.Velocity;
+        var targetAgent = Target.GetComponent<SteeringAgent>();
+        if (!targetAgent)
+            return null;
+
+        state.linear = targetAgent.Velocity - agent.Velocity;
         state.linear /= timeToTarget;
 
         ClampLinearAcceleration(ref state, agent);

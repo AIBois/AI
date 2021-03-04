@@ -7,12 +7,12 @@ public class AlighBehavior : SteeringBehavior
     public override SteeringState? GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
-        if (!Target.HasValue || !agent)
+        if (!Target || !agent)
             return null;
 
-        float distanceToTarget = Vector3.Distance(agent.Position, Target.Value.TargetPosition);
+        float distanceToTarget = Vector3.Distance(agent.Position, Target.position);
         float rotation =
-            Mathf.DeltaAngle(agent.Orientation.eulerAngles.y, Target.Value.TargetOrientation.eulerAngles.y);
+            Mathf.DeltaAngle(agent.Orientation.eulerAngles.y, Target.rotation.eulerAngles.y);
         float absRotation = Mathf.Abs(rotation);
         float absDistance = Mathf.Abs(distanceToTarget);
 

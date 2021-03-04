@@ -20,6 +20,8 @@ public class SteeringAgent : MonoBehaviour
 
     [SerializeField]
     private SteeringBehaviorType steeringType = SteeringBehaviorType.SEEK;
+    [SerializeField]
+    private Transform target;
     #endregion
 
     #region properties
@@ -79,6 +81,7 @@ public class SteeringAgent : MonoBehaviour
         CurrentSteeringBehavior = SteeringBehaviorFactory.Create(SteeringType);
         Position = transform.position;
         rotation = transform.rotation.eulerAngles.y;
+        SetTarget(target);
     }
 
     public void IntegrateSteering(SteeringState steering)
@@ -99,7 +102,7 @@ public class SteeringAgent : MonoBehaviour
         Debug.Log(transform.rotation);
     }
 
-    public void SetTarget(SteeringTarget target)
+    public void SetTarget(Transform target)
     {
         CurrentSteeringBehavior.SetTarget(target);
     }
