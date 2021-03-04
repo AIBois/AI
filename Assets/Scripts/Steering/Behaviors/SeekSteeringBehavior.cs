@@ -12,8 +12,7 @@ public class SeekSteeringBehavior : SteeringBehavior
 
         //Get direction
         state.linear = Target.Value.TargetPosition - agent.Position;
-        state.linear.Normalize();
-        state.linear *= agent.MaxAcceleration;
+        ClampLinearAcceleration(ref state, agent);
 
         state.angular = 0.0f;
 

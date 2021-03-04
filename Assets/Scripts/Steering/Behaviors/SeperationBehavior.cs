@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SeperationBehavior : SteeringBehavior
 {
-    private const float DistanceThreshold = 20.0f;
+    public float DistanceThreshold { get; set; } = 20.0f;
     private const float DecayCoefficant = 5.0f;
 
     public override SteeringState? GetSteering(SteeringAgent agent)
