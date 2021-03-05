@@ -12,7 +12,8 @@ public enum SteeringBehaviorType
     ALIGN,
     SEPARATION,
     VELOCITY_MATCH,
-    COHESION
+    COHESION,
+    COLLISION_AVOIDANCE
 }
 
 public class SteeringBehaviorFactory
@@ -35,6 +36,8 @@ public class SteeringBehaviorFactory
                 return new VelocityMatchBehavior();
             case SteeringBehaviorType.COHESION:
                 return new CohesionBehavior();
+            case SteeringBehaviorType.COLLISION_AVOIDANCE:
+                return new CollisionAvoidanceBehavior();
             default:
                 throw new ArgumentOutOfRangeException(nameof(steeringType), steeringType, null);
         }

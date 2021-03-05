@@ -24,7 +24,7 @@ public class BehaviorBlend
         Vector3 linear = Vector3.zero;
         float angular = 0.0f;
 
-        foreach (var behaviorBlend in behaviorBlends)
+        foreach (var behaviorBlend in behaviorBlends.OrderByDescending(x => x.Value))
         {
             var state = behaviorBlend.Key.GetSteering(agent);
             if (state.HasValue)
