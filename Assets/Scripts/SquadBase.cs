@@ -30,22 +30,16 @@ public class SquadBase : MonoBehaviour
         }
     }
 
-    //public SteeringTarget GetAveragedPosition()
-    //{
-    //    Vector3 averagePos = Vector3.zero;
-    //    Vector3 averageVelocity = Vector3.zero;
-    //    float averageRotation = 0.0f;
+    public Vector3 GetAveragedPosition()
+    {
+        Vector3 averagePos = Vector3.zero;
 
-    //    foreach (var unit in Units)
-    //    {
-    //        averagePos += unit.transform.position;
-    //        //TODO: average velocity calculation
-    //        averageRotation += unit.transform.rotation.eulerAngles.y;
-    //    }
+        foreach (var unit in Units)
+        {
+            averagePos += unit.transform.position;
 
-    //    averagePos /= Units.Count;
-    //    averageRotation /= Units.Count;
-
-    //    return new SteeringTarget {TargetPosition = averagePos, TargetOrientation = Quaternion.AngleAxis(averageRotation, Vector3.up)};
-    //}
+        }
+        averagePos /= Units.Count;
+        return averagePos;
+    }
 }

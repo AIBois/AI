@@ -463,10 +463,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 1
+    weight: 10
   - type: 3
     weight: 1
   - type: 5
+    weight: 1
+  - type: 6
     weight: 1
   target: {fileID: 0}
 --- !u!136 &207303305
@@ -1043,10 +1045,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 1
+    weight: 10
   - type: 3
     weight: 1
   - type: 5
+    weight: 1
+  - type: 6
     weight: 1
   target: {fileID: 0}
 --- !u!136 &943683429
@@ -1280,10 +1284,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 1
+    weight: 10
   - type: 3
     weight: 1
   - type: 5
+    weight: 1
+  - type: 6
     weight: 1
   target: {fileID: 0}
 --- !u!136 &1056796168
@@ -1424,12 +1430,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 0.25
+    weight: 10
   - type: 3
     weight: 1
   - type: 2
-    weight: 3
-  target: {fileID: 0}
+    weight: 1
+  target: {fileID: 150143187}
 --- !u!136 &1292852514
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1623,10 +1629,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 1
+    weight: 10
   - type: 3
     weight: 1
   - type: 5
+    weight: 1
+  - type: 6
     weight: 1
   target: {fileID: 0}
 --- !u!114 &1409367272
@@ -1712,10 +1720,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 1
+    weight: 10
   - type: 3
     weight: 1
   - type: 5
+    weight: 1
+  - type: 6
     weight: 1
   target: {fileID: 0}
 --- !u!136 &1449805650
@@ -1949,10 +1959,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 1
+    weight: 10
   - type: 3
     weight: 1
   - type: 5
+    weight: 1
+  - type: 6
     weight: 1
   target: {fileID: 0}
 --- !u!136 &1628589236
@@ -2435,10 +2447,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 1
+    weight: 10
   - type: 3
     weight: 1
   - type: 5
+    weight: 1
+  - type: 6
     weight: 1
   target: {fileID: 0}
 --- !u!136 &1993340602
@@ -2579,10 +2593,12 @@ MonoBehaviour:
   stopRadius: 1.5
   steeringBlendTypes:
   - type: 4
-    weight: 1
+    weight: 10
   - type: 3
     weight: 1
   - type: 5
+    weight: 1
+  - type: 6
     weight: 1
   target: {fileID: 0}
 --- !u!136 &2030544170
