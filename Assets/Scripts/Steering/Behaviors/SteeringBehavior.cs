@@ -5,14 +5,8 @@ using UnityEngine;
 public abstract class SteeringBehavior
 {
     protected const float timeToTarget = 0.1f;
-    public Transform Target { get; protected set; }
 
     public abstract SteeringState? GetSteering(SteeringAgent agent);
-
-    public void SetTarget(Transform transform)
-    {
-        Target = transform;
-    }
 
     protected void ClampLinearAcceleration(ref SteeringState state, SteeringAgent agent)
     {

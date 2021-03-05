@@ -440,6 +440,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!114 &207303304
@@ -460,7 +461,13 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringBlendTypes:
+  - type: 4
+    weight: 1
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
   target: {fileID: 0}
 --- !u!136 &207303305
 CapsuleCollider:
@@ -567,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d50033f2899bb44a1331cc9792e89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Leader: {fileID: 0}
+  Leader: {fileID: 1292852512}
   Units:
   - {fileID: 1409367272}
   - {fileID: 1993340600}
@@ -1013,6 +1020,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!114 &943683428
@@ -1033,7 +1041,13 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringBlendTypes:
+  - type: 4
+    weight: 1
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
   target: {fileID: 0}
 --- !u!136 &943683429
 CapsuleCollider:
@@ -1243,6 +1257,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!114 &1056796167
@@ -1263,8 +1278,14 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 2
-  target: {fileID: 150143187}
+  steeringBlendTypes:
+  - type: 4
+    weight: 1
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
+  target: {fileID: 0}
 --- !u!136 &1056796168
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1334,7 +1355,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056796165}
   m_LocalRotation: {x: -0, y: 0.45645505, z: -0, w: 0.8897465}
-  m_LocalPosition: {x: 0.94, y: 0, z: 4.25}
+  m_LocalPosition: {x: -0.12, y: 0, z: 1.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 652611871}
@@ -1356,7 +1377,7 @@ GameObject:
   - component: {fileID: 1292852513}
   - component: {fileID: 1292852512}
   m_Layer: 0
-  m_Name: Agent (2)
+  m_Name: Leader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1380,6 +1401,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!114 &1292852513
@@ -1400,7 +1422,13 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringBlendTypes:
+  - type: 4
+    weight: 0.25
+  - type: 3
+    weight: 1
+  - type: 2
+    weight: 3
   target: {fileID: 0}
 --- !u!136 &1292852514
 CapsuleCollider:
@@ -1593,7 +1621,13 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringBlendTypes:
+  - type: 4
+    weight: 1
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
   target: {fileID: 0}
 --- !u!114 &1409367272
 MonoBehaviour:
@@ -1613,6 +1647,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!1 &1449805647
@@ -1654,6 +1689,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!114 &1449805649
@@ -1674,7 +1710,13 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringBlendTypes:
+  - type: 4
+    weight: 1
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
   target: {fileID: 0}
 --- !u!136 &1449805650
 CapsuleCollider:
@@ -1745,7 +1787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449805647}
   m_LocalRotation: {x: 0, y: -0.67456007, z: 0, w: 0.73822}
-  m_LocalPosition: {x: 3.37, y: 0, z: 1.16}
+  m_LocalPosition: {x: 2.58, y: 0, z: 1.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 524927545}
@@ -1884,6 +1926,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!114 &1628589235
@@ -1904,7 +1947,13 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringBlendTypes:
+  - type: 4
+    weight: 1
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
   target: {fileID: 0}
 --- !u!136 &1628589236
 CapsuleCollider:
@@ -2363,6 +2412,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!114 &1993340601
@@ -2383,8 +2433,14 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 5
-  target: {fileID: 1056796171}
+  steeringBlendTypes:
+  - type: 4
+    weight: 1
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
+  target: {fileID: 0}
 --- !u!136 &1993340602
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2454,7 +2510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993340599}
   m_LocalRotation: {x: 0, y: -0.67456007, z: 0, w: 0.73822}
-  m_LocalPosition: {x: 2.54, y: 0, z: 2.86}
+  m_LocalPosition: {x: 1.65, y: 0, z: 2.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 980345464}
@@ -2500,6 +2556,7 @@ MonoBehaviour:
   defense: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
 --- !u!114 &2030544169
@@ -2520,7 +2577,13 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  steeringType: 4
+  steeringBlendTypes:
+  - type: 4
+    weight: 1
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
   target: {fileID: 0}
 --- !u!136 &2030544170
 CapsuleCollider:

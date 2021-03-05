@@ -7,11 +7,11 @@ public class FleeSteeringBehavior : SteeringBehavior
     public override SteeringState? GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
-        if (!Target || !agent)
+        if (!agent || !agent.Target)
             return null;
 
         //Get direction
-        state.linear =  agent.Position - Target.position;
+        state.linear =  agent.Position - agent.Target.position;
         ClampLinearAcceleration(ref state, agent);
 
         state.angular = 0.0f;

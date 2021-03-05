@@ -7,7 +7,7 @@ public class CharacterBase : MonoBehaviour
     [SerializeField]
     private float attack, attackDistance, attackTimer, defense;
     [SerializeField]
-    private float baseSpeed, retreatSpeed;
+    private float baseSpeed, retreatSpeed, fov;
     [SerializeField]
     private float currentHealth, maxHealth;
 
@@ -57,6 +57,12 @@ public class CharacterBase : MonoBehaviour
     {
         get => retreatSpeed;
         set => retreatSpeed = value;
+    }
+
+    public float FOV
+    {
+        get => fov;
+        set => fov = value;
     }
 
     private void Awake()

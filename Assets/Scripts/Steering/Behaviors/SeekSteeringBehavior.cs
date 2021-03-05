@@ -7,11 +7,11 @@ public class SeekSteeringBehavior : SteeringBehavior
     public override SteeringState? GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
-        if (!Target || !agent)
+        if (!agent || !agent.Target)
             return null;
 
         //Get direction
-        state.linear = Target.position - agent.Position;
+        state.linear = agent.Target.position - agent.Position;
         ClampLinearAcceleration(ref state, agent);
 
         state.angular = 0.0f;

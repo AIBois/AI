@@ -13,19 +13,21 @@ public class SquadBase : MonoBehaviour
     {
         //TODO:: create a randomisation of the cost based ont he individual units.
 
+        SetupSquadSteeringAgents();
+    }
+
+    void SetupSquadSteeringAgents()
+    {
         foreach (var unit in Units)
         {
             SteeringAgent agent = unit.GetComponent<SteeringAgent>();
-            if (agent)
-            {
-                agent.Squad = this;
-            }
-        }
-    }
+            if (!agent) continue;
 
-    void Update()
-    {
-        
+            agent.Squad = this;
+            //Set all unit targets to the leader, this means the squad will flock around the leader
+            if (unit != Leader)
+                agent.Target = Leader.transform;
+        }
     }
 
     //public SteeringTarget GetAveragedPosition()

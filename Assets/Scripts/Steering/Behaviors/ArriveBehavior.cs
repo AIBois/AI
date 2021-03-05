@@ -10,10 +10,10 @@ class ArriveBehavior : SteeringBehavior
     public override SteeringState? GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
-        if (!Target || !agent)
+        if (!agent || !agent.Target)
             return null;
 
-        float targetDistance = Vector3.Distance(agent.Position, Target.position) - agent.StopRadius;
+        float targetDistance = Vector3.Distance(agent.Position, agent.Target.position) - agent.StopRadius;
         float targetSpeed = agent.MaxSpeed;
 
         if (targetDistance < agent.SlowRadius) //if within slow radius adjust target speed
@@ -21,7 +21,7 @@ class ArriveBehavior : SteeringBehavior
             targetSpeed = agent.MaxSpeed * targetDistance / agent.SlowRadius;
         }
 
-        var TargetVelocity = (Target.position - agent.Position).normalized;
+        var TargetVelocity = (agent.Target.position - agent.Position).normalized;
         TargetVelocity *= targetSpeed;
 
         state.linear = TargetVelocity - agent.Velocity;

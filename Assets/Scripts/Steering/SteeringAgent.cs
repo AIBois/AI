@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+struct SteeringBlend
+{
+    public SteeringBehaviorType type;
+    public float weight;
+}
+
 public class SteeringAgent : MonoBehaviour
 {
     #region Member vars
-    [SerializeField]
-    private float maxAcceleration = 10.0f;
-    [SerializeField]
-    private float maxAngularAcceleration = 10.0f;
-    [SerializeField]
-    private float maxSpeed = 15.0f;
-    [SerializeField]
-    private float maxRotation = 15.0f;
-    [SerializeField]
-    private float slowRadius = 7.5f;
-    [SerializeField]
-    private float stopRadius = 1.5f;
+    [SerializeField] private float maxAcceleration = 10.0f;
+    [SerializeField] private float maxAngularAcceleration = 10.0f;
+    [SerializeField] private float maxSpeed = 15.0f;
+    [SerializeField] private float maxRotation = 15.0f;
+    [SerializeField] private float slowRadius = 7.5f;
+    [SerializeField] private float stopRadius = 1.5f;
+    [SerializeField] private List<SteeringBlend> steeringBlendTypes;
+    [SerializeField] private Transform target;
 
-    [SerializeField]
-    private SteeringBehaviorType steeringType = SteeringBehaviorType.SEEK;
-    [SerializeField]
-    private Transform target;
+    private BehaviorBlend behaviorBlend;
     #endregion
 
     #region properties
@@ -55,12 +55,11 @@ public class SteeringAgent : MonoBehaviour
         get => stopRadius;
         set => stopRadius = value;
     }
-    public SteeringBehaviorType SteeringType
+    public Transform Target
     {
-        get => steeringType;
-        set => steeringType = value;
+        get => target;
+        set => target = value;
     }
-    public SteeringBehavior CurrentSteeringBehavior { get; private set; }
     public SquadBase Squad { get; set; }
     public Vector3 Position
     {
@@ -78,10 +77,14 @@ public class SteeringAgent : MonoBehaviour
 
     void Awake()
     {
-        CurrentSteeringBehavior = SteeringBehaviorFactory.Create(SteeringType);
+        behaviorBlend = new BehaviorBlend();
+        foreach (var blend in steeringBlendTypes)
+        {
+            behaviorBlend.AddBlend(SteeringBehaviorFactory.Create(blend.type),blend.weight);
+        }
+
         Position = transform.position;
         rotation = transform.rotation.eulerAngles.y;
-        SetTarget(target);
     }
 
     public void IntegrateSteering(SteeringState steering)
@@ -102,21 +105,14 @@ public class SteeringAgent : MonoBehaviour
         Debug.Log(transform.rotation);
     }
 
-    public void SetTarget(Transform target)
-    {
-        CurrentSteeringBehavior.SetTarget(target);
-    }
-
     public void Update()
     {
-        if(CurrentSteeringBehavior == null)
+        if(behaviorBlend == null)
             return;
 
         //Set Target;
         //CurrentSteeringBehavior.SetTarget(Target);
-        var steeringInfo = CurrentSteeringBehavior.GetSteering(this);
-
-        if(steeringInfo.HasValue)
-            IntegrateSteering(steeringInfo.Value);
+        var steeringInfo = behaviorBlend.GetSteering(this);
+        IntegrateSteering(steeringInfo);
     }
 }

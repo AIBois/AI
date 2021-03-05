@@ -6,10 +6,10 @@ public class VelocityMatchBehavior : SteeringBehavior
     public override SteeringState? GetSteering(SteeringAgent agent)
     {
         SteeringState state = new SteeringState();
-        if (!Target || !agent)
+        if (!agent || !agent.Target)
             return null;
 
-        var targetAgent = Target.GetComponent<SteeringAgent>();
+        var targetAgent = agent.Target.GetComponent<SteeringAgent>();
         if (!targetAgent)
             return null;
 
