@@ -15,7 +15,7 @@ public class SquadBase : MonoBehaviour
 
     private void Awake()
     {
-        //TODO:: create a randomisation of the cost based ont he individual units.
+        //TODO:: create a randomisation of the cost based on the individual units.
     }
 
     public void SetUnitStates(CharacterState state)

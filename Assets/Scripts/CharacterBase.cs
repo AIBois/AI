@@ -6,34 +6,64 @@ public class CharacterBase : MonoBehaviour
     public CharacterState currentState;
     
     [SerializeField]
-    private float attack, attackDistance, attackFrequency, defense;
+    private float meleeDamage, meleeAttackDistance, meleeAttackFrequency, defense;
+    [SerializeField]
+    private float rangedDamage, rangedAttackShortDistance, rangedAttackLongDistance, rangedAttackFrequency;
     [SerializeField]
     private float baseSpeed, retreatSpeed;
     [SerializeField]
     private float currentHealth, maxHealth;
+    [SerializeField] 
+    private bool isRanged;
 
-    public float Attack
+    public bool IsRanged => isRanged;
+
+    public float MeleeDamage
     {
-        get => attack;
-        set => attack = value;
+        get => meleeDamage;
+        set => meleeDamage = value;
     }
 
-    public float AttackDistance
+    public float MeleeAttackDistance
     {
-        get => attackDistance;
-        set => attackDistance = value;
+        get => meleeAttackDistance;
+        set => meleeAttackDistance = value;
     }
 
-    public float AttackFrequency
+    public float MeleeAttackFrequency
     {
-        get => attackFrequency;
-        set => attackFrequency = value;
+        get => meleeAttackFrequency;
+        set => meleeAttackFrequency = value;
     }
 
     public float Defense
     {
         get => defense;
         set => defense = value;
+    }
+
+    public float RangedDamage
+    {
+        get => rangedDamage;
+        set => rangedDamage = value;
+    }
+
+    public float RangedAttackShortDistance
+    {
+        get => rangedAttackShortDistance;
+        set => rangedAttackShortDistance = value;
+    }
+
+    public float RangedAttackLongDistance
+    {
+        get => rangedAttackLongDistance;
+        set => rangedAttackLongDistance = value;
+    }
+
+    public float RangedAttackFrequency
+    {
+        get => rangedAttackFrequency;
+        set => rangedAttackFrequency = value;
     }
 
     public float MaxHealth
@@ -78,6 +108,11 @@ public class CharacterBase : MonoBehaviour
 
     public bool ReadyToAttack()
     {
-        return Time.deltaTime % AttackFrequency == 0;
+        return Time.deltaTime % MeleeAttackFrequency == 0;
+    }
+
+    public bool ReadyToRangedAttack()
+    {
+        return Time.deltaTime % RangedAttackFrequency == 0;
     }
 }

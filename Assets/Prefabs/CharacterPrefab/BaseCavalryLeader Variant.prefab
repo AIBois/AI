@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7614097246736198811
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1028166767581014556, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_Name
+      value: BaseCavalryLeader
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869541050192787287, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: meleeAttack
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869541050192787287, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: rangedAttack
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869541050192787287, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: maxHealth
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869541050192787287, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: defense
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088477336144635968, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97ee1151163d8ae40a7ac46d1466ddc7, type: 2}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.634341
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 21.567318
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 167a4756146e87144b629f83dac7af65, type: 3}
