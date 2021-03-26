@@ -1,4 +1,4 @@
 ﻿public interface IAttackListener
 {
-    void BeingAttacked();
+    void BeingAttacked(SquadBase attacker);
 }

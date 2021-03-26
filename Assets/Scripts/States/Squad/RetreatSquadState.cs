@@ -1,4 +1,6 @@
-﻿namespace States.Squad
+﻿using UnityEngine;
+
+namespace States.Squad
 {
     public class RetreatSquadState : SquadState, IAttackListener
     {
@@ -18,10 +20,11 @@
 
         private bool FarEnoughFromEnemy()
         {
-            throw new System.NotImplementedException();
+            var distance = Vector3.Distance(enemySquad.transform.position, transform.position);
+            return distance >= context.SafeDistance;
         }
 
-        public void BeingAttacked()
+        public void BeingAttacked(SquadBase attacker)
         {
             context.currentState = new CombatSquadState(context, enemySquad);
         }

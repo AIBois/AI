@@ -14,8 +14,9 @@ namespace States.Character
         protected override void Act()
         {
             var closestEnemy = GetClosestEnemy();
-            if (!InRange(closestEnemy.transform.position)) context.MoveTo(closestEnemy.transform.position);
-            else Attack(closestEnemy);
+            if (InRangedRange(closestEnemy.transform.position)) RangedAttack(closestEnemy); 
+            else if (InMeleeRange(closestEnemy.transform.position)) MeleeAttack(closestEnemy); 
+            else context.MoveTo(closestEnemy.transform.position);
         }
 
         CharacterBase GetClosestEnemy()
@@ -32,15 +33,28 @@ namespace States.Character
             }
             return result;
         }
-        
-        private bool InRange(Vector3 position)
+
+        private bool InRangedRange(Vector3 enemyPosition)
         {
-            return Vector3.Distance(position, transform.position) <= context.AttackDistance;
+            if (!context.IsRanged) return false;
+            var distance = Vector3.Distance(enemyPosition, transform.position);
+            return distance <= context.RangedAttackLongDistance &&
+                distance >= context.RangedAttackShortDistance;
         }
 
-        private void Attack(CharacterBase closestEnemy)
+        private void RangedAttack(CharacterBase closestEnemy)
         {
-            if(context.ReadyToAttack()) closestEnemy.TakeDamage(context.Attack);
+            if(context.ReadyToRangedAttack()) closestEnemy.TakeDamage(context.RangedDamage);
+        }
+        
+        private bool InMeleeRange(Vector3 position)
+        {
+            return Vector3.Distance(position, transform.position) <= context.MeleeAttackDistance;
+        }
+
+        private void MeleeAttack(CharacterBase closestEnemy)
+        {
+            if(context.ReadyToAttack()) closestEnemy.TakeDamage(context.MeleeDamage);
         }
     }
 }

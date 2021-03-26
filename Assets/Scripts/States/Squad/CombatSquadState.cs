@@ -12,6 +12,7 @@ namespace States.Squad
             startingSquadSize = context.Units.Length;
             this.enemySquad = enemySquad;
             context.SetUnitStates(new CombatCharacterState(enemySquad));
+            enemySquad.IsBeingAttacked(context);
         }
 
         protected override void Act()

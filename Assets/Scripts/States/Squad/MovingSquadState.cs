@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace States.Squad
 {
-    public class MovingSquadState : SquadState
+    public class MovingSquadState : SquadState, IAttackListener
     {
         private SquadBase closestSquad;
         
@@ -21,7 +21,15 @@ namespace States.Squad
 
         private bool EnemyWithinAttackingDistance()
         {
-            return Vector3.Distance(closestSquad.transform.position, transform.position) <= context.Leader.AttackDistance;
+            var distance = Vector3.Distance(closestSquad.transform.position, transform.position);
+            return context.Leader.IsRanged
+                ? distance <= context.Leader.RangedAttackLongDistance
+                : distance <= context.Leader.MeleeAttackDistance;
+        }
+
+        public void BeingAttacked(SquadBase attacker)
+        {
+            context.currentState = new CombatSquadState(context, attacker);
         }
     }
 }

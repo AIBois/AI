@@ -11,7 +11,9 @@ public class SquadBase : MonoBehaviour
     public CharacterBase Leader;
     public CharacterBase[] Units;
     [SerializeField]
-    private float cost;
+    private float cost, safeDistance;
+
+    public float SafeDistance => safeDistance;
 
     private void Awake()
     {
@@ -39,8 +41,8 @@ public class SquadBase : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    public void IsBeingAttacked()
+    public void IsBeingAttacked(SquadBase attacker)
     {
-        attackListener.BeingAttacked();
+        attackListener.BeingAttacked(attacker);
     }
 }
