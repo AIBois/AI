@@ -6,7 +6,7 @@ public class CharacterBase : MonoBehaviour
     public CharacterState currentState;
     
     [SerializeField]
-    private float attack, attackDistance, attackTimer, defense;
+    private float attack, attackDistance, attackFrequency, defense;
     [SerializeField]
     private float baseSpeed, retreatSpeed;
     [SerializeField]
@@ -24,10 +24,10 @@ public class CharacterBase : MonoBehaviour
         set => attackDistance = value;
     }
 
-    public float AttackTimer
+    public float AttackFrequency
     {
-        get => attackTimer;
-        set => attackTimer = value;
+        get => attackFrequency;
+        set => attackFrequency = value;
     }
 
     public float Defense
@@ -74,5 +74,10 @@ public class CharacterBase : MonoBehaviour
     {
         CurrentHealth -= damage;
         if (CurrentHealth <= 0) currentState = new DeathCharacterState();
+    }
+
+    public bool ReadyToAttack()
+    {
+        return Time.deltaTime % AttackFrequency == 0;
     }
 }

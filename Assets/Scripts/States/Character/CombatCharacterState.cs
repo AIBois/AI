@@ -40,7 +40,7 @@ namespace States.Character
 
         private void Attack(CharacterBase closestEnemy)
         {
-            closestEnemy.TakeDamage(context.Attack);
+            if(context.ReadyToAttack()) closestEnemy.TakeDamage(context.Attack);
         }
     }
 }
