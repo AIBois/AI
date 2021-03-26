@@ -7,7 +7,7 @@ public class CharacterBase : MonoBehaviour
     [SerializeField]
     private float meleeAttack, meleeAttackDistance, meleeAttackTimer, defense;
     [SerializeField]
-    private float rangedAttack, rangedAttackDistance, rangedAttackTimer;
+    private float rangedAttack, rangedAttackShortDistance, rangedAttackLongDistance, rangedAttackTimer;
     [SerializeField]
     private float baseSpeed, retreatSpeed;
     [SerializeField]
@@ -43,10 +43,16 @@ public class CharacterBase : MonoBehaviour
         set => rangedAttack = value;
     }
 
-    public float RangedAttackDistance
+    public float RangedAttackShortDistance
     {
-        get => rangedAttackDistance;
-        set => rangedAttackDistance = value;
+        get => rangedAttackShortDistance;
+        set => rangedAttackShortDistance = value;
+    }
+
+    public float RangedAttackLongDistance
+    {
+        get => rangedAttackLongDistance;
+        set => rangedAttackLongDistance = value;
     }
 
     public float RangedAttackTimer

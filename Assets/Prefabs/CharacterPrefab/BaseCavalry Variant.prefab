@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5154727946203408312, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: m_Name
-      value: BaseCavalry
+      value: BaseCavalry Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
@@ -61,6 +61,16 @@ PrefabInstance:
         type: 3}
       propertyPath: meleeAttackTimer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
+        type: 3}
+      propertyPath: rangedAttackShortDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
+        type: 3}
+      propertyPath: rangedAttackLongDistance
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6140181907736258020, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
