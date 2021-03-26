@@ -47,6 +47,16 @@ PrefabInstance:
       propertyPath: defense
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
+        type: 3}
+      propertyPath: meleeDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
+        type: 3}
+      propertyPath: meleeAttackFrequency
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6140181907736258020, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
