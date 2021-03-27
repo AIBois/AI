@@ -4,14 +4,15 @@ using UnityEngine;
 public class FleeSteeringBehavior : SteeringBehavior
 {
 
-    public override SteeringState? GetSteering(SteeringAgent agent)
+    public override SteeringState? GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
+        Vector3 targetVelocity)
     {
         SteeringState state = new SteeringState();
-        if (!agent || !agent.Target)
+        if (!agent)
             return null;
 
         //Get direction
-        state.linear =  agent.Position - agent.Target.position;
+        state.linear =  agent.Position - targetPosition;
         ClampLinearAcceleration(ref state, agent);
 
         state.angular = 0.0f;

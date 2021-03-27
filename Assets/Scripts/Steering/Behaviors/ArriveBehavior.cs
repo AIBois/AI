@@ -7,13 +7,14 @@ using UnityEngine;
 
 class ArriveBehavior : SteeringBehavior
 {
-    public override SteeringState? GetSteering(SteeringAgent agent)
+    public override SteeringState? GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
+        Vector3 targetVelocity)
     {
         SteeringState state = new SteeringState();
-        if (!agent || !agent.Target)
+        if (!agent)
             return null;
 
-        float targetDistance = Vector3.Distance(agent.Position, agent.Target.position) - agent.StopRadius;
+        float targetDistance = Vector3.Distance(agent.Position, targetPosition) - agent.StopRadius;
         float targetSpeed = agent.MaxSpeed;
 
         if (targetDistance < agent.SlowRadius) //if within slow radius adjust target speed
@@ -21,7 +22,7 @@ class ArriveBehavior : SteeringBehavior
             targetSpeed = agent.MaxSpeed * targetDistance / agent.SlowRadius;
         }
 
-        var TargetVelocity = (agent.Target.position - agent.Position).normalized;
+        var TargetVelocity = (targetPosition - agent.Position).normalized;
         TargetVelocity *= targetSpeed;
 
         state.linear = TargetVelocity - agent.Velocity;

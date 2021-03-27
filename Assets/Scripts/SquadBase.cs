@@ -57,9 +57,6 @@ public class SquadBase : MonoBehaviour
             if (!agent) continue;
 
             agent.Squad = this;
-            //Set all unit targets to the leader, this means the squad will flock around the leader
-            if (unit != Leader)
-                agent.Target = Leader.transform;
         }
     }
 

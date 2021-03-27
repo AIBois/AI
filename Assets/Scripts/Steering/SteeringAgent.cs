@@ -20,7 +20,7 @@ public class SteeringAgent : MonoBehaviour
     [SerializeField] private List<SteeringBlend> steeringBlendTypes;
     [SerializeField] private Transform target;
 
-    private BehaviorBlend behaviorBlend;
+    private BehaviorBlend SquadBehaviorBlend;
     #endregion
 
     #region properties
@@ -54,11 +54,11 @@ public class SteeringAgent : MonoBehaviour
         get => stopRadius;
         set => stopRadius = value;
     }
-    public Transform Target
-    {
-        get => target;
-        set => target = value;
-    }
+    //public Transform Target
+    //{
+    //    get => target;
+    //    set => target = value;
+    //}
     public SquadBase Squad { get; set; }
     public Vector3 Position
     {
@@ -76,10 +76,10 @@ public class SteeringAgent : MonoBehaviour
 
     void Awake()
     {
-        behaviorBlend = new BehaviorBlend();
+        SquadBehaviorBlend = new BehaviorBlend();
         foreach (var blend in steeringBlendTypes)
         {
-            behaviorBlend.AddBlend(SteeringBehaviorFactory.Create(blend.type),blend.weight);
+            SquadBehaviorBlend.AddBlend(SteeringBehaviorFactory.Create(blend.type),blend.weight);
         }
 
         Position = transform.position;
@@ -109,12 +109,28 @@ public class SteeringAgent : MonoBehaviour
 
     public void Update()
     {
-        if(behaviorBlend == null)
+        if(SquadBehaviorBlend == null)
             return;
 
         //Set Target;
         //CurrentSteeringBehavior.SetTarget(Target);
-        var steeringInfo = behaviorBlend.GetSteering(this);
-        IntegrateSteering(steeringInfo);
+        if(target)
+            SquadMove(target.position, target.eulerAngles.y, Vector3.zero);
+    }
+
+    /// <summary>
+    /// Squad move uses a flocking based algorithm to move the squad as a whole centered around its leader
+    /// </summary>
+    /// <param name="targetPos"> Target position the squad will move towards</param>
+    /// <param name="targetVel"> Velocity of the moving target (Vector3.zero = no affect)</param>
+    public void SquadMove(Vector3 targetPos, float targetRotation, Vector3 targetVel)
+    {
+        var flockSteeringInfo =
+            SquadBehaviorBlend.GetSteering(this, targetPos, targetRotation, Vector3.zero);
+
+        var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
+
+        IntegrateSteering(flockSteeringInfo);
+
     }
 }

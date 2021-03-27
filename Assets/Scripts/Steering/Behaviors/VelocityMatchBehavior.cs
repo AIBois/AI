@@ -3,17 +3,14 @@ using UnityEngine;
 
 public class VelocityMatchBehavior : SteeringBehavior
 {
-    public override SteeringState? GetSteering(SteeringAgent agent)
+    public override SteeringState? GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
+        Vector3 targetVelocity)
     {
         SteeringState state = new SteeringState();
-        if (!agent || !agent.Target)
+        if (!agent)
             return null;
 
-        var targetAgent = agent.Target.GetComponent<SteeringAgent>();
-        if (!targetAgent)
-            return null;
-
-        state.linear = targetAgent.Velocity - agent.Velocity;
+        state.linear = targetVelocity - agent.Velocity;
         state.linear /= timeToTarget;
 
         ClampLinearAcceleration(ref state, agent);

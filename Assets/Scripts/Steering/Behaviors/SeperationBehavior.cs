@@ -10,7 +10,8 @@ public class SeperationBehavior : SteeringBehavior
     public float DistanceThreshold { get; set; } = 20.0f;
     private const float DecayCoefficant = 5.0f;
 
-    public override SteeringState? GetSteering(SteeringAgent agent)
+    public override SteeringState? GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
+        Vector3 targetVelocity)
     {
         SteeringState state = new SteeringState();
         if (!agent)

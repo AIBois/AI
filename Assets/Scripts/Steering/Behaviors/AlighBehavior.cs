@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class AlighBehavior : SteeringBehavior
 {
-    public override SteeringState? GetSteering(SteeringAgent agent)
+    public override SteeringState? GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
+        Vector3 targetVelocity)
     {
         SteeringState state = new SteeringState();
-        if (!agent || !agent.Target)
+        if (!agent)
             return null;
 
-        float distanceToTarget = Vector3.Distance(agent.Position, agent.Target.position);
+        float distanceToTarget = Vector3.Distance(agent.Position, targetPosition);
         float rotation =
-            Mathf.DeltaAngle(agent.Orientation.eulerAngles.y, agent.Target.rotation.eulerAngles.y);
+            Mathf.DeltaAngle(agent.Orientation.eulerAngles.y, targetRotation);
         float absRotation = Mathf.Abs(rotation);
-        float absDistance = Mathf.Abs(distanceToTarget);
 
-        float targetRotation;
+        float agentRotation;
         if (distanceToTarget > agent.SlowRadius)
         {
-            targetRotation = agent.MaxRotation;
+            agentRotation = agent.MaxRotation;
         }
         else
         {
-            targetRotation = agent.MaxRotation * absRotation / agent.StopRadius;
+            agentRotation = agent.MaxRotation * absRotation / agent.StopRadius;
         }
 
-        targetRotation *= rotation;
+        agentRotation *= rotation;
 
-        state.angular = targetRotation - agent.rotation;
+        state.angular = agentRotation - agent.rotation;
         state.angular /= timeToTarget;
 
         ClampAngularAcceleration(ref state,agent);
