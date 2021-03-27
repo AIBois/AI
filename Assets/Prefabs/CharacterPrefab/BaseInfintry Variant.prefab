@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3576363785912048224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7933745533361120395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20271e9355ab026418a127680383bde5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAcceleration: 10
+  maxAngularAcceleration: 100
+  maxSpeed: 7.5
+  maxRotation: 100
+  slowRadius: 7.5
+  stopRadius: 1.5
+  steeringBlendTypes:
+  - type: 4
+    weight: 10
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
+  - type: 6
+    weight: 2
+  - type: 7
+    weight: 5
+  target: {fileID: 0}
 --- !u!1001 &2995762669407912755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,5 +162,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2154251729573905785, guid: 94fe439314de1e8408c6abb354c3891e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94fe439314de1e8408c6abb354c3891e, type: 3}
+--- !u!1 &7933745533361120395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5154727946203408312, guid: 94fe439314de1e8408c6abb354c3891e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2995762669407912755}
+  m_PrefabAsset: {fileID: 0}

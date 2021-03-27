@@ -340,15 +340,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &54390321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,15 +494,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &70629541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,15 +648,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &128895507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,7 +860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 78.91, z: 0}
 --- !u!1 &161873084
 GameObject:
@@ -936,7 +954,7 @@ Transform:
   m_LocalScale: {x: 10.651, y: 10.651, z: 10.651}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174206086
 GameObject:
@@ -1157,15 +1175,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &207303304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,15 +1422,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &281034036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,15 +1576,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &281038966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,7 +1899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &321284453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,6 +1912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d50033f2899bb44a1331cc9792e89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: {fileID: 0}
   Leader: {fileID: 1292852512}
   Units:
   - {fileID: 1409367272}
@@ -1906,6 +1943,7 @@ MonoBehaviour:
   - {fileID: 281034035}
   - {fileID: 774175880}
   cost: 0
+  safeDistance: 0
 --- !u!4 &321284454
 Transform:
   m_ObjectHideFlags: 0
@@ -1945,7 +1983,7 @@ Transform:
   - {fileID: 281034040}
   - {fileID: 774175885}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &409030816
 GameObject:
@@ -1980,15 +2018,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &409030818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2407,15 +2451,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &556120876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2555,15 +2605,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &636244105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3075,15 +3131,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &774175881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3223,15 +3285,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &785119270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3557,15 +3625,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &943683428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4077,15 +4151,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1056796167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4225,15 +4305,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1228913703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4373,15 +4459,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1268944026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4521,15 +4613,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1292852513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4758,15 +4856,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1363190336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5012,15 +5116,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!1 &1449805647
 GameObject:
   m_ObjectHideFlags: 0
@@ -5054,15 +5164,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1449805649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5202,15 +5318,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1566785930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5443,15 +5565,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1628589235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5744,6 +5872,520 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649147568}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1685564208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 272968225923032721, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 272968225923032721, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 272968225923032721, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 272968225923032721, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 272968225923032721, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 272968225923032721, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 674971263045027325, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 674971263045027325, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 674971263045027325, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 674971263045027325, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 674971263045027325, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 674971263045027325, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 927952009189759448, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 927952009189759448, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 927952009189759448, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 927952009189759448, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 927952009189759448, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 927952009189759448, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546435871757029149, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_Name
+      value: Infintry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087192904507713232, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087192904507713232, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087192904507713232, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087192904507713232, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087192904507713232, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2087192904507713232, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446081843573820210, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446081843573820210, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446081843573820210, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446081843573820210, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446081843573820210, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2446081843573820210, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.2378092
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.519526
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.30131
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162998343356844097, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166216480769216756, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166216480769216756, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166216480769216756, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166216480769216756, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166216480769216756, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166216480769216756, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335717627225381746, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335717627225381746, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335717627225381746, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335717627225381746, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335717627225381746, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335717627225381746, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848405730732739791, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848405730732739791, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848405730732739791, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848405730732739791, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848405730732739791, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848405730732739791, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044932356502271304, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044932356502271304, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044932356502271304, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044932356502271304, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044932356502271304, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044932356502271304, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918318587660041025, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918318587660041025, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918318587660041025, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918318587660041025, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918318587660041025, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918318587660041025, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038275985520808440, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038275985520808440, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038275985520808440, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038275985520808440, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038275985520808440, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038275985520808440, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708735082426192338, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708735082426192338, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708735082426192338, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708735082426192338, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708735082426192338, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708735082426192338, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741632460700711695, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741632460700711695, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 150143187}
+    - target: {fileID: 7741632460700711695, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].type
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741632460700711695, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741632460700711695, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424791143892378145, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424791143892378145, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424791143892378145, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424791143892378145, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424791143892378145, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424791143892378145, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019305702220384781, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019305702220384781, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019305702220384781, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019305702220384781, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[4].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019305702220384781, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[1].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019305702220384781, guid: 2ccac7c902931144a9d9169af4687088,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2ccac7c902931144a9d9169af4687088, type: 3}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -5933,15 +6575,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1718051587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6081,15 +6729,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1720230978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6229,15 +6883,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1839202385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6563,15 +7223,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &1993340601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6711,15 +7377,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &2030544169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6952,15 +7624,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  attackDistance: 0
-  attackTimer: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
+  meleeAttackDistance: 0
+  meleeAttackFrequency: 0
   defense: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
   fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!114 &2105183540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7157,5 +7835,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 45, y: 130, z: 90}

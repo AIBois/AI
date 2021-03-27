@@ -94,6 +94,9 @@ public class SteeringAgent : MonoBehaviour
         Velocity += steering.linear * Time.deltaTime;
         rotation += steering.angular * Time.deltaTime;
 
+        //Mask out Y axis
+        Velocity = Vector3.Scale(Velocity, new Vector3(1, 0, 1));
+
         Debug.Log(Velocity);
 
         if (Velocity.sqrMagnitude > MaxSpeed * MaxSpeed)

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4008286580453682243}
   - component: {fileID: 6140181907736258020}
   - component: {fileID: 1092266789827128649}
+  - component: {fileID: 2154251729573905785}
   m_Layer: 0
   m_Name: BaseCharacter
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,17 +47,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeAttack: 0
+  currentState: {fileID: 0}
+  meleeDamage: 0
   meleeAttackDistance: 0
-  meleeAttackTimer: 0
+  meleeAttackFrequency: 0
   defense: 0
-  rangedAttack: 0
-  rangedAttackDistance: 0
-  rangedAttackTimer: 0
+  rangedDamage: 0
+  rangedAttackShortDistance: 0
+  rangedAttackLongDistance: 0
+  rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
+  fov: 0
   currentHealth: 0
   maxHealth: 0
+  isRanged: 0
 --- !u!33 &4008286580453682243
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -118,3 +123,33 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &2154251729573905785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154727946203408312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20271e9355ab026418a127680383bde5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAcceleration: 10
+  maxAngularAcceleration: 100
+  maxSpeed: 7.5
+  maxRotation: 100
+  slowRadius: 7.5
+  stopRadius: 1.5
+  steeringBlendTypes:
+  - type: 4
+    weight: 10
+  - type: 3
+    weight: 1
+  - type: 5
+    weight: 1
+  - type: 6
+    weight: 2
+  - type: 7
+    weight: 5
+  target: {fileID: 0}

@@ -7,6 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x

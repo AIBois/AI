@@ -4,7 +4,7 @@ using UnityEngine;
 public class CollisionAvoidanceBehavior : SteeringBehavior
 {
     private const float RayLenghth = 2.0f;
-    private const float avoidanceLength = 2.5f;
+    private const float avoidanceLength = 5.0f;
 
     public override SteeringState? GetSteering(SteeringAgent agent)
     {
