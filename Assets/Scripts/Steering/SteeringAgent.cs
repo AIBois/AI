@@ -122,6 +122,7 @@ public class SteeringAgent : MonoBehaviour
     /// Squad move uses a flocking based algorithm to move the squad as a whole centered around its leader
     /// </summary>
     /// <param name="targetPos"> Target position the squad will move towards</param>
+    /// <param name="targetRotation"> euler Y axis rotation of the target</param>
     /// <param name="targetVel"> Velocity of the moving target (Vector3.zero = no affect)</param>
     public void SquadMove(Vector3 targetPos, float targetRotation, Vector3 targetVel)
     {
@@ -129,8 +130,17 @@ public class SteeringAgent : MonoBehaviour
             SquadBehaviorBlend.GetSteering(this, targetPos, targetRotation, Vector3.zero);
 
         var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
+        var arriveSteering = arriveTarget.GetSteering(this, targetPos, targetRotation, Vector3.zero);
+
+        if (arriveSteering.HasValue)
+        {
+            var finalSteering = arriveSteering.Value.linear;
+            finalSteering += flockSteeringInfo.linear * 10.0f;
+            flockSteeringInfo.linear = finalSteering;
+
+            SteeringBehavior.ClampLinearAcceleration(ref flockSteeringInfo, this);
+        }
 
         IntegrateSteering(flockSteeringInfo);
-
     }
 }

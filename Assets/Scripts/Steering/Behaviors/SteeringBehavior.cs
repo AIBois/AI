@@ -9,7 +9,7 @@ public abstract class SteeringBehavior
     public abstract SteeringState? GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
         Vector3 targetVelocity);
 
-    protected void ClampLinearAcceleration(ref SteeringState state, SteeringAgent agent)
+    public static void ClampLinearAcceleration(ref SteeringState state, SteeringAgent agent)
     {
         if (state.linear.sqrMagnitude > agent.MaxAcceleration * agent.MaxAcceleration)
         {
@@ -18,7 +18,7 @@ public abstract class SteeringBehavior
         }
     }
 
-    protected void ClampAngularAcceleration(ref SteeringState state, SteeringAgent agent)
+    public static void ClampAngularAcceleration(ref SteeringState state, SteeringAgent agent)
     {
         var angularAccleration = Mathf.Abs(state.angular);
         if (angularAccleration > agent.MaxAngularAcceleration)

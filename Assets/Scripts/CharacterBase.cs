@@ -96,9 +96,12 @@ public class CharacterBase : MonoBehaviour
         set => fov = value;
     }
 
+    public SteeringAgent SteeringAgent { get; set; }
+
     private void Awake()
     {
         currentHealth = maxHealth;
+        SteeringAgent = GetComponent<SteeringAgent>();
     }
 
     public void MoveTo(Vector3 position)
