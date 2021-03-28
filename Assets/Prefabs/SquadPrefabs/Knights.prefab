@@ -127,6 +127,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}
 --- !u!4 &2776592771990784998 stripped
@@ -213,6 +218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}
@@ -301,6 +311,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}
 --- !u!4 &661394097273379380 stripped
@@ -328,6 +343,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
+    - target: {fileID: 2623501116931699704, guid: deb688ad3f00b1a4ea3b301abc22f944,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 4865897358216478772, guid: deb688ad3f00b1a4ea3b301abc22f944,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -475,6 +495,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}
 --- !u!4 &7428917970682415461 stripped
@@ -561,6 +586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}

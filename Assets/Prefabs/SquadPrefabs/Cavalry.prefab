@@ -125,6 +125,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6064375569132980445, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167a4756146e87144b629f83dac7af65, type: 3}
 --- !u!4 &3965816340436108592 stripped
@@ -211,6 +216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064375569132980445, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167a4756146e87144b629f83dac7af65, type: 3}
@@ -299,6 +309,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6064375569132980445, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167a4756146e87144b629f83dac7af65, type: 3}
 --- !u!4 &3376442120845905056 stripped
@@ -386,6 +401,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6064375569132980445, guid: 167a4756146e87144b629f83dac7af65,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 167a4756146e87144b629f83dac7af65, type: 3}
 --- !u!4 &589479382566810305 stripped
@@ -413,6 +433,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3879884516728001308}
     m_Modifications:
+    - target: {fileID: 4432184602622633030, guid: 953e122ef7a7c214fb0ac96921e81570,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6516119226519623562, guid: 953e122ef7a7c214fb0ac96921e81570,
         type: 3}
       propertyPath: m_LocalPosition.x
