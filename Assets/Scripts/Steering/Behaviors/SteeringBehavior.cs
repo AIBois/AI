@@ -6,8 +6,7 @@ public abstract class SteeringBehavior
 {
     protected const float timeToTarget = 0.1f;
 
-    public abstract SteeringState? GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
-        Vector3 targetVelocity);
+    public abstract SteeringState? GetSteering(SteeringAgent agent, SteeringTarget target);
 
     public static void ClampLinearAcceleration(ref SteeringState state, SteeringAgent agent)
     {

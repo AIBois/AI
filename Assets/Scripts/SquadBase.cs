@@ -23,6 +23,13 @@ public class SquadBase : MonoBehaviour
         SetupSquadSteeringAgents();
     }
 
+    
+    void Start()
+    {
+        //Test squad move
+        MoveTo(new Vector3(-6,0,25));
+    }
+
     public void SetUnitStates(CharacterState state)
     {
         state.context = Leader;
@@ -38,7 +45,8 @@ public class SquadBase : MonoBehaviour
     {
         foreach (var characterBase in Units)
         {
-            characterBase.SteeringAgent?.SquadMove(position,0.0f,Vector3.zero);
+            characterBase.SteeringAgent?.SetTarget(position);
+            characterBase.SteeringAgent?.SetMovementType(SteeringMovementType.SQUAD);
         }
     }
 

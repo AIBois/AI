@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -8,18 +9,25 @@ struct SteeringBlend
     public float weight;
 }
 
+public enum SteeringMovementType
+{
+    SQUAD,
+    UNIT
+}
+
+[RequireComponent(typeof(CharacterBase))]
 public class SteeringAgent : MonoBehaviour
 {
     #region Member vars
     [SerializeField] private float maxAcceleration = 10.0f;
     [SerializeField] private float maxAngularAcceleration = 10.0f;
-    [SerializeField] private float maxSpeed = 15.0f;
     [SerializeField] private float maxRotation = 15.0f;
     [SerializeField] private float slowRadius = 7.5f;
     [SerializeField] private float stopRadius = 1.5f;
     [SerializeField] private List<SteeringBlend> steeringBlendTypes;
-    [SerializeField] private Transform target;
-
+    private CharacterBase characterBase;
+    private SteeringTarget steeringTarget;
+    private SteeringMovementType movementTypeState;
     private BehaviorBlend SquadBehaviorBlend;
     #endregion
 
@@ -34,11 +42,9 @@ public class SteeringAgent : MonoBehaviour
         get => maxAngularAcceleration;
         set => maxAngularAcceleration = value;
     }
-    public float MaxSpeed
-    {
-        get => maxSpeed;
-        set => maxSpeed = value;
-    }
+
+    public float MaxSpeed => characterBase.BaseSpeed;
+
     public float MaxRotation
     {
         get => maxRotation;
@@ -54,11 +60,7 @@ public class SteeringAgent : MonoBehaviour
         get => stopRadius;
         set => stopRadius = value;
     }
-    //public Transform Target
-    //{
-    //    get => target;
-    //    set => target = value;
-    //}
+
     public SquadBase Squad { get; set; }
     public Vector3 Position
     {
@@ -76,6 +78,8 @@ public class SteeringAgent : MonoBehaviour
 
     void Awake()
     {
+        characterBase = GetComponent<CharacterBase>();
+
         SquadBehaviorBlend = new BehaviorBlend();
         foreach (var blend in steeringBlendTypes)
         {
@@ -84,6 +88,8 @@ public class SteeringAgent : MonoBehaviour
 
         Position = transform.position;
         rotation = transform.rotation.eulerAngles.y;
+
+        movementTypeState = SteeringMovementType.SQUAD;
     }
 
     public void IntegrateSteering(SteeringState steering)
@@ -97,8 +103,6 @@ public class SteeringAgent : MonoBehaviour
         //Mask out Y axis
         Velocity = Vector3.Scale(Velocity, new Vector3(1, 0, 1));
 
-        Debug.Log(Velocity);
-
         if (Velocity.sqrMagnitude > MaxSpeed * MaxSpeed)
             Velocity = Velocity.normalized * MaxSpeed;
 
@@ -109,28 +113,48 @@ public class SteeringAgent : MonoBehaviour
 
     public void Update()
     {
-        if(SquadBehaviorBlend == null)
-            return;
+        switch (movementTypeState)
+        {
+            case SteeringMovementType.SQUAD:
+                SquadMove();
+                break;
+            case SteeringMovementType.UNIT:
+                UnitMove();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
 
-        //Set Target;
-        //CurrentSteeringBehavior.SetTarget(Target);
-        if(target)
-            SquadMove(target.position, target.eulerAngles.y, Vector3.zero);
+    public void SetTarget(SteeringTarget target)
+    {
+        steeringTarget = target;
+    }
+
+    public void SetTarget(Vector3 position)
+    {
+        steeringTarget.Position = position;
+    }
+
+    public void SetMovementType(SteeringMovementType movementType)
+    {
+        movementTypeState = movementType;
     }
 
     /// <summary>
     /// Squad move uses a flocking based algorithm to move the squad as a whole centered around its leader
     /// </summary>
-    /// <param name="targetPos"> Target position the squad will move towards</param>
-    /// <param name="targetRotation"> euler Y axis rotation of the target</param>
-    /// <param name="targetVel"> Velocity of the moving target (Vector3.zero = no affect)</param>
-    public void SquadMove(Vector3 targetPos, float targetRotation, Vector3 targetVel)
+    /// <param name="target"></param>
+    private void SquadMove()
     {
+        if (SquadBehaviorBlend == null)
+            return;
+
         var flockSteeringInfo =
-            SquadBehaviorBlend.GetSteering(this, targetPos, targetRotation, Vector3.zero);
+            SquadBehaviorBlend.GetSteering(this, steeringTarget);
 
         var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
-        var arriveSteering = arriveTarget.GetSteering(this, targetPos, targetRotation, Vector3.zero);
+        var arriveSteering = arriveTarget.GetSteering(this, steeringTarget);
 
         if (arriveSteering.HasValue)
         {
@@ -142,5 +166,16 @@ public class SteeringAgent : MonoBehaviour
         }
 
         IntegrateSteering(flockSteeringInfo);
+    }
+
+    private void UnitMove()
+    {
+        var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
+        var arriveSteering = arriveTarget.GetSteering(this, steeringTarget);
+
+        if (arriveSteering.HasValue)
+        {
+            IntegrateSteering(arriveSteering.Value);
+        }
     }
 }

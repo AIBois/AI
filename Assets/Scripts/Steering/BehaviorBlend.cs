@@ -19,15 +19,14 @@ public class BehaviorBlend
         behaviorBlends[behavior] = weight;
     }
 
-    public SteeringState GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
-        Vector3 targetVelocity)
+    public SteeringState GetSteering(SteeringAgent agent, SteeringTarget target)
     {
         Vector3 linear = Vector3.zero;
         float angular = 0.0f;
 
         foreach (var behaviorBlend in behaviorBlends.OrderByDescending(x => x.Value))
         {
-            var state = behaviorBlend.Key.GetSteering(agent, targetPosition, targetRotation, targetVelocity);
+            var state = behaviorBlend.Key.GetSteering(agent, target);
             if (state.HasValue)
             {
                 linear += state.Value.linear * behaviorBlend.Value;

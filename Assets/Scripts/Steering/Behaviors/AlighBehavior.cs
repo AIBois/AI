@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class AlighBehavior : SteeringBehavior
 {
-    public override SteeringState? GetSteering(SteeringAgent agent, Vector3 targetPosition, float targetRotation,
-        Vector3 targetVelocity)
+    public override SteeringState? GetSteering(SteeringAgent agent, SteeringTarget target)
     {
         SteeringState state = new SteeringState();
         if (!agent)
             return null;
 
-        float distanceToTarget = Vector3.Distance(agent.Position, targetPosition);
+        float distanceToTarget = Vector3.Distance(agent.Position, target.Position);
         float rotation =
-            Mathf.DeltaAngle(agent.Orientation.eulerAngles.y, targetRotation);
+            Mathf.DeltaAngle(agent.Orientation.eulerAngles.y, target.Rotation);
         float absRotation = Mathf.Abs(rotation);
 
         float agentRotation;

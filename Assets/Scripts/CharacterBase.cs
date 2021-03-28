@@ -106,7 +106,8 @@ public class CharacterBase : MonoBehaviour
 
     public void MoveTo(Vector3 position)
     {
-        throw new System.NotImplementedException();
+        SteeringAgent.SetMovementType(SteeringMovementType.UNIT);
+        SteeringAgent.SetTarget(position);
     }
 
     public void TakeDamage(float damage)
