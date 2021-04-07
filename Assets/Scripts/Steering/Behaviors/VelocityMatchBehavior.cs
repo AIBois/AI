@@ -1,20 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class FleeSteeringBehavior : SteeringBehavior
+public class VelocityMatchBehavior : SteeringBehavior
 {
-
     public override SteeringState? GetSteering(SteeringAgent agent, SteeringTarget target)
     {
         SteeringState state = new SteeringState();
         if (!agent)
             return null;
 
-        //Get direction
-        state.linear =  agent.Position - target.Position;
-        ClampLinearAcceleration(ref state, agent);
+        state.linear = target.Velocity - agent.Velocity;
+        state.linear /= timeToTarget;
 
-        state.angular = 0.0f;
+        ClampLinearAcceleration(ref state, agent);
 
         return state;
     }

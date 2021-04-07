@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using States.Character;
 using States.Squad;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class SquadBase : MonoBehaviour
     public IAttackListener attackListener;
     
     public CharacterBase Leader;
-    public CharacterBase[] Units;
+    public List<CharacterBase> Units;
     [SerializeField]
     private float cost, safeDistance;
 
@@ -17,7 +18,15 @@ public class SquadBase : MonoBehaviour
 
     private void Awake()
     {
-        //TODO:: create a randomisation of the cost based on the individual units.
+        //TODO:: create a randomisation of the cost based ont he individual units.
+
+        SetupSquadSteeringAgents();
+    }
+
+    
+    void Start()
+    {
+
     }
 
     public void SetUnitStates(CharacterState state)
@@ -33,7 +42,11 @@ public class SquadBase : MonoBehaviour
 
     public void MoveTo(Vector3 position)
     {
-        throw new NotImplementedException();
+        foreach (var characterBase in Units)
+        {
+            characterBase.SteeringAgent?.SetTarget(position);
+            characterBase.SteeringAgent?.SetMovementType(SteeringMovementType.SQUAD);
+        }
     }
 
     public void MoveAwayFrom(Vector3 position)
@@ -44,5 +57,29 @@ public class SquadBase : MonoBehaviour
     public void IsBeingAttacked(SquadBase attacker)
     {
         attackListener.BeingAttacked(attacker);
+    }
+
+    void SetupSquadSteeringAgents()
+    {
+        foreach (var unit in Units)
+        {
+            SteeringAgent agent = unit.GetComponent<SteeringAgent>();
+            if (!agent) continue;
+
+            agent.Squad = this;
+        }
+    }
+
+    public Vector3 GetAveragedPosition()
+    {
+        Vector3 averagePos = Vector3.zero;
+
+        foreach (var unit in Units)
+        {
+            averagePos += unit.transform.position;
+
+        }
+        averagePos /= Units.Count;
+        return averagePos;
     }
 }

@@ -10,7 +10,7 @@ public class CharacterBase : MonoBehaviour
     [SerializeField]
     private float rangedDamage, rangedAttackShortDistance, rangedAttackLongDistance, rangedAttackFrequency;
     [SerializeField]
-    private float baseSpeed, retreatSpeed;
+    private float baseSpeed, retreatSpeed, fov;
     [SerializeField]
     private float currentHealth, maxHealth;
     [SerializeField] 
@@ -90,14 +90,24 @@ public class CharacterBase : MonoBehaviour
         set => retreatSpeed = value;
     }
 
+    public float FOV
+    {
+        get => fov;
+        set => fov = value;
+    }
+
+    public SteeringAgent SteeringAgent { get; set; }
+
     private void Awake()
     {
         currentHealth = maxHealth;
+        SteeringAgent = GetComponent<SteeringAgent>();
     }
 
     public void MoveTo(Vector3 position)
     {
-        throw new System.NotImplementedException();
+        SteeringAgent.SetMovementType(SteeringMovementType.UNIT);
+        SteeringAgent.SetTarget(position);
     }
 
     public void TakeDamage(float damage)

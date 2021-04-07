@@ -4,16 +4,15 @@ using UnityEngine;
 public class SeekSteeringBehavior : SteeringBehavior
 {
 
-    public override SteeringState GetSteering(SteeringAgent agent)
+    public override SteeringState? GetSteering(SteeringAgent agent, SteeringTarget target)
     {
         SteeringState state = new SteeringState();
-        if (!TargetPosition.HasValue || !agent)
-            return state;
+        if (!agent)
+            return null;
 
         //Get direction
-        state.linear = TargetPosition.Value - agent.Position;
-        state.linear.Normalize();
-        state.linear *= agent.MaxAcceleration;
+        state.linear = target.Position - agent.Position;
+        ClampLinearAcceleration(ref state, agent);
 
         state.angular = 0.0f;
 

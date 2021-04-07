@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1028166767581014556, guid: 167a4756146e87144b629f83dac7af65,
         type: 3}
       propertyPath: m_Name
-      value: BaseCavalryLeader
+      value: BaseCavalryLeader Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1869541050192787287, guid: 167a4756146e87144b629f83dac7af65,
         type: 3}
@@ -40,7 +40,7 @@ PrefabInstance:
     - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.634341
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
         type: 3}
@@ -50,7 +50,7 @@ PrefabInstance:
     - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.567318
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731042021779323665, guid: 167a4756146e87144b629f83dac7af65,
         type: 3}
