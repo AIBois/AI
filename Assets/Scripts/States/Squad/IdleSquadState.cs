@@ -30,6 +30,7 @@ namespace States.Squad
             var enemies = Object.FindObjectsOfType<SquadBase>();
             foreach (var enemy in enemies)
             {
+                if (enemy.enemy == context.enemy) continue;
                 var dist = Vector3.Distance(enemy.transform.position, currentPos);
                 if (!(dist < minDist)) continue;
                 result = enemy;

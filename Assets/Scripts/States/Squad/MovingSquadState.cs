@@ -22,7 +22,8 @@ namespace States.Squad
         public override void Act()
         {
             context.MoveTo(closestSquad.transform.position);
-            if (EnemyWithinAttackingDistance()) context.currentState = new CombatSquadState(context, closestSquad);
+            if (EnemyWithinAttackingDistance()) 
+                context.currentState = new CombatSquadState(context, closestSquad);
         }
 
         private bool EnemyWithinAttackingDistance()

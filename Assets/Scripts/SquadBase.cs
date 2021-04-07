@@ -13,6 +13,9 @@ public class SquadBase : MonoBehaviour
     [SerializeField]
     private float cost, safeDistance;
 
+    [SerializeField]
+    public bool enemy;
+
     public float SafeDistance => safeDistance;
 
     private void Awake()
