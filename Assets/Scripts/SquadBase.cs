@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using States.Character;
 using States.Squad;
 using UnityEngine;
 
@@ -22,22 +21,26 @@ public class SquadBase : MonoBehaviour
 
         SetupSquadSteeringAgents();
     }
-
     
-    void Start()
+    void SetupSquadSteeringAgents()
     {
-
-    }
-
-    public void SetUnitStates(CharacterState state)
-    {
-        state.context = Leader;
-        Leader.currentState = state;
         foreach (var unit in Units)
         {
-            state.context = unit;
-            unit.currentState = state;
+            SteeringAgent agent = unit.GetComponent<SteeringAgent>();
+            if (!agent) continue;
+
+            agent.Squad = this;
         }
+    }
+
+    void Start()
+    {
+        currentState = new IdleSquadState(this);
+    }
+
+    private void Update()
+    {
+        currentState.Act();
     }
 
     public void MoveTo(Vector3 position)
@@ -56,18 +59,7 @@ public class SquadBase : MonoBehaviour
 
     public void IsBeingAttacked(SquadBase attacker)
     {
-        attackListener.BeingAttacked(attacker);
-    }
-
-    void SetupSquadSteeringAgents()
-    {
-        foreach (var unit in Units)
-        {
-            SteeringAgent agent = unit.GetComponent<SteeringAgent>();
-            if (!agent) continue;
-
-            agent.Squad = this;
-        }
+        attackListener?.BeingAttacked(attacker);
     }
 
     public Vector3 GetAveragedPosition()

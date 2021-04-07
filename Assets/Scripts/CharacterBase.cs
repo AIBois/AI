@@ -104,6 +104,11 @@ public class CharacterBase : MonoBehaviour
         SteeringAgent = GetComponent<SteeringAgent>();
     }
 
+    private void Update()
+    {
+        currentState.Act();
+    }
+
     public void MoveTo(Vector3 position)
     {
         SteeringAgent.SetMovementType(SteeringMovementType.UNIT);
@@ -113,7 +118,7 @@ public class CharacterBase : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0) currentState = new DeathCharacterState();
+        if (CurrentHealth <= 0) currentState = new DeathCharacterState(this);
     }
 
     public bool ReadyToAttack()

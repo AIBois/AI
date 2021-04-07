@@ -6,12 +6,12 @@ namespace States.Character
     {
         private SquadBase enemySquad;
 
-        public CombatCharacterState(SquadBase enemySquad)
+        public CombatCharacterState(CharacterBase context, SquadBase enemySquad) : base(context)
         {
             this.enemySquad = enemySquad;
         }
 
-        protected override void Act()
+        public override void Act()
         {
             var closestEnemy = GetClosestEnemy();
             if (InRangedRange(closestEnemy.transform.position)) RangedAttack(closestEnemy); 
@@ -23,7 +23,7 @@ namespace States.Character
         {
             CharacterBase result = null;
             var minDistance = Mathf.Infinity;
-            var currentPos = transform.position;
+            var currentPos = context.transform.position;
             foreach (var enemy in enemySquad.Units)
             {
                 var distance = Vector3.Distance(enemy.transform.position, currentPos);
@@ -37,7 +37,7 @@ namespace States.Character
         private bool InRangedRange(Vector3 enemyPosition)
         {
             if (!context.IsRanged) return false;
-            var distance = Vector3.Distance(enemyPosition, transform.position);
+            var distance = Vector3.Distance(enemyPosition, context.transform.position);
             return distance <= context.RangedAttackLongDistance &&
                 distance >= context.RangedAttackShortDistance;
         }
@@ -49,7 +49,7 @@ namespace States.Character
         
         private bool InMeleeRange(Vector3 position)
         {
-            return Vector3.Distance(position, transform.position) <= context.MeleeAttackDistance;
+            return Vector3.Distance(position, context.transform.position) <= context.MeleeAttackDistance;
         }
 
         private void MeleeAttack(CharacterBase closestEnemy)

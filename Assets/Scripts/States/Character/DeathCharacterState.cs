@@ -2,7 +2,9 @@
 {
     public class DeathCharacterState : CharacterState
     {
-        protected override void Act()
+        public DeathCharacterState(CharacterBase context) : base(context){ }
+        
+        public override void Act()
         {
             //Destroy character
         }

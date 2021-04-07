@@ -1,14 +1,7 @@
-﻿using UnityEngine;
-
-namespace States
+﻿namespace States
 {
-    public abstract class State : MonoBehaviour
+    public abstract class State
     {
-        protected abstract void Act();
-
-        void Update()
-        {
-            Act();
-        }
+        public abstract void Act();
     }
 }
