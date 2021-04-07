@@ -1,4 +1,5 @@
-﻿using States.Character;
+﻿using System.Diagnostics;
+using States.Character;
 using UnityEngine;
 
 public class CharacterBase : MonoBehaviour
@@ -15,6 +16,9 @@ public class CharacterBase : MonoBehaviour
     private float currentHealth, maxHealth;
     [SerializeField] 
     private bool isRanged;
+    
+    private readonly Stopwatch stopwatch = new Stopwatch();
+    public long timeSinceLastAttack;
 
     public bool IsRanged => isRanged;
 
@@ -102,6 +106,7 @@ public class CharacterBase : MonoBehaviour
     {
         currentHealth = maxHealth;
         SteeringAgent = GetComponent<SteeringAgent>();
+        stopwatch.Start();
     }
 
     private void Update()
@@ -115,19 +120,46 @@ public class CharacterBase : MonoBehaviour
         SteeringAgent.SetTarget(position);
     }
 
-    public void TakeDamage(float damage)
+    private void TakeDamage(float damage, SquadBase enemySquad)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0) currentState = new DeathCharacterState(this);
+        if (CurrentHealth <= 0) currentState = new DeathCharacterState(this, enemySquad);
     }
 
-    public bool ReadyToAttack()
+    public bool InRangedRange(Vector3 enemyPosition)
     {
-        return Time.deltaTime % MeleeAttackFrequency == 0;
+        if (!IsRanged) return false;
+        var distance = Vector3.Distance(enemyPosition, transform.position);
+        return distance <= RangedAttackLongDistance &&
+               distance >= RangedAttackShortDistance;
     }
 
-    public bool ReadyToRangedAttack()
+    public void RangedAttack(CharacterBase closestEnemy, SquadBase enemySquad)
     {
-        return Time.deltaTime % RangedAttackFrequency == 0;
+        if (!ReadyToRangedAttack()) return;
+        timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
+        closestEnemy.TakeDamage(RangedDamage, enemySquad);
+    }
+    
+    private bool ReadyToRangedAttack()
+    {
+        return stopwatch.ElapsedMilliseconds - timeSinceLastAttack > RangedAttackFrequency * 1000;
+    }
+
+    public bool InMeleeRange(Vector3 position)
+    {
+        return Vector3.Distance(position, transform.position) <= MeleeAttackDistance;
+    }
+
+    public void MeleeAttack(CharacterBase closestEnemy, SquadBase enemySquad)
+    {
+        if (!ReadyToMeleeAttack()) return;
+        timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
+        closestEnemy.TakeDamage(MeleeDamage, enemySquad);
+    }
+        
+    private bool ReadyToMeleeAttack()
+    {
+        return stopwatch.ElapsedMilliseconds - timeSinceLastAttack > MeleeAttackFrequency * 1000;
     }
 }
