@@ -26,8 +26,7 @@ public class SquadBase : MonoBehaviour
     
     void Start()
     {
-        //Test squad move
-        MoveTo(new Vector3(-6,0,25));
+
     }
 
     public void SetUnitStates(CharacterState state)
