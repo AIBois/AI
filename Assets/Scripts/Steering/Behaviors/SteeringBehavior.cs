@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SteeringBehavior
+public interface ISteering
+{
+    SteeringState GetSteering(SteeringAgent agent, SteeringTarget target);
+}
+
+public abstract class SteeringBehavior : ISteering
 {
     protected const float timeToTarget = 0.1f;
 
-    public abstract SteeringState? GetSteering(SteeringAgent agent, SteeringTarget target);
+    public abstract SteeringState GetSteering(SteeringAgent agent, SteeringTarget target);
 
     public static void ClampLinearAcceleration(ref SteeringState state, SteeringAgent agent)
     {

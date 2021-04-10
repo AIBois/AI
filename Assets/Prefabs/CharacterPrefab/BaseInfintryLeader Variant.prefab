@@ -7,25 +7,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
+    - target: {fileID: 1091266422263262698, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
+      propertyPath: m_LocalPosition.z
+      value: 0.562
       objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
+    - target: {fileID: 1091266422263262698, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.05
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
+    - target: {fileID: 1091266422263262698, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
+      propertyPath: m_LocalPosition.y
+      value: 0.729
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}

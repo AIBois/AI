@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class CohesionBehavior : SteeringBehavior
 {
-    public override SteeringState? GetSteering(SteeringAgent agent, SteeringTarget target)
+    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target)
     {
         SteeringState state = new SteeringState();
         if (!agent || !agent.Squad)
-            return null;
+            return state;
 
         //Get direction
         state.linear = agent.Squad.GetAveragedPosition() - agent.Position;

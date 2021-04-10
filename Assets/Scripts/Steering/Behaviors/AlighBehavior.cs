@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AlighBehavior : SteeringBehavior
 {
-    public override SteeringState? GetSteering(SteeringAgent agent, SteeringTarget target)
+    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target)
     {
         SteeringState state = new SteeringState();
         if (!agent)
-            return null;
+            return state;
 
         float distanceToTarget = Vector3.Distance(agent.Position, target.Position);
         float rotation =

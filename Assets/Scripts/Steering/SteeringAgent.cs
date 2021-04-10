@@ -150,32 +150,42 @@ public class SteeringAgent : MonoBehaviour
         if (SquadBehaviorBlend == null)
             return;
 
-        var flockSteeringInfo =
-            SquadBehaviorBlend.GetSteering(this, steeringTarget);
+        var flockSteeringInfo =  SquadBehaviorBlend.GetSteering(this, steeringTarget);
 
         var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
         var arriveSteering = arriveTarget.GetSteering(this, steeringTarget);
 
-        if (arriveSteering.HasValue)
-        {
-            var finalSteering = arriveSteering.Value.linear;
-            finalSteering += flockSteeringInfo.linear * 10.0f;
-            flockSteeringInfo.linear = finalSteering;
+        //var finalSteering = arriveSteering.linear;
+        //finalSteering += flockSteeringInfo.linear * 10.0f;
+        //flockSteeringInfo.linear = finalSteering;
 
-            SteeringBehavior.ClampLinearAcceleration(ref flockSteeringInfo, this);
+        //Final blend 
+        BehaviorBlend squadMoveBlend = new BehaviorBlend(BlendType.ADD);
+        squadMoveBlend.AddBlend(arriveTarget, 1.0f);
+        squadMoveBlend.AddBlend(SquadBehaviorBlend, 5.0f);
+
+        BehaviorBlend finalBehaviorBlend = new BehaviorBlend(BlendType.LERP);
+        finalBehaviorBlend.AddBlend(squadMoveBlend, 1.0f);
+
+        //collision avoidance
+        var collisionBehavior = SteeringBehaviorFactory.Create(SteeringBehaviorType.COLLISION_AVOIDANCE);
+        var collisionSteering = collisionBehavior.GetSteering(this, steeringTarget);
+        if (collisionSteering.linear.sqrMagnitude >= 0.1f)
+        {
+            finalBehaviorBlend.AddBlend(collisionBehavior,0.9f);
         }
 
-        IntegrateSteering(flockSteeringInfo);
+        var finalSteering = finalBehaviorBlend.GetSteering(this, steeringTarget);
+
+        SteeringBehavior.ClampLinearAcceleration(ref finalSteering, this);
+        
+        IntegrateSteering(finalSteering);
     }
 
     private void UnitMove()
     {
         var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
         var arriveSteering = arriveTarget.GetSteering(this, steeringTarget);
-
-        if (arriveSteering.HasValue)
-        {
-            IntegrateSteering(arriveSteering.Value);
-        }
+        IntegrateSteering(arriveSteering);
     }
 }

@@ -5,18 +5,54 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class BehaviorBlend
+public enum BlendType
 {
-    private Dictionary<SteeringBehavior, float> behaviorBlends;
+    ADD,
+    LERP
+}
 
-    public BehaviorBlend()
+public class BehaviorBlend : ISteering
+{
+    private readonly Dictionary<ISteering, float> behaviorBlends;
+    private readonly BlendType blendType;
+
+    public BehaviorBlend(BlendType blendType = BlendType.ADD)
     {
-        behaviorBlends = new Dictionary<SteeringBehavior, float>();
+        behaviorBlends = new Dictionary<ISteering, float>();
+        this.blendType = blendType;
     }
 
-    public void AddBlend(SteeringBehavior behavior, float weight)
+    public void AddBlend(ISteering behavior, float weight)
     {
         behaviorBlends[behavior] = weight;
+    }
+
+    private void AdditiveBlend(SteeringAgent agent, SteeringTarget target, ref Vector3 linear, ref float angular)
+    {
+        foreach (var behaviorBlend in behaviorBlends)
+        {
+            var state = behaviorBlend.Key.GetSteering(agent, target);
+            linear += state.linear * behaviorBlend.Value;
+            angular += state.angular * behaviorBlend.Value;
+        }
+    }
+
+    private void LerpBlend(SteeringAgent agent, SteeringTarget target, ref Vector3 linear, ref float angular)
+    {
+        Vector3 lastLinear = Vector3.zero;
+        float lastAngular = 0.0f;
+
+        foreach (var behaviorBlend in behaviorBlends)
+        {
+            var state = behaviorBlend.Key.GetSteering(agent, target);
+            Vector3 newLinear = Vector3.LerpUnclamped(lastLinear, state.linear, behaviorBlend.Value);
+            float newAngular = Mathf.LerpUnclamped(lastAngular, state.angular, behaviorBlend.Value);
+            lastLinear = newLinear;
+            lastAngular = newAngular;
+        }
+
+        linear = lastLinear;
+        angular = lastAngular;
     }
 
     public SteeringState GetSteering(SteeringAgent agent, SteeringTarget target)
@@ -24,14 +60,16 @@ public class BehaviorBlend
         Vector3 linear = Vector3.zero;
         float angular = 0.0f;
 
-        foreach (var behaviorBlend in behaviorBlends.OrderByDescending(x => x.Value))
+        switch (blendType)
         {
-            var state = behaviorBlend.Key.GetSteering(agent, target);
-            if (state.HasValue)
-            {
-                linear += state.Value.linear * behaviorBlend.Value;
-                angular += state.Value.angular * behaviorBlend.Value;
-            }
+            case BlendType.ADD:
+                AdditiveBlend(agent, target, ref linear, ref angular);
+                break;
+            case BlendType.LERP:
+                LerpBlend(agent, target, ref linear, ref angular);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
         if (linear.sqrMagnitude > agent.MaxAcceleration * agent.MaxAcceleration)
