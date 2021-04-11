@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AlighBehavior : SteeringBehavior
 {
-    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target)
+    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents = null)
     {
         SteeringState state = new SteeringState();
         if (!agent)

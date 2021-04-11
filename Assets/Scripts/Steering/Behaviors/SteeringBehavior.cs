@@ -4,14 +4,14 @@ using UnityEngine;
 
 public interface ISteering
 {
-    SteeringState GetSteering(SteeringAgent agent, SteeringTarget target);
+    SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents);
 }
 
 public abstract class SteeringBehavior : ISteering
 {
     protected const float timeToTarget = 0.1f;
 
-    public abstract SteeringState GetSteering(SteeringAgent agent, SteeringTarget target);
+    public abstract SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents = null);
 
     public static void ClampLinearAcceleration(ref SteeringState state, SteeringAgent agent)
     {

@@ -7,7 +7,7 @@ using UnityEngine;
 
 class ArriveBehavior : SteeringBehavior
 {
-    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target)
+    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents = null)
     {
         SteeringState state = new SteeringState();
         if (!agent)

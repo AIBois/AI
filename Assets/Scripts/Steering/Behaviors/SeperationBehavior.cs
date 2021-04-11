@@ -10,15 +10,13 @@ public class SeperationBehavior : SteeringBehavior
     public float DistanceThreshold { get; set; } = 20.0f;
     private const float DecayCoefficant = 5.0f;
 
-    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target1)
+    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target1, IList<SteeringAgent> groupAgents)
     {
         SteeringState state = new SteeringState();
         if (!agent)
             return state;
 
-        var targets = agent.Squad.Units;
-
-        foreach (var target in targets)
+        foreach (var target in groupAgents)
         {
             if(target == agent)
                 continue;

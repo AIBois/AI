@@ -151,7 +151,7 @@ MonoBehaviour:
   rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
-  fov: 0
+  fov: 70
   currentHealth: 0
   maxHealth: 0
   isRanged: 0
@@ -234,6 +234,7 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
+  flockDistance: 5
   steeringBlendTypes:
   - type: 4
     weight: 0.05

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -24,11 +25,14 @@ public class SteeringAgent : MonoBehaviour
     [SerializeField] private float maxRotation = 15.0f;
     [SerializeField] private float slowRadius = 7.5f;
     [SerializeField] private float stopRadius = 1.5f;
+    [SerializeField] private float flockViewDistance = 5.0f;
+    [SerializeField] private float squadFlockDistanceThreshold = 5.0f;
+    [SerializeField] [Range(0.0f,1.0f)] private float squadFlockLerpAmount = 0.9f;
     [SerializeField] private List<SteeringBlend> steeringBlendTypes;
     private CharacterBase characterBase;
     private SteeringTarget steeringTarget;
     private SteeringMovementType movementTypeState;
-    private BehaviorBlend SquadBehaviorBlend;
+    private BehaviorBlend FlockFOVBehaviorBlend;
     #endregion
 
     #region properties
@@ -80,11 +84,12 @@ public class SteeringAgent : MonoBehaviour
     {
         characterBase = GetComponent<CharacterBase>();
 
-        SquadBehaviorBlend = new BehaviorBlend();
+        FlockFOVBehaviorBlend = new BehaviorBlend();
         foreach (var blend in steeringBlendTypes)
         {
-            SquadBehaviorBlend.AddBlend(SteeringBehaviorFactory.Create(blend.type),blend.weight);
+            FlockFOVBehaviorBlend.AddBlend(SteeringBehaviorFactory.Create(blend.type),blend.weight);
         }
+
 
         Position = transform.position;
         rotation = transform.rotation.eulerAngles.y;
@@ -141,28 +146,39 @@ public class SteeringAgent : MonoBehaviour
         movementTypeState = movementType;
     }
 
+    private IList<SteeringAgent> GetAgentsWithinFOV()
+    {
+        List<SteeringAgent> agents = new List<SteeringAgent>();
+
+        var overlappingObjects = Physics.OverlapSphere(transform.position, flockViewDistance);
+        foreach (var overlappingObject in overlappingObjects)
+        {
+            if (overlappingObject.tag == "Unit")
+            {
+                SteeringAgent agent = overlappingObject.GetComponent<SteeringAgent>();
+                if(agent)
+                    agents.Add(agent);
+            }
+        }
+
+        return agents;
+    }
+
     /// <summary>
     /// Squad move uses a flocking based algorithm to move the squad as a whole centered around its leader
     /// </summary>
     /// <param name="target"></param>
     private void SquadMove()
     {
-        if (SquadBehaviorBlend == null)
+        if (FlockFOVBehaviorBlend == null)
             return;
 
-        var flockSteeringInfo =  SquadBehaviorBlend.GetSteering(this, steeringTarget);
-
         var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
-        var arriveSteering = arriveTarget.GetSteering(this, steeringTarget);
-
-        //var finalSteering = arriveSteering.linear;
-        //finalSteering += flockSteeringInfo.linear * 10.0f;
-        //flockSteeringInfo.linear = finalSteering;
 
         //Final blend 
         BehaviorBlend squadMoveBlend = new BehaviorBlend(BlendType.ADD);
         squadMoveBlend.AddBlend(arriveTarget, 1.0f);
-        squadMoveBlend.AddBlend(SquadBehaviorBlend, 5.0f);
+        squadMoveBlend.AddBlend(FlockFOVBehaviorBlend, 5.0f);
 
         BehaviorBlend finalBehaviorBlend = new BehaviorBlend(BlendType.LERP);
         finalBehaviorBlend.AddBlend(squadMoveBlend, 1.0f);
@@ -175,7 +191,14 @@ public class SteeringAgent : MonoBehaviour
             finalBehaviorBlend.AddBlend(collisionBehavior,0.9f);
         }
 
-        var finalSteering = finalBehaviorBlend.GetSteering(this, steeringTarget);
+        var finalSteering = finalBehaviorBlend.GetSteering(this, steeringTarget, GetAgentsWithinFOV());
+
+        //Squad flocking is to ensure that the squad units don't seperate to far from each other, if a unit in a squad is too far from the center they will slow down
+        var squadFlockSteering = FlockFOVBehaviorBlend.GetSteering(this, steeringTarget, Squad.Units.Select(unit => unit.SteeringAgent).ToList());
+        if (squadFlockSteering.linear.sqrMagnitude > squadFlockDistanceThreshold)
+        {
+            finalSteering.linear = Vector3.Lerp(finalSteering.linear, squadFlockSteering.linear, squadFlockLerpAmount);
+        }
 
         SteeringBehavior.ClampLinearAcceleration(ref finalSteering, this);
         

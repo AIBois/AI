@@ -27,24 +27,24 @@ public class BehaviorBlend : ISteering
         behaviorBlends[behavior] = weight;
     }
 
-    private void AdditiveBlend(SteeringAgent agent, SteeringTarget target, ref Vector3 linear, ref float angular)
+    private void AdditiveBlend(SteeringAgent agent, SteeringTarget target, ref Vector3 linear, ref float angular, IList<SteeringAgent> groupAgents)
     {
         foreach (var behaviorBlend in behaviorBlends)
         {
-            var state = behaviorBlend.Key.GetSteering(agent, target);
+            var state = behaviorBlend.Key.GetSteering(agent, target, groupAgents);
             linear += state.linear * behaviorBlend.Value;
             angular += state.angular * behaviorBlend.Value;
         }
     }
 
-    private void LerpBlend(SteeringAgent agent, SteeringTarget target, ref Vector3 linear, ref float angular)
+    private void LerpBlend(SteeringAgent agent, SteeringTarget target, ref Vector3 linear, ref float angular, IList<SteeringAgent> groupAgents)
     {
         Vector3 lastLinear = Vector3.zero;
         float lastAngular = 0.0f;
 
         foreach (var behaviorBlend in behaviorBlends)
         {
-            var state = behaviorBlend.Key.GetSteering(agent, target);
+            var state = behaviorBlend.Key.GetSteering(agent, target, groupAgents);
             Vector3 newLinear = Vector3.LerpUnclamped(lastLinear, state.linear, behaviorBlend.Value);
             float newAngular = Mathf.LerpUnclamped(lastAngular, state.angular, behaviorBlend.Value);
             lastLinear = newLinear;
@@ -55,7 +55,7 @@ public class BehaviorBlend : ISteering
         angular = lastAngular;
     }
 
-    public SteeringState GetSteering(SteeringAgent agent, SteeringTarget target)
+    public SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents = null)
     {
         Vector3 linear = Vector3.zero;
         float angular = 0.0f;
@@ -63,10 +63,10 @@ public class BehaviorBlend : ISteering
         switch (blendType)
         {
             case BlendType.ADD:
-                AdditiveBlend(agent, target, ref linear, ref angular);
+                AdditiveBlend(agent, target, ref linear, ref angular, groupAgents);
                 break;
             case BlendType.LERP:
-                LerpBlend(agent, target, ref linear, ref angular);
+                LerpBlend(agent, target, ref linear, ref angular, groupAgents);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

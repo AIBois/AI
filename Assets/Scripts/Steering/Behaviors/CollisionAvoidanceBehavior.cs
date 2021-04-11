@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionAvoidanceBehavior : SteeringBehavior
@@ -6,7 +7,7 @@ public class CollisionAvoidanceBehavior : SteeringBehavior
     private const float RayLength = 2.0f;
     private const float avoidanceLength = 10.0f;
 
-    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target)
+    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents = null)
     {
         SteeringState state = new SteeringState();
         if (!agent)

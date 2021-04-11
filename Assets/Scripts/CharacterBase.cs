@@ -162,4 +162,18 @@ public class CharacterBase : MonoBehaviour
     {
         return stopwatch.ElapsedMilliseconds - timeSinceLastAttack > MeleeAttackFrequency * 1000;
     }
+
+    //Draw FOV gizoms
+    void OnDrawGizmosSelected()
+    {
+        float totalFOV = FOV;
+        float rayRange = 10.0f;
+        float halfFOV = totalFOV / 2.0f;
+        Quaternion leftRayRotation = Quaternion.AngleAxis(-halfFOV, Vector3.up);
+        Quaternion rightRayRotation = Quaternion.AngleAxis(halfFOV, Vector3.up);
+        Vector3 leftRayDirection = leftRayRotation * transform.forward;
+        Vector3 rightRayDirection = rightRayRotation * transform.forward;
+        Gizmos.DrawRay(transform.position, leftRayDirection * rayRange);
+        Gizmos.DrawRay(transform.position, rightRayDirection * rayRange);
+    }
 }
