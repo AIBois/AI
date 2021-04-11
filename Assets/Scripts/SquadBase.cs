@@ -57,7 +57,11 @@ public class SquadBase : MonoBehaviour
 
     public void MoveAwayFrom(Vector3 position)
     {
-        throw new NotImplementedException();
+        foreach (var characterBase in Units)
+        {
+            characterBase.SteeringAgent?.UnitFlee();
+            characterBase.SteeringAgent?.SetMovementType(SteeringMovementType.UNIT);
+        }
     }
 
     public void IsBeingAttacked(SquadBase attacker)

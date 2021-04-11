@@ -213,4 +213,11 @@ public class SteeringAgent : MonoBehaviour
         var arriveSteering = arriveTarget.GetSteering(this, steeringTarget);
         IntegrateSteering(arriveSteering);
     }
+
+    public void UnitFlee()
+    {
+        var target = SteeringBehaviorFactory.Create(SteeringBehaviorType.FLEE);
+        var fleeSteering = target.GetSteering(this, steeringTarget);
+        IntegrateSteering(fleeSteering);
+    }
 }
