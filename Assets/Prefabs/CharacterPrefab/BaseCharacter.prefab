@@ -234,7 +234,9 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  flockDistance: 5
+  flockViewDistance: 5
+  squadFlockDistanceThreshold: 2.5
+  squadFlockLerpAmount: 0.942
   steeringBlendTypes:
   - type: 4
     weight: 0.05

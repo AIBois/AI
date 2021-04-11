@@ -28,6 +28,7 @@ public class SteeringAgent : MonoBehaviour
     [SerializeField] private float flockViewDistance = 5.0f;
     [SerializeField] private float squadFlockDistanceThreshold = 5.0f;
     [SerializeField] [Range(0.0f,1.0f)] private float squadFlockLerpAmount = 0.9f;
+    [SerializeField] private float squadFlockStrength = 100.0f;
     [SerializeField] private List<SteeringBlend> steeringBlendTypes;
     private CharacterBase characterBase;
     private SteeringTarget steeringTarget;
@@ -173,7 +174,7 @@ public class SteeringAgent : MonoBehaviour
         if (FlockFOVBehaviorBlend == null)
             return;
 
-        var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
+        var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.PATHFINDING);
 
         //Final blend 
         BehaviorBlend squadMoveBlend = new BehaviorBlend(BlendType.ADD);
@@ -197,7 +198,8 @@ public class SteeringAgent : MonoBehaviour
         var squadFlockSteering = FlockFOVBehaviorBlend.GetSteering(this, steeringTarget, Squad.Units.Select(unit => unit.SteeringAgent).ToList());
         if (squadFlockSteering.linear.sqrMagnitude > squadFlockDistanceThreshold)
         {
-            finalSteering.linear = Vector3.Lerp(finalSteering.linear, squadFlockSteering.linear, squadFlockLerpAmount);
+            finalSteering.linear = Vector3.Lerp(finalSteering.linear, squadFlockSteering.linear, squadFlockLerpAmount)
+                                   * squadFlockStrength;
         }
 
         SteeringBehavior.ClampLinearAcceleration(ref finalSteering, this);
@@ -207,7 +209,7 @@ public class SteeringAgent : MonoBehaviour
 
     private void UnitMove()
     {
-        var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.ARRIVE);
+        var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.PATHFINDING);
         var arriveSteering = arriveTarget.GetSteering(this, steeringTarget);
         IntegrateSteering(arriveSteering);
     }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class ArriveBehavior : SteeringBehavior
+public class ArriveBehavior : SteeringBehavior
 {
     public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents = null)
     {
@@ -13,6 +13,13 @@ class ArriveBehavior : SteeringBehavior
         if (!agent)
             return state;
 
+        ArriveVelocity(agent, target, ref state);
+
+        return state;
+    }
+
+    protected void ArriveVelocity(SteeringAgent agent, SteeringTarget target, ref SteeringState state)
+    {
         float targetDistance = Vector3.Distance(agent.Position, target.Position) - agent.StopRadius;
         float targetSpeed = agent.MaxSpeed;
 
@@ -29,6 +36,5 @@ class ArriveBehavior : SteeringBehavior
         ClampLinearAcceleration(ref state, agent);
 
         state.angular = 0.0f;
-        return state;
     }
 }
