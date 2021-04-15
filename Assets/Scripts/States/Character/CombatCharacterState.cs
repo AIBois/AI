@@ -6,16 +6,16 @@ namespace States.Character
     {
         private SquadBase enemySquad;
 
-        public CombatCharacterState(SquadBase enemySquad)
+        public CombatCharacterState(CharacterBase context, SquadBase enemySquad) : base(context)
         {
             this.enemySquad = enemySquad;
         }
 
-        protected override void Act()
+        public override void Act()
         {
             var closestEnemy = GetClosestEnemy();
-            if (InRangedRange(closestEnemy.transform.position)) RangedAttack(closestEnemy); 
-            else if (InMeleeRange(closestEnemy.transform.position)) MeleeAttack(closestEnemy); 
+            if (context.InRangedRange(closestEnemy.transform.position)) context.RangedAttack(closestEnemy, enemySquad); 
+            else if (context.InMeleeRange(closestEnemy.transform.position)) context.MeleeAttack(closestEnemy, enemySquad); 
             else context.MoveTo(closestEnemy.transform.position);
         }
 
@@ -23,7 +23,7 @@ namespace States.Character
         {
             CharacterBase result = null;
             var minDistance = Mathf.Infinity;
-            var currentPos = transform.position;
+            var currentPos = context.transform.position;
             foreach (var enemy in enemySquad.Units)
             {
                 var distance = Vector3.Distance(enemy.transform.position, currentPos);
@@ -32,29 +32,6 @@ namespace States.Character
                 minDistance = distance;
             }
             return result;
-        }
-
-        private bool InRangedRange(Vector3 enemyPosition)
-        {
-            if (!context.IsRanged) return false;
-            var distance = Vector3.Distance(enemyPosition, transform.position);
-            return distance <= context.RangedAttackLongDistance &&
-                distance >= context.RangedAttackShortDistance;
-        }
-
-        private void RangedAttack(CharacterBase closestEnemy)
-        {
-            if(context.ReadyToRangedAttack()) closestEnemy.TakeDamage(context.RangedDamage);
-        }
-        
-        private bool InMeleeRange(Vector3 position)
-        {
-            return Vector3.Distance(position, transform.position) <= context.MeleeAttackDistance;
-        }
-
-        private void MeleeAttack(CharacterBase closestEnemy)
-        {
-            if(context.ReadyToAttack()) closestEnemy.TakeDamage(context.MeleeDamage);
         }
     }
 }

@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: meleeAttackDistance
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
@@ -65,12 +65,12 @@ PrefabInstance:
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: rangedAttackShortDistance
-      value: 15
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: rangedAttackLongDistance
-      value: 30
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
@@ -105,7 +105,7 @@ PrefabInstance:
     - target: {fileID: 8794086450976700085, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.634341
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8794086450976700085, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
@@ -115,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 8794086450976700085, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.567318
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8794086450976700085, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}

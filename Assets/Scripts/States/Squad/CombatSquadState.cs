@@ -9,13 +9,19 @@ namespace States.Squad
 
         public CombatSquadState(SquadBase context, SquadBase enemySquad) : base(context)
         {
-            startingSquadSize = context.Units.Length;
+            startingSquadSize = context.Units.Count;
             this.enemySquad = enemySquad;
-            context.SetUnitStates(new CombatCharacterState(enemySquad));
+            SetUnitStates();
             enemySquad.IsBeingAttacked(context);
         }
 
-        protected override void Act()
+        protected override void SetUnitStates()
+        {
+            foreach (var unit in context.Units)
+                unit.currentState = new CombatCharacterState(unit, enemySquad);
+        }
+
+        public override void Act()
         {
             if (SquadHasBeenHalved() || SquadLeaderIsDead()) 
                 context.currentState = new RetreatSquadState(context, enemySquad);
@@ -28,7 +34,7 @@ namespace States.Squad
 
         private bool SquadHasBeenHalved()
         {
-            return context.Units.Length < startingSquadSize;
+            return context.Units.Count < startingSquadSize;
         }
     }
 }

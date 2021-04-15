@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using States.Character;
+using UnityEngine;
 
 namespace States.Squad
 {
@@ -12,15 +13,21 @@ namespace States.Squad
             context.attackListener = this;
         }
 
-        protected override void Act()
+        public override void Act()
         {
             context.MoveAwayFrom(enemySquad.transform.position);
             if(FarEnoughFromEnemy()) context.currentState = new IdleSquadState(context);
         }
 
+        protected override void SetUnitStates()
+        {
+            foreach (var unit in context.Units)
+                unit.currentState = new MovingCharacterState(unit);
+        }
+
         private bool FarEnoughFromEnemy()
         {
-            var distance = Vector3.Distance(enemySquad.transform.position, transform.position);
+            var distance = Vector3.Distance(enemySquad.transform.position, context.transform.position);
             return distance >= context.SafeDistance;
         }
 

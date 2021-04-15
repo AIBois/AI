@@ -2,8 +2,8 @@
 {
     public class MovingCharacterState : CharacterState
     {
-        protected override void Act()
-        {
-        }
+        public MovingCharacterState(CharacterBase context) : base(context){}
+
+        public override void Act() { }
     }
 }

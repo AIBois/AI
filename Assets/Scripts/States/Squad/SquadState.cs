@@ -2,8 +2,13 @@
 {
     public abstract class SquadState : State
     {
-        public SquadBase context;
+        protected SquadBase context;
 
-        protected SquadState(SquadBase context) { }
+        protected abstract void SetUnitStates();
+        
+        protected SquadState(SquadBase context)
+        {
+            this.context = context;
+        }
     }
 }

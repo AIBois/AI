@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
-      value: BaseKnightLeader
+      value: BaseKnightLeader Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -35,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.299099
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -45,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.574877
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}

@@ -2,7 +2,9 @@
 {
     public class IdleCharacterState : CharacterState
     {
-        protected override void Act()
+        public IdleCharacterState(CharacterBase context) : base(context){}
+
+        public override void Act()
         {
             //do nothing
         }

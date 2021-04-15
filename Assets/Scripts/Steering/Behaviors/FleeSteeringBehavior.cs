@@ -1,19 +1,19 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FleeSteeringBehavior : SteeringBehavior
 {
 
-    public override SteeringState GetSteering(SteeringAgent agent)
+    public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents = null)
     {
         SteeringState state = new SteeringState();
-        if (!TargetPosition.HasValue || !agent)
+        if (!agent)
             return state;
 
         //Get direction
-        state.linear =  agent.Position - TargetPosition.Value;
-        state.linear.Normalize();
-        state.linear *= agent.MaxAcceleration;
+        state.linear =  agent.Position - target.Position;
+        ClampLinearAcceleration(ref state, agent);
 
         state.angular = 0.0f;
 

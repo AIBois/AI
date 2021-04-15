@@ -30,22 +30,22 @@ PrefabInstance:
     - target: {fileID: 1305509091526464579, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: m_Name
-      value: BaseRangerLeader
+      value: BaseRangerLeader Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3431042884618110286, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.634385
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3431042884618110286, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3431042884618110286, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.186007
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3431042884618110286, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}

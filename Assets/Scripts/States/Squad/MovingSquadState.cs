@@ -10,18 +10,25 @@ namespace States.Squad
         public MovingSquadState(SquadBase context, SquadBase closestSquad) : base(context)
         {
             this.closestSquad = closestSquad;
-            context.SetUnitStates(new MovingCharacterState());
+            SetUnitStates();
         }
 
-        protected override void Act()
+        protected override void SetUnitStates()
+        {
+            foreach (var unit in context.Units)
+                unit.currentState = new MovingCharacterState(unit);
+        }
+        
+        public override void Act()
         {
             context.MoveTo(closestSquad.transform.position);
-            if (EnemyWithinAttackingDistance()) context.currentState = new CombatSquadState(context, closestSquad);
+            if (EnemyWithinAttackingDistance()) 
+                context.currentState = new CombatSquadState(context, closestSquad);
         }
 
         private bool EnemyWithinAttackingDistance()
         {
-            var distance = Vector3.Distance(closestSquad.transform.position, transform.position);
+            var distance = Vector3.Distance(closestSquad.transform.position, context.transform.position);
             return context.Leader.IsRanged
                 ? distance <= context.Leader.RangedAttackLongDistance
                 : distance <= context.Leader.MeleeAttackDistance;
