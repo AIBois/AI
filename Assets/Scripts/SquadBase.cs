@@ -11,7 +11,7 @@ public class SquadBase : MonoBehaviour
     public CharacterBase Leader;
     public List<CharacterBase> Units;
     [SerializeField]
-    private float cost, safeDistance;
+    private float safeDistance;
 
     [SerializeField]
     public bool enemy;
@@ -20,8 +20,6 @@ public class SquadBase : MonoBehaviour
 
     private void Awake()
     {
-        //TODO:: create a randomisation of the cost based ont he individual units.
-
         SetupSquadSteeringAgents();
     }
     
