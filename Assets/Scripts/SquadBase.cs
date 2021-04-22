@@ -17,13 +17,20 @@ public class SquadBase : MonoBehaviour
     public bool enemy;
 
     public float SafeDistance => safeDistance;
+    private int cost;
+
+    public int Cost
+    {
+        get => cost;
+        set => cost = value;
+    }
 
     private void Awake()
     {
-        SetupSquadSteeringAgents();
+       SetupSquadSteeringAgents();
     }
     
-    void SetupSquadSteeringAgents()
+    public void SetupSquadSteeringAgents()
     {
         foreach (var unit in Units)
         {

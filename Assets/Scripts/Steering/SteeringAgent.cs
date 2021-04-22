@@ -13,7 +13,8 @@ struct SteeringBlend
 public enum SteeringMovementType
 {
     SQUAD,
-    UNIT
+    UNIT,
+    NONE
 }
 
 [RequireComponent(typeof(CharacterBase))]
@@ -95,7 +96,7 @@ public class SteeringAgent : MonoBehaviour
         Position = transform.position;
         rotation = transform.rotation.eulerAngles.y;
 
-        movementTypeState = SteeringMovementType.SQUAD;
+        movementTypeState = SteeringMovementType.NONE;
     }
 
     public void IntegrateSteering(SteeringState steering)
@@ -126,6 +127,8 @@ public class SteeringAgent : MonoBehaviour
                 break;
             case SteeringMovementType.UNIT:
                 UnitMove();
+                break;
+            case SteeringMovementType.NONE:
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

@@ -44,12 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d50033f2899bb44a1331cc9792e89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
   Leader: {fileID: 4719618041288962756}
   Units:
   - {fileID: 4719618041288962756}
-  cost: 0
   safeDistance: 0
+  enemy: 0
 --- !u!1001 &8722935360393499911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,6 +115,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BaseGiant Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478140895953524809, guid: 5ce69f0ef3078944bb5f1e0ea21cc04a,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce69f0ef3078944bb5f1e0ea21cc04a, type: 3}

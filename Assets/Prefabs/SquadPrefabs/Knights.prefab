@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d50033f2899bb44a1331cc9792e89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: {fileID: 0}
   Leader: {fileID: 3240410176702764082}
   Units:
   - {fileID: 3240410176702764082}
@@ -58,8 +57,8 @@ MonoBehaviour:
   - {fileID: 8933512240115623381}
   - {fileID: 2529647707752191602}
   - {fileID: 918403607871342496}
-  cost: 0
   safeDistance: 0
+  enemy: 0
 --- !u!1001 &2290986917821442171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,10 +66,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
+    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -159,10 +168,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
+    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -251,10 +270,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
+    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -403,10 +432,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8774632766373145710, guid: deb688ad3f00b1a4ea3b301abc22f944,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9080586248391774521, guid: deb688ad3f00b1a4ea3b301abc22f944,
         type: 3}
       propertyPath: m_Name
       value: BaseKnightLeader Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080586248391774521, guid: deb688ad3f00b1a4ea3b301abc22f944,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb688ad3f00b1a4ea3b301abc22f944, type: 3}
@@ -435,10 +474,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
+    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -527,10 +576,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
+    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
