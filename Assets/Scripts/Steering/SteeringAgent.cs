@@ -119,7 +119,6 @@ public class SteeringAgent : MonoBehaviour
 
         Position += Velocity * Time.deltaTime;
         transform.rotation = Quaternion.AngleAxis(rotation, Vector3.up);
-        Debug.Log(transform.rotation);
     }
 
     public void Update()
@@ -139,14 +138,21 @@ public class SteeringAgent : MonoBehaviour
         }
     }
 
-    public void SetTarget(SteeringTarget target)
+    //public void SetTarget(SteeringTarget target)
+    //{
+    //    steeringTarget.CharacterBase = null;
+    //    steeringTarget = target;
+    //}
+
+    public void SetTarget(CharacterBase target)
     {
-        steeringTarget = target;
+        steeringTarget.CharacterBase = target;
     }
 
     public void SetTarget(Vector3 position)
     {
-        steeringTarget.Position = position;
+        steeringTarget.CharacterBase = null;
+        steeringTarget.SetPosition(position);
     }
 
     public void SetMovementType(SteeringMovementType movementType)

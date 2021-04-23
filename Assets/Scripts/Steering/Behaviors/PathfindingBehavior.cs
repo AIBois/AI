@@ -15,7 +15,7 @@ public class PathfindingBehavior : ArriveBehavior
             return state;
 
         NavMeshPath path = new NavMeshPath();
-        if (NavMesh.CalculatePath(agent.Position, target.Position, NavMesh.AllAreas, path))
+        if (NavMesh.CalculatePath(agent.Position, target.GetPosition(), NavMesh.AllAreas, path))
         {
             bool isvalid = path.status == NavMeshPathStatus.PathComplete;
             if (!isvalid) 

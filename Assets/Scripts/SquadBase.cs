@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using States.Squad;
 using UnityEngine;
@@ -64,6 +64,15 @@ public class SquadBase : MonoBehaviour
         foreach (var characterBase in Units)
         {
             characterBase.SteeringAgent?.SetTarget(position);
+            characterBase.SteeringAgent?.SetMovementType(SteeringMovementType.SQUAD);
+        }
+    }
+
+    public void MoveTo(CharacterBase character)
+    {
+        foreach (var characterBase in Units)
+        {
+            characterBase.SteeringAgent?.SetTarget(character);
             characterBase.SteeringAgent?.SetMovementType(SteeringMovementType.SQUAD);
         }
     }

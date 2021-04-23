@@ -20,7 +20,7 @@ public class ArriveBehavior : SteeringBehavior
 
     protected void ArriveVelocity(SteeringAgent agent, SteeringTarget target, ref SteeringState state)
     {
-        float targetDistance = Vector3.Distance(agent.Position, target.Position) - agent.StopRadius;
+        float targetDistance = Vector3.Distance(agent.Position, target.GetPosition()) - agent.StopRadius;
         float targetSpeed = agent.MaxSpeed;
 
         if (targetDistance < agent.SlowRadius) //if within slow radius adjust target speed
@@ -28,7 +28,7 @@ public class ArriveBehavior : SteeringBehavior
             targetSpeed = agent.MaxSpeed * targetDistance / agent.SlowRadius;
         }
 
-        var TargetVelocity = (target.Position - agent.Position).normalized;
+        var TargetVelocity = (target.GetPosition() - agent.Position).normalized;
         TargetVelocity *= targetSpeed;
 
         state.linear = TargetVelocity - agent.Velocity;

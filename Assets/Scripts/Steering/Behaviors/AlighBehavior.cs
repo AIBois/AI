@@ -10,7 +10,7 @@ public class AlighBehavior : SteeringBehavior
         if (!agent)
             return state;
 
-        float distanceToTarget = Vector3.Distance(agent.Position, target.Position);
+        float distanceToTarget = Vector3.Distance(agent.Position, target.GetPosition());
         float rotation =
             Mathf.DeltaAngle(agent.Orientation.eulerAngles.y, target.Rotation);
         float absRotation = Mathf.Abs(rotation);

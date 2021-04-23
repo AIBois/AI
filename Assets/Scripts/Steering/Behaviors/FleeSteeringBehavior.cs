@@ -12,7 +12,7 @@ public class FleeSteeringBehavior : SteeringBehavior
             return state;
 
         //Get direction
-        state.linear =  agent.Position - target.Position;
+        state.linear =  agent.Position - target.GetPosition();
         ClampLinearAcceleration(ref state, agent);
 
         state.angular = 0.0f;

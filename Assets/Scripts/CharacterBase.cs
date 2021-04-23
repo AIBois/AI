@@ -120,6 +120,12 @@ public class CharacterBase : MonoBehaviour
         SteeringAgent.SetTarget(position);
     }
 
+    public void MoveTo(CharacterBase character)
+    {
+        SteeringAgent.SetMovementType(SteeringMovementType.UNIT);
+        SteeringAgent.SetTarget(character);
+    }
+
     private void TakeDamage(float damage, SquadBase enemySquad)
     {
         CurrentHealth -= damage;
