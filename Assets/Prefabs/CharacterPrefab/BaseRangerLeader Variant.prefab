@@ -27,6 +27,21 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 408455437205965064, guid: af7b32dbf042afb40809c47cb7f3f1bb,
+        type: 3}
+      propertyPath: meleeAttackDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 408455437205965064, guid: af7b32dbf042afb40809c47cb7f3f1bb,
+        type: 3}
+      propertyPath: rangedAttackShortDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 408455437205965064, guid: af7b32dbf042afb40809c47cb7f3f1bb,
+        type: 3}
+      propertyPath: rangedAttackLongDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1305509091526464579, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: m_Name

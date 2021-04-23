@@ -91,12 +91,16 @@ public class SteeringAgent : MonoBehaviour
         {
             FlockFOVBehaviorBlend.AddBlend(SteeringBehaviorFactory.Create(blend.type),blend.weight);
         }
-
-
-        Position = transform.position;
-        rotation = transform.rotation.eulerAngles.y;
+        
+        setPosition();
 
         movementTypeState = SteeringMovementType.NONE;
+    }
+
+    public void setPosition()
+    {
+        Position = transform.position;
+        rotation = transform.rotation.eulerAngles.y;
     }
 
     public void IntegrateSteering(SteeringState steering)

@@ -142,12 +142,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeDamage: 0
-  meleeAttackDistance: 0
+  meleeAttackDistance: 1
   meleeAttackFrequency: 0
   defense: 0
   rangedDamage: 0
-  rangedAttackShortDistance: 0
-  rangedAttackLongDistance: 0
+  rangedAttackShortDistance: 3
+  rangedAttackLongDistance: 5
   rangedAttackFrequency: 0
   baseSpeed: 0
   retreatSpeed: 0
@@ -237,6 +237,7 @@ MonoBehaviour:
   flockViewDistance: 5
   squadFlockDistanceThreshold: 2.5
   squadFlockLerpAmount: 0.942
+  squadFlockStrength: 100
   steeringBlendTypes:
   - type: 4
     weight: 0.05

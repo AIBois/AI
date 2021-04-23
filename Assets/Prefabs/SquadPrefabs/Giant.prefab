@@ -116,6 +116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseGiant Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3441978753288780424, guid: 5ce69f0ef3078944bb5f1e0ea21cc04a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8478140895953524809, guid: 5ce69f0ef3078944bb5f1e0ea21cc04a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight

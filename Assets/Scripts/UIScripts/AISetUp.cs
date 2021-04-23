@@ -36,6 +36,7 @@ public class AISetUp : MonoBehaviour
         position.z *= -1;
         SquadBase selectedSquad = Instantiate(squadBases[(int)options[choosen].GetComponent<SquadOption>().squadType], position, Quaternion.identity);
         selectedSquad.Cost = options[choosen].GetComponent<SquadOption>().cost;
+        selectedSquad.enemy = true;
         pointValue -= selectedSquad.Cost;
         points.text = pointValue.ToString();
     }

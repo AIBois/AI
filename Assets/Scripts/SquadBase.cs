@@ -12,17 +12,24 @@ public class SquadBase : MonoBehaviour
     public List<CharacterBase> Units;
     [SerializeField]
     private float safeDistance;
+    private bool battleStarted = false;
 
     [SerializeField]
     public bool enemy;
+    private int cost;
 
     public float SafeDistance => safeDistance;
-    private int cost;
 
     public int Cost
     {
         get => cost;
         set => cost = value;
+    }
+
+    public bool BattleStarted
+    {
+        get => battleStarted;
+        set => battleStarted = value;
     }
 
     private void Awake()
@@ -48,7 +55,8 @@ public class SquadBase : MonoBehaviour
 
     private void Update()
     {
-        currentState.Act();
+        if(battleStarted)
+            currentState.Act();
     }
 
     public void MoveTo(Vector3 position)

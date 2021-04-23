@@ -107,6 +107,21 @@ PrefabInstance:
       propertyPath: defense
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
+        type: 3}
+      propertyPath: meleeAttackDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
+        type: 3}
+      propertyPath: rangedAttackShortDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
+        type: 3}
+      propertyPath: rangedAttackLongDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8981682541434578647, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

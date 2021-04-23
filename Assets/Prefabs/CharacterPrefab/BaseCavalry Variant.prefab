@@ -55,7 +55,7 @@ PrefabInstance:
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: meleeAttackDistance
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
@@ -65,12 +65,12 @@ PrefabInstance:
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: rangedAttackShortDistance
-      value: 60
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: rangedAttackLongDistance
-      value: 90
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
