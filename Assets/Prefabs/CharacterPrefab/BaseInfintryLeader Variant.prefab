@@ -110,7 +110,7 @@ PrefabInstance:
     - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: meleeAttackDistance
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}

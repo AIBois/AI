@@ -130,8 +130,7 @@ public class CharacterBase : MonoBehaviour
     {
         if (!IsRanged) return false;
         var distance = Vector3.Distance(enemyPosition, transform.position);
-        return distance <= RangedAttackLongDistance &&
-               distance >= RangedAttackShortDistance;
+        return distance <= RangedAttackLongDistance;
     }
 
     public void RangedAttack(CharacterBase closestEnemy, SquadBase enemySquad)

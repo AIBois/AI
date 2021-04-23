@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeDamage: 0
-  meleeAttackDistance: 1
+  meleeAttackDistance: 3
   meleeAttackFrequency: 0
   defense: 0
   rangedDamage: 0
