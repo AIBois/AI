@@ -18,7 +18,7 @@ public class SquadPicker : MonoBehaviour
             RaycastHit hitData;
             if (collider.Raycast(mousePosition, out hitData, 1000))
             {
-                selectedSquad.transform.position = hitData.point;
+                selectedSquad.transform.position = new Vector3(hitData.point.x, 0.0f,hitData.point.z);
             }
         }
     }
