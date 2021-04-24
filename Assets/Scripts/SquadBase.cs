@@ -63,7 +63,7 @@ public class SquadBase : MonoBehaviour
     {
         foreach (var characterBase in Units)
         {
-            characterBase.SteeringAgent?.SetTarget(position);
+            characterBase.SteeringAgent?.SetTarget(position, 0.0f);
             characterBase.SteeringAgent?.SetMovementType(SteeringMovementType.SQUAD);
         }
     }

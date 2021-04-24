@@ -114,10 +114,10 @@ public class CharacterBase : MonoBehaviour
         currentState.Act();
     }
 
-    public void MoveTo(Vector3 position)
+    public void MoveTo(Vector3 position, float orientation)
     {
         SteeringAgent.SetMovementType(SteeringMovementType.UNIT);
-        SteeringAgent.SetTarget(position);
+        SteeringAgent.SetTarget(position,orientation);
     }
 
     public void MoveTo(CharacterBase character)
@@ -141,7 +141,7 @@ public class CharacterBase : MonoBehaviour
 
     public void RangedAttack(CharacterBase closestEnemy, SquadBase enemySquad)
     {
-        MoveTo(transform.position);
+        MoveTo(transform.position, GetRotationToCharacter(closestEnemy));
         if (!ReadyToRangedAttack()) return;
         timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
         closestEnemy.TakeDamage(RangedDamage, enemySquad);
@@ -159,7 +159,7 @@ public class CharacterBase : MonoBehaviour
 
     public void MeleeAttack(CharacterBase closestEnemy, SquadBase enemySquad)
     {
-        MoveTo(transform.position);
+        MoveTo(transform.position, GetRotationToCharacter(closestEnemy));
         if (!ReadyToMeleeAttack()) return;
         timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
         closestEnemy.TakeDamage(MeleeDamage, enemySquad);
@@ -168,6 +168,12 @@ public class CharacterBase : MonoBehaviour
     private bool ReadyToMeleeAttack()
     {
         return stopwatch.ElapsedMilliseconds - timeSinceLastAttack > MeleeAttackFrequency * 1000;
+    }
+
+    private float GetRotationToCharacter(CharacterBase character)
+    {
+        Vector3 direction = character.transform.position - transform.position;
+        return Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
     }
 
     //Draw FOV gizoms

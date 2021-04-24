@@ -149,10 +149,11 @@ public class SteeringAgent : MonoBehaviour
         steeringTarget.CharacterBase = target;
     }
 
-    public void SetTarget(Vector3 position)
+    public void SetTarget(Vector3 position, float orientation)
     {
         steeringTarget.CharacterBase = null;
         steeringTarget.SetPosition(position);
+        steeringTarget.Rotation = orientation;
     }
 
     public void SetMovementType(SteeringMovementType movementType)
