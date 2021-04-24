@@ -13,6 +13,8 @@ namespace States.Character
 
         public override void Act()
         {
+            //TODO check handle if closest enemy is null (Squad dead) and change to the appropriate state.
+
             var closestEnemy = GetClosestEnemy();
             if (context.InRangedRange(closestEnemy.transform.position)) context.RangedAttack(closestEnemy, enemySquad); 
             else if (context.InMeleeRange(closestEnemy.transform.position)) context.MeleeAttack(closestEnemy, enemySquad); 

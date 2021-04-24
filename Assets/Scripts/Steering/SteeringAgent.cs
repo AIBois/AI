@@ -118,7 +118,7 @@ public class SteeringAgent : MonoBehaviour
             Velocity = Velocity.normalized * MaxSpeed;
 
         Position += Velocity * Time.deltaTime;
-        transform.rotation = Quaternion.AngleAxis(rotation, Vector3.up);
+        Orientation = Quaternion.AngleAxis(rotation, Vector3.up);
     }
 
     public void Update()
@@ -188,14 +188,18 @@ public class SteeringAgent : MonoBehaviour
             return;
 
         var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.PATHFINDING);
+        var faceTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.FACE);
 
         //Final blend 
         BehaviorBlend squadMoveBlend = new BehaviorBlend(BlendType.ADD);
         squadMoveBlend.AddBlend(arriveTarget, 1.0f);
         squadMoveBlend.AddBlend(FlockFOVBehaviorBlend, 5.0f);
+        squadMoveBlend.AddBlend(faceTarget, 6.0f);
+
 
         BehaviorBlend finalBehaviorBlend = new BehaviorBlend(BlendType.LERP);
         finalBehaviorBlend.AddBlend(squadMoveBlend, 1.0f);
+
 
         //collision avoidance
         var collisionBehavior = SteeringBehaviorFactory.Create(SteeringBehaviorType.COLLISION_AVOIDANCE);
@@ -223,7 +227,14 @@ public class SteeringAgent : MonoBehaviour
     private void UnitMove()
     {
         var arriveTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.PATHFINDING);
-        var arriveSteering = arriveTarget.GetSteering(this, steeringTarget);
+        var faceTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.FACE);
+
+        BehaviorBlend squadMoveBlend = new BehaviorBlend(BlendType.ADD);
+        squadMoveBlend.AddBlend(arriveTarget, 1.0f);
+        squadMoveBlend.AddBlend(FlockFOVBehaviorBlend, 5.0f);
+        squadMoveBlend.AddBlend(faceTarget, 6.0f);
+
+        var arriveSteering = squadMoveBlend.GetSteering(this, steeringTarget, GetAgentsWithinFOV());
         IntegrateSteering(arriveSteering);
     }
 

@@ -234,7 +234,7 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  flockViewDistance: 5
+  flockViewDistance: 1
   squadFlockDistanceThreshold: 2.5
   squadFlockLerpAmount: 0.942
   squadFlockStrength: 100

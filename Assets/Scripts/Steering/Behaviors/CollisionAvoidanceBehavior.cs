@@ -32,7 +32,7 @@ public class CollisionAvoidanceBehavior : SteeringBehavior
         {
             if (hit.transform.tag != "Unit")
             {
-                Vector3 newTarget = hit.point + (Vector3.Scale(hit.normal,leftVector) * avoidanceLength);
+                Vector3 newTarget = hit.point + (Vector3.Scale(hit.normal,-leftVector) * avoidanceLength);
                 state.linear = newTarget - agent.Position;
                 state.linear *= agent.MaxAcceleration;
                 ClampLinearAcceleration(ref state, agent);
@@ -43,7 +43,7 @@ public class CollisionAvoidanceBehavior : SteeringBehavior
         {
             if (hit.transform.tag != "Unit")
             {
-                Vector3 newTarget = hit.point + (Vector3.Scale(hit.normal, rightVector) * avoidanceLength);
+                Vector3 newTarget = hit.point + (Vector3.Scale(hit.normal, -rightVector) * avoidanceLength);
                 state.linear = newTarget - agent.Position;
                 state.linear *= agent.MaxAcceleration;
                 ClampLinearAcceleration(ref state, agent);

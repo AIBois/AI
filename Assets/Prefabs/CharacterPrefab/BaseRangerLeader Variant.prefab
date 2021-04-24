@@ -102,5 +102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
+        type: 3}
+      propertyPath: flockViewDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
