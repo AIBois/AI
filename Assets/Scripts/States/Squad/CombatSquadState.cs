@@ -12,7 +12,6 @@ namespace States.Squad
             startingSquadSize = context.Units.Count;
             this.enemySquad = enemySquad;
             SetUnitStates();
-            enemySquad.IsBeingAttacked(context);
             context.MoveTo(context.GetAveragedPosition());
         }
 
@@ -24,8 +23,8 @@ namespace States.Squad
 
         public override void Act()
         {
-            //if (SquadHasBeenHalved() || SquadLeaderIsDead()) 
-            //    context.currentState = new RetreatSquadState(context, enemySquad);
+            if (SquadHasBeenHalved() || SquadLeaderIsDead()) 
+                context.currentState = new RetreatSquadState(context, enemySquad);
         }
 
         private bool SquadLeaderIsDead()

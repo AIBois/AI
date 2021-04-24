@@ -3,19 +3,18 @@ using UnityEngine;
 
 namespace States.Squad
 {
-    public class RetreatSquadState : SquadState, IAttackListener
+    public class RetreatSquadState : SquadState
     {
         private SquadBase enemySquad;
 
         public RetreatSquadState(SquadBase context, SquadBase enemySquad) : base(context)
         {
             this.enemySquad = enemySquad;
-            context.attackListener = this;
         }
 
         public override void Act()
         {
-            context.MoveAwayFrom(enemySquad.transform.position);
+            context.MoveAwayFrom(enemySquad.Leader.transform.position);
             if(FarEnoughFromEnemy()) context.currentState = new IdleSquadState(context);
         }
 
@@ -27,13 +26,8 @@ namespace States.Squad
 
         private bool FarEnoughFromEnemy()
         {
-            var distance = Vector3.Distance(enemySquad.transform.position, context.transform.position);
+            var distance = Vector3.Distance(enemySquad.Leader.transform.position, context.Leader.transform.position);
             return distance >= context.SafeDistance;
-        }
-
-        public void BeingAttacked(SquadBase attacker)
-        {
-            context.currentState = new CombatSquadState(context, enemySquad);
         }
     }
 }

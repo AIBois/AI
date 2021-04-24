@@ -86,11 +86,6 @@ public class SquadBase : MonoBehaviour
         }
     }
 
-    public void IsBeingAttacked(SquadBase attacker)
-    {
-        attackListener?.BeingAttacked(attacker);
-    }
-
     public Vector3 GetAveragedPosition()
     {
         Vector3 averagePos = Vector3.zero;
