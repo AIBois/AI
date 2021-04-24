@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace States.Character
 {
@@ -13,6 +14,10 @@ namespace States.Character
         
         public override void Act()
         {
+            //assign new leader based on the max health (null if squad is dead)
+            if (context == squad.Leader)
+                squad.Leader = squad.Units.OrderByDescending(unit => unit.CurrentHealth).FirstOrDefault();
+
             squad.Units.Remove(context);
             Object.Destroy(context.gameObject);
         }

@@ -55,7 +55,7 @@ MonoBehaviour:
   - {fileID: 2456963449804684935}
   - {fileID: 1324994573508958039}
   - {fileID: 354987659000119526}
-  safeDistance: 0
+  safeDistance: 10
   enemy: 0
 --- !u!1001 &346277994204266017
 PrefabInstance:

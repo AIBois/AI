@@ -47,7 +47,7 @@ MonoBehaviour:
   Leader: {fileID: 4719618041288962756}
   Units:
   - {fileID: 4719618041288962756}
-  safeDistance: 0
+  safeDistance: 10
   enemy: 0
 --- !u!1001 &8722935360393499911
 PrefabInstance:

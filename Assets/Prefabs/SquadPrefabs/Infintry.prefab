@@ -75,7 +75,7 @@ MonoBehaviour:
   - {fileID: 4966941072767187576}
   - {fileID: 6123086908268316016}
   - {fileID: 2000414059940622936}
-  safeDistance: 0
+  safeDistance: 10
   enemy: 0
 --- !u!1001 &344951386703451823
 PrefabInstance:
@@ -97,12 +97,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -229,12 +229,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -361,12 +361,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -493,12 +493,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -625,12 +625,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -757,12 +757,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -889,12 +889,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -1021,12 +1021,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -1153,12 +1153,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -1285,12 +1285,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -1417,12 +1417,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -1549,12 +1549,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -1682,6 +1682,11 @@ PrefabInstance:
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 696190458207361492, guid: 32aac871b3b50194abb11b0e347f159e,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[2].weight
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6202237225623119679, guid: 32aac871b3b50194abb11b0e347f159e,
         type: 3}
@@ -1905,12 +1910,12 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 1
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
