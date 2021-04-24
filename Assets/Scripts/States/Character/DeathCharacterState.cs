@@ -14,12 +14,21 @@ namespace States.Character
         
         public override void Act()
         {
-            //assign new leader based on the max health (null if squad is dead)
-            if (context == squad.Leader)
-                squad.Leader = squad.Units.OrderByDescending(unit => unit.CurrentHealth).FirstOrDefault();
-
+            AssignNewLeader();
             squad.Units.Remove(context);
             Object.Destroy(context.gameObject);
+            if(SquadIsEmpty()) Object.Destroy(squad.gameObject);
+        }
+
+        private void AssignNewLeader()
+        {
+            if (context == squad.Leader)
+                squad.Leader = squad.Units.OrderByDescending(unit => unit.CurrentHealth).FirstOrDefault();
+        }
+
+        private bool SquadIsEmpty()
+        {
+            return squad.Units.Count == 0;
         }
     }
 }

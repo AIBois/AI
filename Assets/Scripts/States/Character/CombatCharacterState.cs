@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using States.Squad;
+using UnityEngine;
 
 namespace States.Character
 {
@@ -13,12 +14,14 @@ namespace States.Character
 
         public override void Act()
         {
-            //TODO check handle if closest enemy is null (Squad dead) and change to the appropriate state.
-
             var closestEnemy = GetClosestEnemy();
-            if (context.InRangedRange(closestEnemy.transform.position)) context.RangedAttack(closestEnemy, enemySquad); 
-            else if (context.InMeleeRange(closestEnemy.transform.position)) context.MeleeAttack(closestEnemy, enemySquad); 
-            else context.MoveTo(closestEnemy.transform.position);
+            if (!closestEnemy)
+                MakeSquadIdle();
+            else if (context.InRangedRange(closestEnemy.transform.position))
+                context.RangedAttack(closestEnemy, enemySquad);
+            else if (context.InMeleeRange(closestEnemy.transform.position))
+                context.MeleeAttack(closestEnemy, enemySquad);
+            else context.MoveTo(closestEnemy);
         }
 
         CharacterBase GetClosestEnemy()
@@ -34,6 +37,12 @@ namespace States.Character
                 minDistance = distance;
             }
             return result;
+        }
+
+        private void MakeSquadIdle()
+        {
+            var squad = context.transform.parent.GetComponent<SquadBase>();
+            squad.currentState = new IdleSquadState(squad);
         }
     }
 }

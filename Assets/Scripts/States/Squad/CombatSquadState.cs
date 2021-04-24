@@ -13,6 +13,7 @@ namespace States.Squad
             this.enemySquad = enemySquad;
             SetUnitStates();
             enemySquad.IsBeingAttacked(context);
+            context.MoveTo(context.GetAveragedPosition());
         }
 
         protected override void SetUnitStates()

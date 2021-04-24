@@ -21,6 +21,11 @@ namespace States.Squad
         
         public override void Act()
         {
+            if (!closestSquad)
+            {
+                context.currentState = new IdleSquadState(context);
+                return;
+            }
             context.MoveTo(closestSquad.Leader);
             if (EnemyWithinAttackingDistance()) 
                 context.currentState = new CombatSquadState(context, closestSquad);

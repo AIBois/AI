@@ -141,6 +141,7 @@ public class CharacterBase : MonoBehaviour
 
     public void RangedAttack(CharacterBase closestEnemy, SquadBase enemySquad)
     {
+        MoveTo(transform.position);
         if (!ReadyToRangedAttack()) return;
         timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
         closestEnemy.TakeDamage(RangedDamage, enemySquad);
@@ -158,6 +159,7 @@ public class CharacterBase : MonoBehaviour
 
     public void MeleeAttack(CharacterBase closestEnemy, SquadBase enemySquad)
     {
+        MoveTo(transform.position);
         if (!ReadyToMeleeAttack()) return;
         timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
         closestEnemy.TakeDamage(MeleeDamage, enemySquad);
