@@ -57,6 +57,7 @@ public class PlayerSetUp: MonoBehaviour
                 squad.transform.GetChild(j).GetComponent<SteeringAgent>().SetMovementType(SteeringMovementType.SQUAD);
             }
         }
-        
+
+        this.transform.parent.gameObject.SetActive(false);        
     }
 }
