@@ -14,6 +14,8 @@ public enum SteeringMovementType
 {
     SQUAD,
     UNIT,
+    FLEE,
+    REGROUP,
     NONE
 }
 
@@ -131,6 +133,12 @@ public class SteeringAgent : MonoBehaviour
             case SteeringMovementType.UNIT:
                 UnitMove();
                 break;
+            case SteeringMovementType.FLEE:
+                UnitFlee();
+                break;
+            case SteeringMovementType.REGROUP:
+                SquadRegroup();
+                break;
             case SteeringMovementType.NONE:
                 break;
             default:
@@ -239,10 +247,42 @@ public class SteeringAgent : MonoBehaviour
         IntegrateSteering(arriveSteering);
     }
 
+    private void SquadRegroup()
+    {
+        var cohesion = new CohesionBehavior();
+        var seperation = new SeperationBehavior();
+        var align = new AlignBehavior();
+
+        BehaviorBlend regroupBlend = new BehaviorBlend(BlendType.ADD);
+        regroupBlend.AddBlend(cohesion, 5.0f);
+        regroupBlend.AddBlend(seperation, 1.0f);
+        regroupBlend.AddBlend(align, 1.0f);
+
+        var squadFlockSteering = regroupBlend.GetSteering(this, steeringTarget, Squad.Units.Select(unit => unit.SteeringAgent).ToList());
+        squadFlockSteering.linear *= characterBase.RetreatSpeed;
+        SteeringBehavior.ClampLinearAcceleration(ref squadFlockSteering, this);
+        squadFlockSteering.linear *= 1.25f;
+
+        IntegrateSteering(squadFlockSteering);
+    }
+
     public void UnitFlee()
     {
+        //var fleeTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.FLEE);
+
+        //BehaviorBlend fleeMoveBlend = new BehaviorBlend(BlendType.ADD);
+        //fleeMoveBlend.AddBlend(fleeTarget, 3.0f);
+        ////fleeMoveBlend.AddBlend(FlockFOVBehaviorBlend, 0.2f);
+
+        //var fleeSteering = fleeMoveBlend.GetSteering(this, steeringTarget, GetAgentsWithinFOV());
+        //IntegrateSteering(fleeSteering);
+
         var target = SteeringBehaviorFactory.Create(SteeringBehaviorType.FLEE);
         var fleeSteering = target.GetSteering(this, steeringTarget);
+
+        fleeSteering.linear *= characterBase.RetreatSpeed;
+        SteeringBehavior.ClampLinearAcceleration(ref fleeSteering, this);
+
         IntegrateSteering(fleeSteering);
     }
 }

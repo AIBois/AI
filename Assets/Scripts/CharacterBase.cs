@@ -16,7 +16,7 @@ public class CharacterBase : MonoBehaviour
     private float currentHealth, maxHealth;
     [SerializeField] 
     private bool isRanged;
-    
+
     private readonly Stopwatch stopwatch = new Stopwatch();
     public long timeSinceLastAttack;
 
@@ -124,6 +124,11 @@ public class CharacterBase : MonoBehaviour
     {
         SteeringAgent.SetMovementType(SteeringMovementType.UNIT);
         SteeringAgent.SetTarget(character);
+    }
+
+    public void Regroup()
+    {
+        SteeringAgent.SetMovementType(SteeringMovementType.REGROUP);
     }
 
     private void TakeDamage(float damage, SquadBase enemySquad)

@@ -15,7 +15,7 @@ namespace States.Squad
         public override void Act()
         {
             context.MoveAwayFrom(enemySquad.Leader.transform.position);
-            if(FarEnoughFromEnemy()) context.currentState = new IdleSquadState(context);
+            if(FarEnoughFromEnemy()) context.currentState = new RegroupSquadState(context);
         }
 
         protected override void SetUnitStates()

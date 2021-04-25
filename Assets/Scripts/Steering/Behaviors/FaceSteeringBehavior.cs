@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FaceSteeringBehavior : AlighBehavior
+public class FaceSteeringBehavior : AlignBehavior
 {
     public override SteeringState GetSteering(SteeringAgent agent, SteeringTarget target, IList<SteeringAgent> groupAgents = null)
     {

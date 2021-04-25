@@ -23,7 +23,7 @@ namespace States.Squad
 
         public override void Act()
         {
-            if (SquadHasBeenHalved() || SquadLeaderIsDead()) 
+            if ((SquadHasBeenHalved() || SquadLeaderIsDead()) && SquadGreaterThanOne())
                 context.currentState = new RetreatSquadState(context, enemySquad);
         }
 
@@ -36,5 +36,11 @@ namespace States.Squad
         {
             return context.Units.Count < startingSquadSize;
         }
+
+        private bool SquadGreaterThanOne()
+        {
+            return context.Units.Count > 1;
+        }
+
     }
 }

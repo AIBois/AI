@@ -31,7 +31,7 @@ public class SteeringBehaviorFactory
             case SteeringBehaviorType.ARRIVE:
                 return new ArriveBehavior();
             case SteeringBehaviorType.ALIGN:
-                return new AlighBehavior();
+                return new AlignBehavior();
             case SteeringBehaviorType.SEPARATION:
                 return new SeperationBehavior();
             case SteeringBehaviorType.VELOCITY_MATCH:
