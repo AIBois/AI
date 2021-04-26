@@ -14,7 +14,7 @@ namespace States.Squad
 
         public override void Act()
         {
-            context.MoveAwayFrom(enemySquad.Leader.transform.position);
+            context.MoveAwayFrom(enemySquad.GetAveragedPosition());
             if(FarEnoughFromEnemy()) context.currentState = new RegroupSquadState(context);
         }
 
@@ -26,7 +26,7 @@ namespace States.Squad
 
         private bool FarEnoughFromEnemy()
         {
-            var distance = Vector3.Distance(enemySquad.Leader.transform.position, context.Leader.transform.position);
+            var distance = Vector3.Distance(enemySquad.GetAveragedPosition(), context.GetAveragedPosition());
             return distance >= context.SafeDistance;
         }
     }
