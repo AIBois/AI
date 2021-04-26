@@ -114,7 +114,7 @@ public class CharacterBase : MonoBehaviour
         currentState.Act();
     }
 
-    public void MoveTo(Vector3 position, float orientation)
+    private void MoveTo(Vector3 position, float orientation)
     {
         SteeringAgent.SetMovementType(SteeringMovementType.UNIT);
         SteeringAgent.SetTarget(position,orientation);
