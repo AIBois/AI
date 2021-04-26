@@ -12,6 +12,7 @@ public class SquadBase : MonoBehaviour
     public List<CharacterBase> Units;
     [SerializeField]
     private float safeDistance;
+    [SerializeField]
     private bool battleStarted = false;
 
     [SerializeField]

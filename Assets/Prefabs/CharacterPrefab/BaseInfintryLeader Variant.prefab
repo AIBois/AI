@@ -30,7 +30,7 @@ PrefabInstance:
     - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
@@ -105,11 +105,6 @@ PrefabInstance:
     - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: defense
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,

@@ -17,19 +17,19 @@ MonoBehaviour:
   maxRotation: 100
   slowRadius: 7.5
   stopRadius: 1.5
-  flockViewDistance: 1
+  flockViewDistance: 2.5
   squadFlockDistanceThreshold: 5
   squadFlockLerpAmount: 0.9
   squadFlockStrength: 100
   steeringBlendTypes:
   - type: 4
-    weight: 0.1
+    weight: 0.06
   - type: 3
     weight: 1
   - type: 6
     weight: 0.4
   - type: 7
-    weight: 1
+    weight: 0.8
 --- !u!1001 &2995762669407912755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: meleeAttackDistance
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5781632729799785203, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}

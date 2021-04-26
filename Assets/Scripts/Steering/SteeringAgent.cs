@@ -268,20 +268,15 @@ public class SteeringAgent : MonoBehaviour
 
     public void UnitFlee()
     {
-        //var fleeTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.FLEE);
+        var fleeTarget = SteeringBehaviorFactory.Create(SteeringBehaviorType.FLEE);
 
-        //BehaviorBlend fleeMoveBlend = new BehaviorBlend(BlendType.ADD);
-        //fleeMoveBlend.AddBlend(fleeTarget, 3.0f);
-        ////fleeMoveBlend.AddBlend(FlockFOVBehaviorBlend, 0.2f);
+        BehaviorBlend fleeMoveBlend = new BehaviorBlend(BlendType.ADD);
+        fleeMoveBlend.AddBlend(fleeTarget, 1.0f);
+        fleeMoveBlend.AddBlend(FlockFOVBehaviorBlend, 0.4f);
 
-        //var fleeSteering = fleeMoveBlend.GetSteering(this, steeringTarget, GetAgentsWithinFOV());
-        //IntegrateSteering(fleeSteering);
-
-        var target = SteeringBehaviorFactory.Create(SteeringBehaviorType.FLEE);
-        var fleeSteering = target.GetSteering(this, steeringTarget);
-
-        fleeSteering.linear *= characterBase.RetreatSpeed;
+        var fleeSteering = fleeMoveBlend.GetSteering(this, steeringTarget, GetAgentsWithinFOV());
         SteeringBehavior.ClampLinearAcceleration(ref fleeSteering, this);
+        fleeSteering.linear *= characterBase.RetreatSpeed;
 
         IntegrateSteering(fleeSteering);
     }

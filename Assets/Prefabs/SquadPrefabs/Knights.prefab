@@ -57,7 +57,8 @@ MonoBehaviour:
   - {fileID: 8933512240115623381}
   - {fileID: 2529647707752191602}
   - {fileID: 918403607871342496}
-  safeDistance: 10
+  safeDistance: 5
+  battleStarted: 0
   enemy: 0
 --- !u!1001 &2290986917821442171
 PrefabInstance:
@@ -80,6 +81,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: meleeAttackDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -183,6 +189,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: meleeAttackDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -284,6 +295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: meleeAttackDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -432,6 +448,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7616009735291473010, guid: deb688ad3f00b1a4ea3b301abc22f944,
+        type: 3}
+      propertyPath: meleeAttackDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8774632766373145710, guid: deb688ad3f00b1a4ea3b301abc22f944,
         type: 3}
       propertyPath: m_Layer
@@ -488,6 +509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: meleeAttackDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -590,6 +616,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
+        type: 3}
+      propertyPath: meleeAttackDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}

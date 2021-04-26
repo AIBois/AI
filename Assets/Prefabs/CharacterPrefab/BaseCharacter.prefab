@@ -155,7 +155,6 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 0
   isRanged: 0
-  safeDistance: 20
   timeSinceLastAttack: 0
 --- !u!33 &4008286580453682243
 MeshFilter:
@@ -246,3 +245,5 @@ MonoBehaviour:
     weight: 1
   - type: 6
     weight: 0.4
+  - type: 7
+    weight: 0.8

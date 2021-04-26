@@ -65,7 +65,8 @@ MonoBehaviour:
   - {fileID: 2551927972406559123}
   - {fileID: 62808798428545898}
   - {fileID: 452415544226967738}
-  safeDistance: 10
+  safeDistance: 7.5
+  battleStarted: 0
   enemy: 0
 --- !u!1001 &282721290416978354
 PrefabInstance:
@@ -137,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
@@ -229,7 +230,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
@@ -321,7 +322,7 @@ PrefabInstance:
     - target: {fileID: 6307936644613131616, guid: efd60c0db9104d549adc0fb7536bc51b,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efd60c0db9104d549adc0fb7536bc51b, type: 3}
@@ -413,7 +414,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
@@ -505,7 +506,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
@@ -597,7 +598,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
@@ -689,7 +690,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
@@ -781,7 +782,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
@@ -873,7 +874,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}
@@ -965,7 +966,7 @@ PrefabInstance:
     - target: {fileID: 5220284204071777922, guid: af7b32dbf042afb40809c47cb7f3f1bb,
         type: 3}
       propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af7b32dbf042afb40809c47cb7f3f1bb, type: 3}

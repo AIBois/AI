@@ -33,7 +33,7 @@ namespace States.Squad
 
         private bool EnemyWithinAttackingDistance()
         {
-            var distance = Vector3.Distance(closestSquad.Leader.transform.position, context.Leader.transform.position);
+            var distance = Vector3.Distance(closestSquad.GetAveragedPosition(), context.GetAveragedPosition());
             return context.Leader.IsRanged
                 ? distance <= context.Leader.RangedAttackLongDistance
                 : distance <= context.Leader.MeleeAttackDistance;

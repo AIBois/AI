@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2154251729573905785, guid: 94fe439314de1e8408c6abb354c3891e,
+        type: 3}
+      propertyPath: steeringBlendTypes.Array.data[0].weight
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154251729573905785, guid: 94fe439314de1e8408c6abb354c3891e,
+        type: 3}
+      propertyPath: squadFlockLerpAmount
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154251729573905785, guid: 94fe439314de1e8408c6abb354c3891e,
+        type: 3}
+      propertyPath: squadFlockStrength
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154251729573905785, guid: 94fe439314de1e8408c6abb354c3891e,
+        type: 3}
+      propertyPath: flockViewDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5154727946203408312, guid: 94fe439314de1e8408c6abb354c3891e,
         type: 3}
       propertyPath: m_Name
