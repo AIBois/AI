@@ -10,6 +10,7 @@ namespace States.Squad
         public RetreatSquadState(SquadBase context, SquadBase enemySquad) : base(context)
         {
             this.enemySquad = enemySquad;
+            SetUnitStates();
         }
 
         public override void Act()

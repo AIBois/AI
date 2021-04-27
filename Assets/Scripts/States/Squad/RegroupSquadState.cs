@@ -10,14 +10,13 @@ namespace States.Squad
 
         public RegroupSquadState(SquadBase context) : base(context)
         {
+            SetUnitStates();
         }
 
         public override void Act()
         {
             if (SquadIsCloseEnoughTogether())
                 context.currentState = new IdleSquadState(context);
-            else
-                SetUnitStates();
         }
 
         private bool SquadIsCloseEnoughTogether()
