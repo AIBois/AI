@@ -14,7 +14,6 @@ public class CollisionAvoidanceBehavior : SteeringBehavior
             return state;
 
         //front ray
-        RaycastHit hit;
         //if (Physics.Raycast(agent.transform.position, agent.transform.forward, out hit, RayLength))
         //{
         //    if (hit.transform.tag != "Unit")
@@ -25,33 +24,84 @@ public class CollisionAvoidanceBehavior : SteeringBehavior
         //    }
         //}
 
-        Vector3 leftVector = Quaternion.Euler(0, -45, 0) * agent.transform.forward;
-        Vector3 rightVector = Quaternion.Euler(0, 45, 0) * agent.transform.forward;
+        Vector3 leftFrontVector = Quaternion.Euler(0, -70, 0) * agent.transform.forward;
+        Vector3 rightFrontVector = Quaternion.Euler(0, 70, 0) * agent.transform.forward;
+        Vector3 rightVector = agent.transform.right;
+        Vector3 backVector = Quaternion.Euler(0, 180, 0) * agent.transform.forward;
 
-        if (Physics.Raycast(agent.transform.position, leftVector, out hit, RayLength))
+        RaycastHit leftFrontHit;
+        RaycastHit rightFrontHit;
+        RaycastHit leftHit;
+        RaycastHit rightHit;
+        RaycastHit backHit;
+        RaycastHit frontHit;
+
+        bool leftFrontRaycast = Physics.Raycast(agent.transform.position, leftFrontVector, out leftFrontHit, RayLength);
+        bool rightFrontRaycast = Physics.Raycast(agent.transform.position, rightFrontVector, out rightFrontHit, RayLength);
+        bool backRaycast = Physics.Raycast(agent.transform.position, backVector, out backHit, RayLength);
+        bool frontRaycast = Physics.Raycast(agent.transform.position, -backVector, out frontHit, RayLength);
+        bool rightRaycast = Physics.Raycast(agent.transform.position, rightVector, out rightHit, RayLength * 0.5f);
+        bool leftRaycast = Physics.Raycast(agent.transform.position, -rightVector, out leftHit, RayLength * 0.5f);
+
+
+        if (leftFrontRaycast)
         {
-            if (hit.transform.tag != "Unit")
+            if (leftFrontHit.transform.tag != "Unit")
             {
-                Vector3 newTarget = hit.point + (Vector3.Scale(hit.normal,-leftVector) * avoidanceLength);
-                state.linear = newTarget - agent.Position;
-                state.linear *= agent.MaxAcceleration;
-                ClampLinearAcceleration(ref state, agent);
+                Vector3 newTarget = rightFrontVector * avoidanceLength;
+                state.linear += newTarget - agent.Position;
             }
         }
 
-        if (Physics.Raycast(agent.transform.position, rightVector, out hit, RayLength))
+        if (rightFrontRaycast)
         {
-            if (hit.transform.tag != "Unit")
+            if (rightFrontHit.transform.tag != "Unit")
             {
-                Vector3 newTarget = hit.point + (Vector3.Scale(hit.normal, -rightVector) * avoidanceLength);
+                Vector3 newTarget = leftFrontVector * avoidanceLength;
+                state.linear += newTarget - agent.Position;
+            }
+        }
+
+        if (rightRaycast)
+        {
+            if (rightHit.transform.tag != "Unit")
+            {
+                Vector3 newTarget = -rightVector * avoidanceLength;
+                state.linear += newTarget - agent.Position;
+            }
+        }
+
+        if (leftRaycast)
+        {
+            if (leftHit.transform.tag != "Unit")
+            {
+                Vector3 newTarget = rightVector * avoidanceLength;
+                state.linear += newTarget - agent.Position;
+            }
+        }
+
+        if (frontRaycast && 
+            ((leftFrontRaycast && !rightFrontRaycast) || (!leftFrontRaycast && rightFrontRaycast)))
+        {
+            if (frontHit.transform.tag != "Unit")
+            {
+                Vector3 newTarget = -agent.transform.forward * avoidanceLength * 5.0f;
                 state.linear = newTarget - agent.Position;
-                state.linear *= agent.MaxAcceleration;
-                ClampLinearAcceleration(ref state, agent);
+            }
+        }
+
+        if (backRaycast)
+        {
+            if (backHit.transform.tag != "Unit")
+            {
+                Vector3 newTarget = agent.transform.forward * avoidanceLength;
+                state.linear = newTarget - agent.Position;
             }
         }
 
 
-
+        state.linear *= agent.MaxAcceleration;
+        ClampLinearAcceleration(ref state, agent);
 
         return state;
     }
