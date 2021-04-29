@@ -96,7 +96,6 @@ public class SquadBase : MonoBehaviour
             averagePos += unit.transform.position;
 
         }
-        averagePos /= Units.Count;
-        return averagePos;
+        return Units.Count > 1 ? averagePos /= Units.Count : averagePos;
     }
 }

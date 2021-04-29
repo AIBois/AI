@@ -37,6 +37,7 @@ public class SteeringAgent : MonoBehaviour
     private SteeringTarget steeringTarget;
     private SteeringMovementType movementTypeState;
     private BehaviorBlend FlockFOVBehaviorBlend;
+    public LayerMask CollisionMask;
     #endregion
 
     #region properties
@@ -107,8 +108,12 @@ public class SteeringAgent : MonoBehaviour
 
     public void IntegrateSteering(SteeringState steering)
     {
-        const float dampening = 0.99f;
-        Velocity *= dampening;
+        var collisionBehavior = SteeringBehaviorFactory.Create(SteeringBehaviorType.COLLISION_AVOIDANCE);
+        var collisionSteering = collisionBehavior.GetSteering(this, steeringTarget);
+        if (collisionSteering.linear.sqrMagnitude >= 0.01f)
+        {
+            steering = collisionSteering;
+        }
 
         Velocity += steering.linear * Time.deltaTime;
         rotation += steering.angular * Time.deltaTime;
@@ -205,22 +210,10 @@ public class SteeringAgent : MonoBehaviour
         squadMoveBlend.AddBlend(FlockFOVBehaviorBlend, 5.0f);
         squadMoveBlend.AddBlend(faceTarget, 6.0f);
 
+        SteeringState finalSteering = squadMoveBlend.GetSteering(this, steeringTarget, GetAgentsWithinFOV());
 
-        BehaviorBlend finalBehaviorBlend = new BehaviorBlend(BlendType.LERP);
-        finalBehaviorBlend.AddBlend(squadMoveBlend, 1.0f);
-
-
-        //collision avoidance
-        var collisionBehavior = SteeringBehaviorFactory.Create(SteeringBehaviorType.COLLISION_AVOIDANCE);
-        var collisionSteering = collisionBehavior.GetSteering(this, steeringTarget);
-        if (collisionSteering.linear.sqrMagnitude >= 0.1f)
-        {
-            finalBehaviorBlend.AddBlend(collisionBehavior,0.9f);
-        }
-
-        var finalSteering = finalBehaviorBlend.GetSteering(this, steeringTarget, GetAgentsWithinFOV());
-
-        //Squad flocking is to ensure that the squad units don't seperate to far from each other, if a unit in a squad is too far from the center they will slow down
+        target = finalSteering.linear;
+        ////Squad flocking is to ensure that the squad units don't seperate to far from each other, if a unit in a squad is too far from the center they will slow down
         var squadFlockSteering = FlockFOVBehaviorBlend.GetSteering(this, steeringTarget, Squad.Units.Select(unit => unit.SteeringAgent).ToList());
         if (squadFlockSteering.linear.sqrMagnitude > squadFlockDistanceThreshold)
         {
@@ -279,5 +272,15 @@ public class SteeringAgent : MonoBehaviour
         fleeSteering.linear *= characterBase.RetreatSpeed;
 
         IntegrateSteering(fleeSteering);
+    }
+
+    //Draw FOV gizoms
+    private Vector3 target;
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Velocity);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, target);
     }
 }

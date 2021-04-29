@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8250674710799189106}
   - component: {fileID: 7478311944299589265}
   - component: {fileID: 2287358840091413678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6140181907736258020}
   - component: {fileID: 1092266789827128649}
   - component: {fileID: 2154251729573905785}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BaseCharacter
   m_TagString: Unit
   m_Icon: {fileID: 0}
@@ -247,3 +247,6 @@ MonoBehaviour:
     weight: 0.4
   - type: 7
     weight: 5
+  CollisionMask:
+    serializedVersion: 2
+    m_Bits: 51
