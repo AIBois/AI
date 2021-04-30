@@ -17,6 +17,7 @@ public class PlayerSetUp: MonoBehaviour
     {
         WinTracker wins = Object.FindObjectOfType<WinTracker>();
         numSquads = Random.Range(3, 5);
+        numSquadPicksLeft.text = numSquads.ToString();
         wins.numEnemy = numSquads;
         wins.numPlayer = numSquads;
     }
@@ -28,6 +29,7 @@ public class PlayerSetUp: MonoBehaviour
         AISetUp.SetUpOptions();
         WinTracker wins = Object.FindObjectOfType<WinTracker>();
         numSquads = Random.Range(3, 5);
+        numSquadPicksLeft.text = numSquads.ToString();
         wins.numEnemy = numSquads;
         wins.numPlayer = numSquads;
     }
@@ -46,7 +48,7 @@ public class PlayerSetUp: MonoBehaviour
         {
             numSquads--;
             numSquadPicksLeft.text = numSquads.ToString();
-            AI.chooseOption(picker.selectedSquad.transform);
+            AI.chooseOption(picker.selectedSquad);
             picker.selectedSquad = null;
             if (numSquads == 0) battleReady = true;
             else

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class LearningSquadData : MonoBehaviour
 {
-    public int numSquads;
-    public int numUnits;
-    public List<int> numOfSquadTypeKilled;
-    public List<int> numKilledBySquadType;
+    public float numSquads;
+    public float numUnits;
+    public List<float> numOfSquadTypeKilled;
+    public List<float> numKilledBySquadType;
 
     private void Awake()
     {
@@ -15,8 +15,8 @@ public class LearningSquadData : MonoBehaviour
         numUnits = 0;
         for (int i = 0; i < (int)SquadTypes.NUMSQUADTYPES; i++)
         {
-            numOfSquadTypeKilled.Add(0);
-            numKilledBySquadType.Add(0);
+            numOfSquadTypeKilled.Add(0.0f);
+            numKilledBySquadType.Add(0.0f);
         }
     }
 

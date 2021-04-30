@@ -6,6 +6,6 @@ using UnityEngine.UI;
 public class SquadOption : MonoBehaviour
 {
     public SquadTypes squadType;
-    public Text squadTypeName, squadCost;
+    public Text squadTypeName;
     public Image squadColour;
 }
