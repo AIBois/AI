@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7079399126470900851}
   - component: {fileID: 8107226463941921779}
+  - component: {fileID: 7416340712032826686}
   m_Layer: 0
   m_Name: Knights
   m_TagString: Untagged
@@ -60,6 +61,24 @@ MonoBehaviour:
   safeDistance: 5
   battleStarted: 0
   enemy: 0
+  learningData: {fileID: 7416340712032826686}
+  squadType: 2
+--- !u!114 &7416340712032826686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7695207890271967119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fe87a98e06c3c4d83b1f665c7d2a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numSquads: 0
+  numUnits: 0
+  numOfSquadTypeKilled: 
+  numKilledBySquadType: 
 --- !u!1001 &2290986917821442171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,25 +86,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
-    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -142,11 +146,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}
 --- !u!4 &2776592771990784998 stripped
@@ -174,25 +173,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
-    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -249,11 +233,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}
 --- !u!4 &2075652098152172862 stripped
@@ -281,25 +260,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
-    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -356,11 +320,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}
 --- !u!4 &661394097273379380 stripped
@@ -388,11 +347,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
-    - target: {fileID: 2623501116931699704, guid: deb688ad3f00b1a4ea3b301abc22f944,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 4865897358216478772, guid: deb688ad3f00b1a4ea3b301abc22f944,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -448,25 +402,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7616009735291473010, guid: deb688ad3f00b1a4ea3b301abc22f944,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8774632766373145710, guid: deb688ad3f00b1a4ea3b301abc22f944,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9080586248391774521, guid: deb688ad3f00b1a4ea3b301abc22f944,
         type: 3}
       propertyPath: m_Name
       value: BaseKnightLeader Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 9080586248391774521, guid: deb688ad3f00b1a4ea3b301abc22f944,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb688ad3f00b1a4ea3b301abc22f944, type: 3}
@@ -495,25 +434,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
-    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -570,11 +494,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}
 --- !u!4 &7428917970682415461 stripped
@@ -602,25 +521,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7079399126470900851}
     m_Modifications:
-    - target: {fileID: 216640915925635015, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
       propertyPath: m_Name
       value: BaseKnight Variant (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 342505387172098704, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1402285525721395163, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4126220972619326365, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
         type: 3}
@@ -676,11 +580,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6822082195330519121, guid: 4ecac8a20cb38cd479f48cb1ec7a2518,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecac8a20cb38cd479f48cb1ec7a2518, type: 3}

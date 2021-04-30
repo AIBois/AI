@@ -25,8 +25,11 @@ public class SquadPicker : MonoBehaviour
 
     public void SetPrefab(GameObject option)
     {
+        if (selectedSquad) Destroy(selectedSquad.gameObject);
         selectedSquad = Instantiate(squadBases[(int)option.GetComponent<SquadOption>().squadType], new Vector3(100.0f, 100.0f, 100.0f), Quaternion.identity);
         selectedSquad.Cost = option.GetComponent<SquadOption>().cost;
-        selectedSquad.transform.rotation *= Quaternion.Euler(0, 180f, 0);        
+        selectedSquad.transform.rotation *= Quaternion.Euler(0, 180f, 0);
+        selectedSquad.learningData.numUnits = selectedSquad.Units.Count;
+        selectedSquad.learningData.numSquads++;
     }
 }

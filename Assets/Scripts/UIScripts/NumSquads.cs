@@ -11,4 +11,9 @@ public class NumSquads : MonoBehaviour
         numSquads = Random.Range(3, 5);
     }
 
+    private void OnEnable()
+    {
+        numSquads = Random.Range(3, 5);
+    }
+
 }

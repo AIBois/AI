@@ -18,6 +18,15 @@ public class PlayerSetUp: MonoBehaviour
         pointValue = 2000;
     }
 
+    private void OnEnable()
+    {
+        pointValue = 2000;
+        points.text = pointValue.ToString();
+        battleReady = false;
+        playerSetUp.SetUpOptions();
+        AISetUp.SetUpOptions();
+    }
+
     private void Update()
     {
         if (battleReady)
@@ -28,7 +37,7 @@ public class PlayerSetUp: MonoBehaviour
 
     public void MouseDown()
     {
-        if (!battleReady)
+        if (!battleReady && picker.selectedSquad)
         {
             pointValue -= picker.selectedSquad.Cost;
             points.text = pointValue.ToString();
@@ -57,7 +66,9 @@ public class PlayerSetUp: MonoBehaviour
                 squad.transform.GetChild(j).GetComponent<SteeringAgent>().SetMovementType(SteeringMovementType.SQUAD);
             }
         }
-
+        WinTracker wins = Object.FindObjectOfType<WinTracker>();
+        wins.numEnemy = AISetUp.numSquads.numSquads;
+        wins.numPlayer = playerSetUp.numSquads.numSquads;
         this.transform.parent.gameObject.SetActive(false);        
     }
 }

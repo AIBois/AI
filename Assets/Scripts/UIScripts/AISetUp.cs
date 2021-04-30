@@ -15,6 +15,12 @@ public class AISetUp : MonoBehaviour
         pointValue = 2000;
     }
 
+    private void OnEnable()
+    {
+        pointValue = 2000;
+        points.text = pointValue.ToString();
+    }
+
     public void chooseOption(Transform playerSquad)
     {
         int choosen = 0;
@@ -39,6 +45,8 @@ public class AISetUp : MonoBehaviour
         selectedSquad.enemy = true;
         pointValue -= selectedSquad.Cost;
         points.text = pointValue.ToString();
+        selectedSquad.learningData.numUnits = selectedSquad.Units.Count;
+        selectedSquad.learningData.numSquads++;
     }
 
 }

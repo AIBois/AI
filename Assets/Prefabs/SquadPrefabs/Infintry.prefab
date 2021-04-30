@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3162998343356844097}
   - component: {fileID: 1001472249988862002}
+  - component: {fileID: -5371217374094838531}
   m_Layer: 0
   m_Name: Infintry
   m_TagString: Untagged
@@ -78,6 +79,24 @@ MonoBehaviour:
   safeDistance: 5
   battleStarted: 0
   enemy: 0
+  learningData: {fileID: -5371217374094838531}
+  squadType: 0
+--- !u!114 &-5371217374094838531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546435871757029149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fe87a98e06c3c4d83b1f665c7d2a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numSquads: 0
+  numUnits: 0
+  numOfSquadTypeKilled: 
+  numKilledBySquadType: 
 --- !u!1001 &344951386703451823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,51 +104,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -190,19 +164,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
---- !u!4 &6291610298090070825 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
-    type: 3}
-  m_PrefabInstance: {fileID: 344951386703451823}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9036166327486607215 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
@@ -215,6 +178,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6291610298090070825 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 344951386703451823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &685593217795026728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -222,51 +191,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -327,11 +251,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
 --- !u!4 &6492640523490368174 stripped
@@ -359,51 +278,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -464,19 +338,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (10)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
---- !u!4 &4884779272255710420 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1176549529107550546}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7637150056986470546 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
@@ -489,6 +352,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &4884779272255710420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1176549529107550546}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1896405731581053588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,51 +365,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -601,11 +425,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
 --- !u!4 &5316688171889770258 stripped
@@ -633,51 +452,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -738,11 +512,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
 --- !u!4 &5508706251304416404 stripped
@@ -770,26 +539,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -850,19 +599,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (12)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
---- !u!4 &9137575252134185270 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
-    type: 3}
-  m_PrefabInstance: {fileID: 3267072398167260336}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6123086908268316016 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
@@ -875,6 +613,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &9137575252134185270 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3267072398167260336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3632167176427257073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -882,51 +626,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -987,11 +686,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
 --- !u!4 &7057639260654029175 stripped
@@ -1019,31 +713,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1104,11 +773,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
 --- !u!4 &7738864684397980187 stripped
@@ -1136,51 +800,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1241,11 +860,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (11)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
 --- !u!114 &4966941072767187576 stripped
@@ -1273,51 +887,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1378,11 +947,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
 --- !u!4 &1644619035866942919 stripped
@@ -1410,51 +974,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1515,19 +1034,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
---- !u!4 &2239133559803504107 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5515442063855554669}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3829646581729601965 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
@@ -1540,6 +1048,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2239133559803504107 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5515442063855554669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7092483242462710680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1547,51 +1061,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1652,11 +1121,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (13)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
 --- !u!4 &3599579656350826014 stripped
@@ -1684,16 +1148,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 696190458207361492, guid: 32aac871b3b50194abb11b0e347f159e,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4731027496370125428, guid: 32aac871b3b50194abb11b0e347f159e,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6202237225623119679, guid: 32aac871b3b50194abb11b0e347f159e,
         type: 3}
       propertyPath: m_Name
@@ -1756,6 +1210,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32aac871b3b50194abb11b0e347f159e, type: 3}
+--- !u!4 &673234340172059881 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7751081078349723186, guid: 32aac871b3b50194abb11b0e347f159e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7117534851645154011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2549437944779413679 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4731027496370125428, guid: 32aac871b3b50194abb11b0e347f159e,
@@ -1768,12 +1228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &673234340172059881 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7751081078349723186, guid: 32aac871b3b50194abb11b0e347f159e,
-    type: 3}
-  m_PrefabInstance: {fileID: 7117534851645154011}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7835134056259718066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1781,21 +1235,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1856,13 +1295,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseInfintry Variant (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}
+--- !u!4 &4549257566467194420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7835134056259718066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1519004975806460530 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
@@ -1875,12 +1315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507864358c265a44bf643b19e080101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &4549257566467194420 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
-    type: 3}
-  m_PrefabInstance: {fileID: 7835134056259718066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8493977292798075169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1888,51 +1322,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3162998343356844097}
     m_Modifications:
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[2].weight
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[3].weight
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].type
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[4].weight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3576363785912048224, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: maxAcceleration
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6024067314367198598, guid: 143389e084af2094992ec5a82dd6c92a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1992,11 +1381,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BaseInfintry Variant (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8768343630761146816, guid: 143389e084af2094992ec5a82dd6c92a,
-        type: 3}
-      propertyPath: meleeAttackDistance
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 143389e084af2094992ec5a82dd6c92a, type: 3}

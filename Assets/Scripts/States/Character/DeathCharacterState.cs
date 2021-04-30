@@ -5,30 +5,38 @@ namespace States.Character
 {
     public class DeathCharacterState : CharacterState
     {
-        private readonly SquadBase squad;
+        private readonly SquadBase ownSquad;
+        private readonly SquadTypes enemySquadType;
 
-        public DeathCharacterState(CharacterBase context, SquadBase squad) : base(context)
+        public DeathCharacterState(CharacterBase context, SquadBase ownSquad, SquadTypes enemySquadType) : base(context)
         {
-            this.squad = squad;
+            this.ownSquad = ownSquad;
+            this.enemySquadType = enemySquadType;
         }
         
         public override void Act()
         {
             AssignNewLeader();
-            squad.Units.Remove(context);
+            ownSquad.learningData.numKilledBySquadType[(int)enemySquadType]++;
+            ownSquad.Units.Remove(context);
             Object.Destroy(context.gameObject);
-            if(SquadIsEmpty()) Object.Destroy(squad.gameObject);
+            if (SquadIsEmpty())
+            {
+                Object.FindObjectOfType<LearningCumulativeData>().AddSquadData(ownSquad.squadType, ownSquad.learningData);
+                Object.FindObjectOfType<WinTracker>().removeSquad(ownSquad);
+                Object.Destroy(ownSquad.gameObject);
+            }
         }
 
         private void AssignNewLeader()
         {
-            if (context == squad.Leader)
-                squad.Leader = squad.Units.OrderByDescending(unit => unit.CurrentHealth).FirstOrDefault();
+            if (context == ownSquad.Leader)
+                ownSquad.Leader = ownSquad.Units.OrderByDescending(unit => unit.CurrentHealth).FirstOrDefault();
         }
 
         private bool SquadIsEmpty()
         {
-            return squad.Units.Count == 0;
+            return ownSquad.Units.Count == 0;
         }
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4298681636061007026}
   - component: {fileID: 82443874787111566}
+  - component: {fileID: 5195871007393972664}
   m_Layer: 0
   m_Name: Giant
   m_TagString: Untagged
@@ -50,6 +51,24 @@ MonoBehaviour:
   safeDistance: 7.5
   battleStarted: 0
   enemy: 0
+  learningData: {fileID: 5195871007393972664}
+  squadType: 4
+--- !u!114 &5195871007393972664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127777300826269942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fe87a98e06c3c4d83b1f665c7d2a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numSquads: 0
+  numUnits: 0
+  numOfSquadTypeKilled: 
+  numKilledBySquadType: 
 --- !u!1001 &8722935360393499911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,16 +135,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BaseGiant Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 3441978753288780424, guid: 5ce69f0ef3078944bb5f1e0ea21cc04a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8478140895953524809, guid: 5ce69f0ef3078944bb5f1e0ea21cc04a,
-        type: 3}
-      propertyPath: steeringBlendTypes.Array.data[0].weight
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ce69f0ef3078944bb5f1e0ea21cc04a, type: 3}

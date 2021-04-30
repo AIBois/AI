@@ -22,6 +22,9 @@ public class CharacterBase : MonoBehaviour
 
     public bool IsRanged => isRanged;
 
+    [SerializeField]
+    private SquadTypes squadType;
+
     public float MeleeDamage
     {
         get => meleeDamage;
@@ -131,10 +134,15 @@ public class CharacterBase : MonoBehaviour
         SteeringAgent.SetMovementType(SteeringMovementType.REGROUP);
     }
 
-    private void TakeDamage(float damage, SquadBase enemySquad)
+    private bool TakeDamage(float damage, SquadBase ownSquad, SquadTypes enemySquadType)
     {
         CurrentHealth -= damage;
-        if (CurrentHealth <= 0) currentState = new DeathCharacterState(this, enemySquad);
+        if (CurrentHealth <= 0)
+        {
+            currentState = new DeathCharacterState(this, ownSquad, enemySquadType);
+            return true;
+        }
+        return false;
     }
 
     public bool InRangedRange(Vector3 enemyPosition)
@@ -149,7 +157,11 @@ public class CharacterBase : MonoBehaviour
         MoveTo(transform.position, GetRotationToCharacter(closestEnemy));
         if (!ReadyToRangedAttack()) return;
         timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
-        closestEnemy.TakeDamage(RangedDamage, enemySquad);
+        SquadTypes enemyType = closestEnemy.squadType;
+        if(closestEnemy.TakeDamage(RangedDamage, enemySquad, squadType))
+        {
+            gameObject.transform.parent.GetComponent<SquadBase>().learningData.numOfSquadTypeKilled[(int)enemyType]++;
+        }
     }
     
     private bool ReadyToRangedAttack()
@@ -167,7 +179,11 @@ public class CharacterBase : MonoBehaviour
         MoveTo(transform.position, GetRotationToCharacter(closestEnemy));
         if (!ReadyToMeleeAttack()) return;
         timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
-        closestEnemy.TakeDamage(MeleeDamage, enemySquad);
+        SquadTypes enemyType = closestEnemy.squadType;
+        if (closestEnemy.TakeDamage(MeleeDamage, enemySquad, squadType))
+        {
+            gameObject.transform.parent.GetComponent<SquadBase>().learningData.numOfSquadTypeKilled[(int)enemyType]++;
+        }
     }
         
     private bool ReadyToMeleeAttack()

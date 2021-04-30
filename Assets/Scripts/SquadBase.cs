@@ -18,8 +18,11 @@ public class SquadBase : MonoBehaviour
     [SerializeField]
     public bool enemy;
     private int cost;
-
+    
     public float SafeDistance => safeDistance;
+
+    public LearningSquadData learningData;
+    public SquadTypes squadType;
 
     public int Cost
     {
@@ -35,7 +38,7 @@ public class SquadBase : MonoBehaviour
 
     private void Awake()
     {
-       SetupSquadSteeringAgents();
+        SetupSquadSteeringAgents();
     }
     
     public void SetupSquadSteeringAgents()
