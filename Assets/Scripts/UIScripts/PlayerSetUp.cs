@@ -9,22 +9,27 @@ public class PlayerSetUp: MonoBehaviour
     public SquadSetUp AISetUp;
     public AISetUp AI;
     public SquadPicker picker;
-    public Text points;
-    private int pointValue;
+    public int numSquads;
+    public Text numSquadPicksLeft;
     private bool battleReady = false;
 
     private void Awake()
     {
-        pointValue = 2000;
+        WinTracker wins = Object.FindObjectOfType<WinTracker>();
+        numSquads = Random.Range(3, 5);
+        wins.numEnemy = numSquads;
+        wins.numPlayer = numSquads;
     }
 
     private void OnEnable()
     {
-        pointValue = 2000;
-        points.text = pointValue.ToString();
         battleReady = false;
         playerSetUp.SetUpOptions();
         AISetUp.SetUpOptions();
+        WinTracker wins = Object.FindObjectOfType<WinTracker>();
+        numSquads = Random.Range(3, 5);
+        wins.numEnemy = numSquads;
+        wins.numPlayer = numSquads;
     }
 
     private void Update()
@@ -39,11 +44,11 @@ public class PlayerSetUp: MonoBehaviour
     {
         if (!battleReady && picker.selectedSquad)
         {
-            pointValue -= picker.selectedSquad.Cost;
-            points.text = pointValue.ToString();
+            numSquads--;
+            numSquadPicksLeft.text = numSquads.ToString();
             AI.chooseOption(picker.selectedSquad.transform);
             picker.selectedSquad = null;
-            if (pointValue < 300) battleReady = true;
+            if (numSquads == 0) battleReady = true;
             else
             {
                 playerSetUp.SetUpOptions();
@@ -66,9 +71,6 @@ public class PlayerSetUp: MonoBehaviour
                 squad.transform.GetChild(j).GetComponent<SteeringAgent>().SetMovementType(SteeringMovementType.SQUAD);
             }
         }
-        WinTracker wins = Object.FindObjectOfType<WinTracker>();
-        wins.numEnemy = AISetUp.numSquads.numSquads;
-        wins.numPlayer = playerSetUp.numSquads.numSquads;
         this.transform.parent.gameObject.SetActive(false);        
     }
 }

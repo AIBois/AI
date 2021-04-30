@@ -15,8 +15,6 @@ public enum SquadTypes
 
 public class SquadSetUp : MonoBehaviour
 {
-    public NumSquads numSquads;
-
     private void Start()
     {
         SetUpOptions();
@@ -37,8 +35,6 @@ public class SquadSetUp : MonoBehaviour
         squadOption.squadType = (SquadTypes)Random.Range(0, (int)(SquadTypes.NUMSQUADTYPES));
         squadOption.squadColour.color = GetColour(squadOption.squadType);
         squadOption.squadTypeName.text = squadOption.squadType.ToString();
-        squadOption.cost = GetPoints();
-        squadOption.squadCost.text = squadOption.cost.ToString();
     }
 
     Color GetColour(SquadTypes Type)
@@ -52,21 +48,5 @@ public class SquadSetUp : MonoBehaviour
             case SquadTypes.Giant: return new Color32(224, 99, 28, 255);
             default: return new Color32(255, 20, 147, 255);
         }
-    }
-
-    int GetPoints()
-    {
-        switch (numSquads.numSquads)
-        {
-            case 3:
-                return 600 + Random.Range(-50, 50);                
-            case 4:
-                return 450 + Random.Range(-50, 50);                
-            case 5:
-                return 350 + Random.Range(-50, 50);
-            default:
-                return 1000;
-        }
-
     }
 }

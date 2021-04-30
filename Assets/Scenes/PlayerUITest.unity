@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 30632748}
   - component: {fileID: 30632747}
   m_Layer: 5
-  m_Name: PlayerPoints
+  m_Name: SquadsLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ RectTransform:
   - {fileID: 1460688680}
   - {fileID: 725913082}
   m_Father: {fileID: 383185744}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -910,7 +910,6 @@ MonoBehaviour:
   squadTypeName: {fileID: 1324720273}
   squadCost: {fileID: 1998608302}
   squadColour: {fileID: 2133385089}
-  cost: 0
 --- !u!1 &158032688
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +965,6 @@ MonoBehaviour:
   squadTypeName: {fileID: 23787258}
   squadCost: {fileID: 1345966773}
   squadColour: {fileID: 1650953667}
-  cost: 0
 --- !u!1 &161873084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1293,6 @@ RectTransform:
   - {fileID: 1011018820}
   - {fileID: 740084786}
   - {fileID: 1671935269}
-  - {fileID: 1342145317}
   - {fileID: 30632746}
   - {fileID: 2138339229}
   - {fileID: 904483654}
@@ -1307,86 +1304,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &406268143
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 406268144}
-  - component: {fileID: 406268146}
-  - component: {fileID: 406268145}
-  m_Layer: 5
-  m_Name: Tittle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &406268144
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406268143}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1342145317}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 43.5}
-  m_SizeDelta: {x: 279.07327, y: 60}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &406268145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406268143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 50
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Computer:
-
-'
---- !u!222 &406268146
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406268143}
-  m_CullTransparentMesh: 0
 --- !u!1 &436827965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,84 +1356,6 @@ MonoBehaviour:
   numUnits: 0
   numOfSquadTypeKilled: 
   numKilledBySquadType: 
---- !u!1 &440635729
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 440635730}
-  - component: {fileID: 440635732}
-  - component: {fileID: 440635731}
-  m_Layer: 5
-  m_Name: points
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &440635730
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440635729}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1342145317}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0002594, y: -43.5}
-  m_SizeDelta: {x: 279.07285, y: 60}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &440635731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440635729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.028301895, g: 0.0057404786, b: 0.0057404786, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 50
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 2000
---- !u!222 &440635732
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 440635729}
-  m_CullTransparentMesh: 0
 --- !u!1 &566721004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1411,6 @@ MonoBehaviour:
   squadTypeName: {fileID: 807221866}
   squadCost: {fileID: 1541165404}
   squadColour: {fileID: 1380951504}
-  cost: 0
 --- !u!1 &574419286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,7 +1849,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2000
+  m_Text: 3
 --- !u!222 &725913084
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2442,7 +2280,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383185744}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2467,11 +2305,11 @@ MonoBehaviour:
   - {fileID: 8107226463941921779, guid: ce64c652ec6b9ad4e90f11cb0e6aa369, type: 3}
   - {fileID: 4886706594643126385, guid: 0cdeb05a25235d94481ea61023c0c7dd, type: 3}
   - {fileID: 82443874787111566, guid: 075eebfce67f33647a97644b5e31b46e, type: 3}
-  points: {fileID: 440635731}
   options:
   - {fileID: 566721006}
   - {fileID: 158032690}
   - {fileID: 1905743620}
+  learningCumulativeData: {fileID: 591953526}
 --- !u!1 &947279661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,7 +2504,6 @@ MonoBehaviour:
   squadTypeName: {fileID: 947279663}
   squadCost: {fileID: 68707193}
   squadColour: {fileID: 362232442}
-  cost: 0
 --- !u!1 &972215373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2897,7 +2734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403b2961ce188794abb3eb7a9ccab590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numSquads: {fileID: 2138339234}
 --- !u!1 &1129080945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,82 +3139,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324720271}
   m_CullTransparentMesh: 0
---- !u!1 &1342145316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1342145317}
-  - component: {fileID: 1342145319}
-  - component: {fileID: 1342145318}
-  m_Layer: 5
-  m_Name: AIPoints
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1342145317
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342145316}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 406268144}
-  - {fileID: 440635730}
-  m_Father: {fileID: 383185744}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 980.28, y: 453.24994}
-  m_SizeDelta: {x: 312.10724, y: 173.49988}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1342145318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342145316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1342145319
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342145316}
-  m_CullTransparentMesh: 0
 --- !u!1 &1345932859
 GameObject:
   m_ObjectHideFlags: 0
@@ -3493,7 +3253,6 @@ MonoBehaviour:
   squadTypeName: {fileID: 1383163052}
   squadCost: {fileID: 1525498198}
   squadColour: {fileID: 1005757940}
-  cost: 0
 --- !u!1 &1345966771
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,7 +3797,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Player:
+  m_Text: 'Squads Left:
 
 '
 --- !u!222 &1460688682
@@ -4483,7 +4242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403b2961ce188794abb3eb7a9ccab590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numSquads: {fileID: 2138339234}
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -4898,7 +4656,6 @@ MonoBehaviour:
   squadTypeName: {fileID: 574419288}
   squadCost: {fileID: 2095594145}
   squadColour: {fileID: 1289702000}
-  cost: 0
 --- !u!1 &1979921945
 GameObject:
   m_ObjectHideFlags: 0
@@ -5380,7 +5137,6 @@ GameObject:
   - component: {fileID: 2138339231}
   - component: {fileID: 2138339233}
   - component: {fileID: 2138339232}
-  - component: {fileID: 2138339234}
   m_Layer: 5
   m_Name: PlayerSetUp
   m_TagString: Untagged
@@ -5400,7 +5156,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383185744}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5423,7 +5179,8 @@ MonoBehaviour:
   AISetUp: {fileID: 1011018823}
   AI: {fileID: 904483655}
   picker: {fileID: 1671935272}
-  points: {fileID: 725913083}
+  numSquads: 0
+  numSquadPicksLeft: {fileID: 725913083}
 --- !u!114 &2138339231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5515,19 +5272,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138339228}
   m_CullTransparentMesh: 0
---- !u!114 &2138339234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138339228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 763bbf3930dfe154ca895b8b2862bee9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numSquads: 0
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0

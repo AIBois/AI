@@ -8,5 +8,4 @@ public class SquadOption : MonoBehaviour
     public SquadTypes squadType;
     public Text squadTypeName, squadCost;
     public Image squadColour;
-    public int cost;
 }

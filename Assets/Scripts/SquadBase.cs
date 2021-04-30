@@ -17,18 +17,11 @@ public class SquadBase : MonoBehaviour
 
     [SerializeField]
     public bool enemy;
-    private int cost;
     
     public float SafeDistance => safeDistance;
 
     public LearningSquadData learningData;
     public SquadTypes squadType;
-
-    public int Cost
-    {
-        get => cost;
-        set => cost = value;
-    }
 
     public bool BattleStarted
     {
