@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2e4f729cb8fa348bfb2cfb197aca46, type: 3}
+  m_Name: Knight
+  m_EditorClassIdentifier: 
+  squadType: 2
+  Title: Knight Squad
+  description: A group of medium sized melee attackers.
+  colour: {r: 0.6666667, g: 0.19607845, b: 0.9960785, a: 1}
+  squad: {fileID: 7695207890271967119, guid: ce64c652ec6b9ad4e90f11cb0e6aa369, type: 3}

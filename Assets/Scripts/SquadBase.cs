@@ -14,6 +14,7 @@ public class SquadBase : MonoBehaviour
     private float safeDistance;
     [SerializeField]
     private bool battleStarted = false;
+    public bool Large = false;
 
     [SerializeField]
     public bool enemy;

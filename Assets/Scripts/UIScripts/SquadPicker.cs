@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SquadPicker : MonoBehaviour
 {
-    public SquadBase[] squadBases;
     public SquadBase selectedSquad;
     public new Collider collider;
 
@@ -23,12 +22,14 @@ public class SquadPicker : MonoBehaviour
         }
     }
 
-    public void SetPrefab(GameObject option)
+    public void SetPrefab(SquadOption option)
     {
         if (selectedSquad) Destroy(selectedSquad.gameObject);
-        selectedSquad = Instantiate(squadBases[(int)option.GetComponent<SquadOption>().squadType], new Vector3(100.0f, 100.0f, 100.0f), Quaternion.identity);
+        selectedSquad = Instantiate(option.squadData.squad.GetComponent<SquadBase>(), new Vector3(100.0f, 100.0f, 100.0f), Quaternion.identity);
         selectedSquad.transform.rotation *= Quaternion.Euler(0, 180f, 0);
         selectedSquad.learningData.numUnits = selectedSquad.Units.Count;
-        selectedSquad.learningData.numSquads++;
+        selectedSquad.learningData.numSquads++;        
     }
+
+    
 }

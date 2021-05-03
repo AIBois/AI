@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2e4f729cb8fa348bfb2cfb197aca46, type: 3}
+  m_Name: KnightLarge
+  m_EditorClassIdentifier: 
+  squadType: 2
+  Title: Large Knight Squad
+  description: A group of medium sized melee attackers. This is a larger squad.
+  colour: {r: 0.67058825, g: 0.20784315, b: 0.9960785, a: 1}
+  squad: {fileID: 5968631801719068088, guid: 3a2db8a2ba213bf49a8212d6559c74bd, type: 3}
+  largeSquad: 1

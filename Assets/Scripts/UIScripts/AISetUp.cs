@@ -5,41 +5,48 @@ using UnityEngine.UI;
 
 public class AISetUp : MonoBehaviour
 {
-    public SquadBase[] squadBases;
     public SquadOption[] options;
     public LearningCumulativeData learningCumulativeData;
 
 
-    public void chooseOption(SquadBase playerSquad)
+    public bool chooseOption(SquadBase playerSquad)
     {
         LearningSquadData playerSquadData = learningCumulativeData.squadsData[(int)playerSquad.squadType];
         float killsOverDeaths = -10000.0f;
         int choosen = Random.Range(0, 3);
+        SquadTypes previousSquadType = SquadTypes.NUMSQUADTYPES;
+        bool largeSquad = false;
         for (int i = 0; i < options.Length; i++)
         {
-            LearningSquadData optionSquadData = learningCumulativeData.squadsData[(int)options[i].squadType];
-            if (optionSquadData.numSquads != 0.0f && playerSquadData.numSquads != 0.0f)
+            if (previousSquadType == options[i].squadData.squadType && !largeSquad)
             {
-                float kills = optionSquadData.numOfSquadTypeKilled[(int)playerSquad.squadType] / playerSquadData.numUnits;
-                float deaths = optionSquadData.numKilledBySquadType[(int)playerSquad.squadType] / optionSquadData.numUnits;
-                if ( kills - deaths > killsOverDeaths )
+                LearningSquadData optionSquadData = learningCumulativeData.squadsData[(int)options[i].squadData.squadType];
+                if (optionSquadData.numSquads != 0.0f && playerSquadData.numSquads != 0.0f)
                 {
-                    killsOverDeaths = kills - deaths;
-                    choosen = i;
+                    float kills = optionSquadData.numOfSquadTypeKilled[(int)playerSquad.squadType] / playerSquadData.numUnits;
+                    float deaths = optionSquadData.numKilledBySquadType[(int)playerSquad.squadType] / optionSquadData.numUnits;
+                    if (kills - deaths > killsOverDeaths)
+                    {
+                        previousSquadType = options[i].squadData.squadType;
+                        largeSquad = options[i].squadData.largeSquad;
+                        killsOverDeaths = kills - deaths;
+                        choosen = i;
+                    }
                 }
             }
         }
-        placeSquad(choosen, playerSquad.transform);
+        return placeSquad(choosen, playerSquad.transform);
     }
 
-    void placeSquad(int choosen, Transform playerSquad)
+    bool placeSquad(int choosen, Transform playerSquad)
     {
         Vector3 position = playerSquad.position;
         position.z *= -1;
-        SquadBase selectedSquad = Instantiate(squadBases[(int)options[choosen].GetComponent<SquadOption>().squadType], position, Quaternion.identity);
+        SquadBase selectedSquad = Instantiate(options[choosen].GetComponent<SquadOption>().squadData.squad.GetComponent<SquadBase>(), position, Quaternion.identity);
         selectedSquad.enemy = true;
         selectedSquad.learningData.numUnits = selectedSquad.Units.Count;
         selectedSquad.learningData.numSquads++;
+        return selectedSquad.Large; 
     }
 
 }

@@ -427,7 +427,7 @@ RectTransform:
   - {fileID: 1460688680}
   - {fileID: 725913082}
   m_Father: {fileID: 383185744}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -807,7 +807,18 @@ MonoBehaviour:
         m_MethodName: SetPrefab
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 103523881}
+          m_ObjectArgument: {fileID: 103523884}
+          m_ObjectArgumentAssemblyTypeName: SquadOption, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 103523884}
+        m_MethodName: SetSquadInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 740084785}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -827,7 +838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123287b8ebb1bb4582ef7e2dc82fafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadType: 5
+  squadData: {fileID: 0}
   squadTypeName: {fileID: 1324720273}
   squadColour: {fileID: 2133385089}
 --- !u!1 &158032688
@@ -840,6 +851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 158032689}
   - component: {fileID: 158032690}
+  - component: {fileID: 158032691}
   m_Layer: 5
   m_Name: Option2
   m_TagString: Untagged
@@ -880,9 +892,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123287b8ebb1bb4582ef7e2dc82fafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadType: 0
+  squadData: {fileID: 0}
   squadTypeName: {fileID: 23787258}
   squadColour: {fileID: 1650953667}
+--- !u!114 &158032691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158032688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1650953667}
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 158032690}
+        m_MethodName: SetSquadInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 399245601}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &161873084
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +1049,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &206676655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206676656}
+  - component: {fileID: 206676657}
+  m_Layer: 5
+  m_Name: OgreLearningSquadData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &206676656
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206676655}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 591953525}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &206676657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206676655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fe87a98e06c3c4d83b1f665c7d2a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numSquads: 0
+  numUnits: 0
+  numOfSquadTypeKilled: []
+  numKilledBySquadType: []
 --- !u!1 &303445887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,6 +1331,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1011018820}
+  - {fileID: 399245602}
   - {fileID: 740084786}
   - {fileID: 1671935269}
   - {fileID: 30632746}
@@ -1222,6 +1345,160 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &399245601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 399245602}
+  - component: {fileID: 399245604}
+  - component: {fileID: 399245603}
+  m_Layer: 5
+  m_Name: AISquadInformation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &399245602
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399245601}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1544995518}
+  - {fileID: 433417997}
+  m_Father: {fileID: 383185744}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 568.1801, y: 120}
+  m_SizeDelta: {x: 1136.3038, y: 240}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &399245603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399245601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.25882354, g: 0.39607847, b: 0.5921569, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &399245604
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399245601}
+  m_CullTransparentMesh: 0
+--- !u!1 &433417996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433417997}
+  - component: {fileID: 433417999}
+  - component: {fileID: 433417998}
+  m_Layer: 5
+  m_Name: Description
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &433417997
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433417996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 399245602}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -35}
+  m_SizeDelta: {x: 1100, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &433417998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433417996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &433417999
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433417996}
+  m_CullTransparentMesh: 0
 --- !u!1 &436827965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1551,84 @@ MonoBehaviour:
   numUnits: 0
   numOfSquadTypeKilled: []
   numKilledBySquadType: []
+--- !u!1 &522490912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 522490913}
+  - component: {fileID: 522490915}
+  - component: {fileID: 522490914}
+  m_Layer: 5
+  m_Name: Description
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &522490913
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522490912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 740084786}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -35}
+  m_SizeDelta: {x: 1100, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &522490914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522490912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &522490915
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522490912}
+  m_CullTransparentMesh: 0
 --- !u!1 &566721004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566721005}
   - component: {fileID: 566721006}
+  - component: {fileID: 566721007}
   m_Layer: 5
   m_Name: Option1
   m_TagString: Untagged
@@ -1324,9 +1680,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123287b8ebb1bb4582ef7e2dc82fafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadType: 0
+  squadData: {fileID: 0}
   squadTypeName: {fileID: 807221866}
   squadColour: {fileID: 1380951504}
+--- !u!114 &566721007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566721004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1380951504}
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 566721006}
+        m_MethodName: SetSquadInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 399245601}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &574419286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,6 +1854,7 @@ RectTransform:
   - {fileID: 371703151}
   - {fileID: 1884544888}
   - {fileID: 436827966}
+  - {fileID: 206676656}
   m_Father: {fileID: 12321036}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1466,6 +1881,7 @@ MonoBehaviour:
   - {fileID: 371703152}
   - {fileID: 1884544889}
   - {fileID: 436827967}
+  - {fileID: 206676657}
 --- !u!1 &608632144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,14 +2311,16 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1985999398}
+  - {fileID: 522490913}
   m_Father: {fileID: 383185744}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 568.18, y: 0.000016451}
-  m_SizeDelta: {x: 1136.3038, y: 480.00006}
+  m_AnchoredPosition: {x: 568.18, y: -120}
+  m_SizeDelta: {x: 1136.3038, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740084787
 MonoBehaviour:
@@ -1917,7 +2335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.25882354, g: 0.39607847, b: 0.5921569, a: 1}
+  m_Color: {r: 0.8773585, g: 0.51609415, b: 0.27727836, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2196,7 +2614,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383185744}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2215,12 +2633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170f5b8cb5b0f6d408ce7ea33042e948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadBases:
-  - {fileID: 1001472249988862002, guid: 2ccac7c902931144a9d9169af4687088, type: 3}
-  - {fileID: 7608471227919532236, guid: 5756bd2fb2475134fa3d96a23e1868e9, type: 3}
-  - {fileID: 8107226463941921779, guid: ce64c652ec6b9ad4e90f11cb0e6aa369, type: 3}
-  - {fileID: 4886706594643126385, guid: 0cdeb05a25235d94481ea61023c0c7dd, type: 3}
-  - {fileID: 82443874787111566, guid: 075eebfce67f33647a97644b5e31b46e, type: 3}
   options:
   - {fileID: 566721006}
   - {fileID: 158032690}
@@ -2395,7 +2807,18 @@ MonoBehaviour:
         m_MethodName: SetPrefab
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 949838097}
+          m_ObjectArgument: {fileID: 949838100}
+          m_ObjectArgumentAssemblyTypeName: SquadOption, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 949838100}
+        m_MethodName: SetSquadInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 740084785}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2415,7 +2838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123287b8ebb1bb4582ef7e2dc82fafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadType: 0
+  squadData: {fileID: 0}
   squadTypeName: {fileID: 947279663}
   squadColour: {fileID: 362232442}
 --- !u!1 &972215373
@@ -2569,7 +2992,6 @@ GameObject:
   - component: {fileID: 1011018820}
   - component: {fileID: 1011018822}
   - component: {fileID: 1011018821}
-  - component: {fileID: 1011018823}
   m_Layer: 5
   m_Name: AISquadSelection
   m_TagString: Untagged
@@ -2636,18 +3058,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011018819}
   m_CullTransparentMesh: 0
---- !u!114 &1011018823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011018819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403b2961ce188794abb3eb7a9ccab590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1129080945
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,7 +3552,18 @@ MonoBehaviour:
         m_MethodName: SetPrefab
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1345932859}
+          m_ObjectArgument: {fileID: 1345932862}
+          m_ObjectArgumentAssemblyTypeName: SquadOption, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1345932862}
+        m_MethodName: SetSquadInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 740084785}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3162,7 +3583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123287b8ebb1bb4582ef7e2dc82fafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadType: 5
+  squadData: {fileID: 0}
   squadTypeName: {fileID: 1383163052}
   squadColour: {fileID: 1005757940}
 --- !u!1 &1361651507
@@ -3642,6 +4063,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460688679}
   m_CullTransparentMesh: 0
+--- !u!1 &1544995517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544995518}
+  - component: {fileID: 1544995520}
+  - component: {fileID: 1544995519}
+  m_Layer: 5
+  m_Name: tittle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1544995518
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544995517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 399245602}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: 80}
+  m_SizeDelta: {x: 500, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1544995519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544995517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1544995520
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544995517}
+  m_CullTransparentMesh: 0
 --- !u!1 &1562523819
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,7 +4319,6 @@ GameObject:
   - component: {fileID: 1671935269}
   - component: {fileID: 1671935271}
   - component: {fileID: 1671935270}
-  - component: {fileID: 1671935273}
   - component: {fileID: 1671935272}
   m_Layer: 5
   m_Name: PlayerSquadSelection
@@ -3844,7 +4342,7 @@ RectTransform:
   - {fileID: 1345932860}
   - {fileID: 949838098}
   m_Father: {fileID: 383185744}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3900,26 +4398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43532d401c1d0a042b4ed1efeff2024a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadBases:
-  - {fileID: 1001472249988862002, guid: 2ccac7c902931144a9d9169af4687088, type: 3}
-  - {fileID: 7608471227919532236, guid: 5756bd2fb2475134fa3d96a23e1868e9, type: 3}
-  - {fileID: 8107226463941921779, guid: ce64c652ec6b9ad4e90f11cb0e6aa369, type: 3}
-  - {fileID: 4886706594643126385, guid: 0cdeb05a25235d94481ea61023c0c7dd, type: 3}
-  - {fileID: 82443874787111566, guid: 075eebfce67f33647a97644b5e31b46e, type: 3}
   selectedSquad: {fileID: 0}
   collider: {fileID: 633998218}
---- !u!114 &1671935273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671935268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403b2961ce188794abb3eb7a9ccab590, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1687258581
 GameObject:
   m_ObjectHideFlags: 0
@@ -4289,6 +4769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1905743619}
   - component: {fileID: 1905743620}
+  - component: {fileID: 1905743621}
   m_Layer: 5
   m_Name: Option3
   m_TagString: Untagged
@@ -4329,9 +4810,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6123287b8ebb1bb4582ef7e2dc82fafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  squadType: 0
+  squadData: {fileID: 0}
   squadTypeName: {fileID: 574419288}
   squadColour: {fileID: 1289702000}
+--- !u!114 &1905743621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905743618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1289702000}
+  toggleTransition: 1
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1905743620}
+        m_MethodName: SetSquadInfo
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 399245601}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_IsOn: 0
 --- !u!1 &1979921945
 GameObject:
   m_ObjectHideFlags: 0
@@ -4477,6 +5016,84 @@ MonoBehaviour:
   numUnits: 0
   numOfSquadTypeKilled: []
   numKilledBySquadType: []
+--- !u!1 &1985999397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985999398}
+  - component: {fileID: 1985999400}
+  - component: {fileID: 1985999399}
+  m_Layer: 5
+  m_Name: Tittle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1985999398
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985999397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 740084786}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -300, y: 80}
+  m_SizeDelta: {x: 500, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1985999399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985999397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1985999400
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985999397}
+  m_CullTransparentMesh: 0
 --- !u!1 &2085540174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4676,7 +5293,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 383185744}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4695,12 +5312,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80c921a7546646478d4157158fd24e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSetUp: {fileID: 1671935273}
-  AISetUp: {fileID: 1011018823}
+  squadDatas:
+  - {fileID: 11400000, guid: 8987ea19e72e7a44ab01ed84d3918eb1, type: 2}
+  - {fileID: 11400000, guid: 24d394a0ef3fb474f89b9a432118ed6d, type: 2}
+  - {fileID: 11400000, guid: 988ccd7036b01d54388ba1302be5d414, type: 2}
+  - {fileID: 11400000, guid: 3b46d6279b75db34c922cafb8b889778, type: 2}
+  - {fileID: 11400000, guid: d4cef970c712e034cb3f351dede193db, type: 2}
+  - {fileID: 11400000, guid: 30caf19831e56004391f61566d13f478, type: 2}
+  - {fileID: 11400000, guid: 2ed38655a09955a4c80e6e2b0c10faea, type: 2}
+  - {fileID: 11400000, guid: 15dfefa97df182048b6212d04f73ce42, type: 2}
+  - {fileID: 11400000, guid: 6a727d98efb022e428cf912a6ad71e92, type: 2}
+  - {fileID: 11400000, guid: 46b25856e4d6d6e4d9688ebe575138d9, type: 2}
+  - {fileID: 11400000, guid: c80f832c5872c5c42bfffb8d67051396, type: 2}
+  - {fileID: 11400000, guid: db943f13866491548a220cd5308b279b, type: 2}
+  playerOptions:
+  - {fileID: 103523884}
+  - {fileID: 1345932862}
+  - {fileID: 949838100}
+  AIOptions:
+  - {fileID: 566721006}
+  - {fileID: 158032690}
+  - {fileID: 1905743620}
   AI: {fileID: 904483655}
   picker: {fileID: 1671935272}
   numSquads: 0
   numSquadPicksLeft: {fileID: 725913083}
+  AISquadTitle: {fileID: 1544995519}
+  AISquadDesc: {fileID: 433417998}
+  PlayerSquadTitle: {fileID: 1985999399}
+  PlayerSquadDesc: {fileID: 522490914}
 --- !u!114 &2138339231
 MonoBehaviour:
   m_ObjectHideFlags: 0
