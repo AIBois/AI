@@ -36,7 +36,7 @@ public class PlayerSetUp: MonoBehaviour
     private void SetWinTracking()
     {
         WinTracker wins = Object.FindObjectOfType<WinTracker>();
-        numSquads = Random.Range(3, 5);
+        numSquads = Random.Range(3, 6);
         numPlayerLargeSquads = numSquads == 5 ? 2 : 1;
         numAILargeSquads = numSquads == 5 ? 2 : 1;
         numSquadPicksLeft.text = numSquads.ToString();
