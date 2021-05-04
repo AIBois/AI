@@ -154,7 +154,11 @@ public class CharacterBase : MonoBehaviour
 
     public void RangedAttack(CharacterBase closestEnemy, SquadBase enemySquad)
     {
-        if (closestEnemy.currentHealth <= 0.0f) return;
+        if (closestEnemy.currentHealth <= 0.0f)
+        {
+            closestEnemy.currentState = new DeathCharacterState(closestEnemy, enemySquad, squadType);
+            return;
+        }
         MoveTo(transform.position, GetRotationToCharacter(closestEnemy));
         if (!ReadyToRangedAttack()) return;
         timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
@@ -177,7 +181,11 @@ public class CharacterBase : MonoBehaviour
 
     public void MeleeAttack(CharacterBase closestEnemy, SquadBase enemySquad)
     {
-        if (closestEnemy.currentHealth <= 0.0f) return;
+        if (closestEnemy.currentHealth <= 0.0f)
+        {
+            closestEnemy.currentState = new DeathCharacterState(closestEnemy, enemySquad, squadType);
+            return;
+        }
         MoveTo(transform.position, GetRotationToCharacter(closestEnemy));
         if (!ReadyToMeleeAttack()) return;
         timeSinceLastAttack = stopwatch.ElapsedMilliseconds;
